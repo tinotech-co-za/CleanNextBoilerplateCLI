@@ -1,24 +1,22 @@
 {
-  "name": "clean-next-boilerplate",
-  "version": "1.0.0",
-  "description": "Generate a clean Next.js boilerplate with various base configurations.",
-  "main": "index.ts",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/TinoMuzambi/CleanNextBoilerplateCLI.git"
-  },
-  "keywords": [
-    "next.js",
-    "boilerplate",
-    "clean"
-  ],
-  "author": "Tino Muzambi",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/TinoMuzambi/CleanNextBoilerplateCLI/issues"
-  },
-  "homepage": "https://github.com/TinoMuzambi/CleanNextBoilerplateCLI#readme"
+	"name": "clean-next-boilerplate",
+	"version": "1.0.0",
+	"description": "Generate a clean Next.js boilerplate with various base configurations.",
+	"main": "index.js",
+	"scripts": {},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/TinoMuzambi/CleanNextBoilerplateCLI.git"
+	},
+	"keywords": [
+		"next.js",
+		"boilerplate",
+		"clean"
+	],
+	"author": "Tino Muzambi",
+	"license": "ISC",
+	"bugs": {
+		"url": "https://github.com/TinoMuzambi/CleanNextBoilerplateCLI/issues"
+	},
+	"homepage": "https://github.com/TinoMuzambi/CleanNextBoilerplateCLI#readme"
 }
