@@ -4,6 +4,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const inquirer_1 = __importDefault(require("inquirer"));
+const commander_1 = require("commander");
 const run = async () => {
     const answers = await inquirer_1.default.prompt([
         {
@@ -126,4 +127,18 @@ const run = async () => {
     }
     console.log(answers);
 };
-run();
+commander_1.program.version("1.0.0").description("Clean Next.js Boilerplate CLI");
+commander_1.program
+    .argument("[path]", " the base path to generate the project at", "./")
+    .option("-y, --yes", "answer yes to all the prompts")
+    .action((path, options) => {
+    const obj = { basePath: path, yes: options.yes };
+    console.log(obj);
+    if (options.yes) {
+        console.log("1. typescript, sass, eslint, mongodb");
+    }
+    else {
+        run();
+    }
+});
+commander_1.program.parse();
