@@ -22,7 +22,7 @@ const run = async () => {
 		},
 		{
 			type: "confirm",
-			name: "mongodB",
+			name: "mongodb",
 			message: "Do you want to use MongoDB in your project?",
 			default: true,
 		},
