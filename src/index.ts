@@ -1,5 +1,6 @@
 import inquirer from "inquirer";
 import { program } from "commander";
+import path from "path";
 
 const run = async () => {
 	const answers = await inquirer.prompt([
@@ -158,11 +159,22 @@ const run = async () => {
 program.version("1.0.0").description("Clean Next.js Boilerplate CLI");
 
 program
-	.argument("[path]", " the base path to generate the project at", "./")
+	.argument("[basepath]", " the base path to generate the project at", "./")
 	.option("-y, --yes", "answer yes to all the prompts")
-	.action((path, options) => {
-		const obj = { basePath: path, yes: options.yes };
+	.action(async (basepath, options) => {
+		const obj = { basePath: basepath, yes: options.yes };
 		console.log(obj);
+
+		const answers = await inquirer.prompt([
+			{
+				type: "input",
+				name: "name",
+				message: "What is your project's name?",
+				default: path.basename(__dirname),
+			},
+		]);
+
+		console.log(answers.name);
 
 		if (options.yes) {
 			console.log("1. typescript, sass, eslint, mongodb");
