@@ -17,7 +17,7 @@ const writeCommonFiles: Function = async (
 		getMeta(name)
 	);
 	fs.writeFileSync(
-		path.join(__dirname, basePath, "/components/Meta.jsx"),
+		path.join(__dirname, basePath, "/components/Wrapper.jsx"),
 		WRAPPER
 	);
 };

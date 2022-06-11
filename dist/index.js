@@ -14,7 +14,7 @@ const writeCommonFiles = async (name, basePath) => {
         recursive: true,
     });
     fs_1.default.writeFileSync(path_1.default.join(__dirname, basePath, "/components/Meta.jsx"), (0, files_1.getMeta)(name));
-    fs_1.default.writeFileSync(path_1.default.join(__dirname, basePath, "/components/Meta.jsx"), constants_1.WRAPPER);
+    fs_1.default.writeFileSync(path_1.default.join(__dirname, basePath, "/components/Wrapper.jsx"), constants_1.WRAPPER);
 };
 const run = async (name, basePath) => {
     const answers = await inquirer_1.default.prompt([
