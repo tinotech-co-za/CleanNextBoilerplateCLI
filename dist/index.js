@@ -8,11 +8,13 @@ const commander_1 = require("commander");
 const path_1 = __importDefault(require("path"));
 const fs_1 = __importDefault(require("fs"));
 const files_1 = require("./utils/files");
+const constants_1 = require("./utils/constants");
 const writeCommonFiles = async (name, basePath) => {
     fs_1.default.mkdirSync(path_1.default.join(__dirname, basePath, "/components"), {
         recursive: true,
     });
     fs_1.default.writeFileSync(path_1.default.join(__dirname, basePath, "/components/Meta.jsx"), (0, files_1.getMeta)(name));
+    fs_1.default.writeFileSync(path_1.default.join(__dirname, basePath, "/components/Meta.jsx"), constants_1.WRAPPER);
 };
 const run = async (name, basePath) => {
     const answers = await inquirer_1.default.prompt([

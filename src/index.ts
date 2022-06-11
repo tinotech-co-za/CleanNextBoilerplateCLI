@@ -3,6 +3,7 @@ import { program } from "commander";
 import path from "path";
 import fs from "fs";
 import { getMeta } from "./utils/files";
+import { WRAPPER } from "./utils/constants";
 
 const writeCommonFiles: Function = async (
 	name: string,
@@ -14,6 +15,10 @@ const writeCommonFiles: Function = async (
 	fs.writeFileSync(
 		path.join(__dirname, basePath, "/components/Meta.jsx"),
 		getMeta(name)
+	);
+	fs.writeFileSync(
+		path.join(__dirname, basePath, "/components/Meta.jsx"),
+		WRAPPER
 	);
 };
 
