@@ -12,6 +12,15 @@ const writeCommonFiles: Function = async (
 	fs.mkdirSync(path.join(__dirname, basePath, "/components"), {
 		recursive: true,
 	});
+	fs.mkdirSync(path.join(__dirname, basePath, "/public"), {
+		recursive: true,
+	});
+	fs.mkdirSync(path.join(__dirname, basePath, "/utils"), {
+		recursive: true,
+	});
+	fs.mkdirSync(path.join(__dirname, basePath, "/pages/api/post"), {
+		recursive: true,
+	});
 	fs.writeFileSync(
 		path.join(__dirname, basePath, "/components/Meta.jsx"),
 		getMeta(name)

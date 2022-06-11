@@ -13,6 +13,15 @@ const writeCommonFiles = async (name, basePath) => {
     fs_1.default.mkdirSync(path_1.default.join(__dirname, basePath, "/components"), {
         recursive: true,
     });
+    fs_1.default.mkdirSync(path_1.default.join(__dirname, basePath, "/public"), {
+        recursive: true,
+    });
+    fs_1.default.mkdirSync(path_1.default.join(__dirname, basePath, "/utils"), {
+        recursive: true,
+    });
+    fs_1.default.mkdirSync(path_1.default.join(__dirname, basePath, "/pages/api/post"), {
+        recursive: true,
+    });
     fs_1.default.writeFileSync(path_1.default.join(__dirname, basePath, "/components/Meta.jsx"), (0, files_1.getMeta)(name));
     fs_1.default.writeFileSync(path_1.default.join(__dirname, basePath, "/components/Wrapper.jsx"), constants_1.WRAPPER);
 };
