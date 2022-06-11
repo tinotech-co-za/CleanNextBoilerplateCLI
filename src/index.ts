@@ -1,8 +1,23 @@
 import inquirer from "inquirer";
 import { program } from "commander";
 import path from "path";
+import fs from "fs";
+import { getMeta } from "./utils/files";
 
-const run = async () => {
+const writeCommonFiles: Function = async (
+	name: string,
+	basePath: string
+): Promise<void> => {
+	fs.mkdirSync(path.join(__dirname, basePath, "/components"), {
+		recursive: true,
+	});
+	fs.writeFileSync(
+		path.join(__dirname, basePath, "/components/Meta.jsx"),
+		getMeta(name)
+	);
+};
+
+const run = async (name: string, basePath: string) => {
 	const answers = await inquirer.prompt([
 		{
 			type: "confirm",
@@ -151,6 +166,7 @@ const run = async () => {
 		!answers.eslint &&
 		!answers.mongodb
 	) {
+		await writeCommonFiles(name, basePath);
 		return console.log("16. javascript");
 	}
 	console.log(answers);
@@ -179,7 +195,7 @@ program
 		if (options.yes) {
 			console.log("1. typescript, sass, eslint, mongodb");
 		} else {
-			run();
+			run(answers.name, basepath);
 		}
 	});
 

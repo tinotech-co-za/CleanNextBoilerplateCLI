@@ -6,7 +6,15 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const inquirer_1 = __importDefault(require("inquirer"));
 const commander_1 = require("commander");
 const path_1 = __importDefault(require("path"));
-const run = async () => {
+const fs_1 = __importDefault(require("fs"));
+const files_1 = require("./utils/files");
+const writeCommonFiles = async (name, basePath) => {
+    fs_1.default.mkdirSync(path_1.default.join(__dirname, basePath, "/components"), {
+        recursive: true,
+    });
+    fs_1.default.writeFileSync(path_1.default.join(__dirname, basePath, "/components/Meta.jsx"), (0, files_1.getMeta)(name));
+};
+const run = async (name, basePath) => {
     const answers = await inquirer_1.default.prompt([
         {
             type: "confirm",
@@ -124,6 +132,7 @@ const run = async () => {
         !answers.sass &&
         !answers.eslint &&
         !answers.mongodb) {
+        await writeCommonFiles(name, basePath);
         return console.log("16. javascript");
     }
     console.log(answers);
@@ -148,7 +157,7 @@ commander_1.program
         console.log("1. typescript, sass, eslint, mongodb");
     }
     else {
-        run();
+        run(answers.name, basepath);
     }
 });
 commander_1.program.parse();

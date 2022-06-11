@@ -1,13 +1,11 @@
-export const VERCEL_JSON = `
-{
+export const VERCEL_JSON = `{
     "github": {
         "silent": true
     }
 }
 `;
 
-export const GITIGNORE = `
-# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
+export const GITIGNORE = `# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
 
 # dependencies
 /node_modules
@@ -43,21 +41,18 @@ yarn-error.log*
 .vercel
 `;
 
-export const UTILS_INDEX = `
-export const BASE_URL =
+export const UTILS_INDEX = `export const BASE_URL =
 	process.env.NODE_ENV === "production" ? "" : "http://localhost:3000";
 `;
 
-export const API_POST = `
-const handler = (req, res) => {
+export const API_POST = `const handler = (req, res) => {
 	res.status(200).json({ message: "Hello there" });
 };
 
 export default handler;
 `;
 
-export const APP_TSX = `
-import { useEffect } from "react";
+export const APP_TSX = `import { useEffect } from "react";
 
 import Wrapper from "../components/Wrapper";
 
@@ -86,8 +81,7 @@ const MyApp = ({ Component, pageProps }) => {
 export default MyApp;
 `;
 
-export const WRAPPER = `
-import Meta from "./Meta";
+export const WRAPPER = `import Meta from "./Meta";
 
 const Wrapper = ({ children }) => {
 	return (

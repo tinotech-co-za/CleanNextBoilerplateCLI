@@ -1,15 +1,13 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.WRAPPER = exports.APP_TSX = exports.API_POST = exports.UTILS_INDEX = exports.GITIGNORE = exports.VERCEL_JSON = void 0;
-exports.VERCEL_JSON = `
-{
+exports.VERCEL_JSON = `{
     "github": {
         "silent": true
     }
 }
 `;
-exports.GITIGNORE = `
-# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
+exports.GITIGNORE = `# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
 
 # dependencies
 /node_modules
@@ -44,19 +42,16 @@ yarn-error.log*
 # vercel
 .vercel
 `;
-exports.UTILS_INDEX = `
-export const BASE_URL =
+exports.UTILS_INDEX = `export const BASE_URL =
 	process.env.NODE_ENV === "production" ? "" : "http://localhost:3000";
 `;
-exports.API_POST = `
-const handler = (req, res) => {
+exports.API_POST = `const handler = (req, res) => {
 	res.status(200).json({ message: "Hello there" });
 };
 
 export default handler;
 `;
-exports.APP_TSX = `
-import { useEffect } from "react";
+exports.APP_TSX = `import { useEffect } from "react";
 
 import Wrapper from "../components/Wrapper";
 
@@ -84,8 +79,7 @@ const MyApp = ({ Component, pageProps }) => {
 
 export default MyApp;
 `;
-exports.WRAPPER = `
-import Meta from "./Meta";
+exports.WRAPPER = `import Meta from "./Meta";
 
 const Wrapper = ({ children }) => {
 	return (

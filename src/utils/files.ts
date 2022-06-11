@@ -1,5 +1,6 @@
-export const getMeta: Function = (name: string): string => `
-import Head from "next/head";
+export const getMeta: Function = (
+	name: string
+): string => `import Head from "next/head";
 
 import { BASE_URL } from "../utils";
 
@@ -51,8 +52,9 @@ Meta.defaultProps = {
 export default Meta;
 `;
 
-export const getIndex: Function = (name: string): string => `
-const Home = () => {
+export const getIndex: Function = (
+	name: string
+): string => `const Home = () => {
 	return (
 		<main>
 			<p>${name}</p>
@@ -63,8 +65,7 @@ const Home = () => {
 export default Home;
 `;
 
-export const getManifest: Function = (name: string): string => `
-{
+export const getManifest: Function = (name: string): string => `{
 	"short_name": "${name}",
 	"name": "${name}",
 	"icons": [
@@ -92,8 +93,7 @@ export const getManifest: Function = (name: string): string => `
 }
 `;
 
-export const getJSPackageJson: Function = (name: string): string => `
-{
+export const getJSPackageJson: Function = (name: string): string => `{
     "name": "${name.toLowerCase().split(" ").join("-")}",
 	"private": true,
 	"scripts": {
@@ -110,6 +110,5 @@ export const getJSPackageJson: Function = (name: string): string => `
 }
 `;
 
-export const getReadme: Function = (name: string): string => `
-# ${name}
+export const getReadme: Function = (name: string): string => `# ${name}
 `;
