@@ -42,7 +42,7 @@ const Meta = ({ title, description, keywords, url, image }) => (
 );
 
 Meta.defaultProps = {
-	title: ${name},
+	title: "${name}",
 	keywords: "next.js",
 	description: "Your description here",
 	image: "https://unsplash.it/1000",
