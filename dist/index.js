@@ -6,6 +6,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const inquirer_1 = __importDefault(require("inquirer"));
 const commander_1 = require("commander");
 const path_1 = __importDefault(require("path"));
+const child_process_1 = require("child_process");
 const permutations_1 = require("./writers/permutations");
 /**
  * Run Inquirer to get options for what to include in the generated project.
@@ -204,8 +205,20 @@ commander_1.program
         });
     }
     else {
-        run(answers.name, basepath);
+        await run(answers.name, basepath);
     }
+    console.log("- Generating git project.");
+    (0, child_process_1.exec)("git init", (error, stdout, stderr) => {
+        if (error) {
+            console.error(`error: ${error.message}`);
+            return;
+        }
+        if (stderr) {
+            console.error(`stderr: ${stderr}`);
+            return;
+        }
+        console.log(`- ${stdout}`);
+    });
 });
 // Parse program setup.
 commander_1.program.parse();

@@ -1,6 +1,7 @@
 import inquirer from "inquirer";
 import { program } from "commander";
 import path from "path";
+import { exec } from "child_process";
 
 import {
 	writeJavaScript,
@@ -251,8 +252,20 @@ program
 				sass: true,
 			});
 		} else {
-			run(answers.name, basepath);
+			await run(answers.name, basepath);
 		}
+		console.log("- Generating git project.");
+		exec("git init", (error, stdout, stderr) => {
+			if (error) {
+				console.error(`error: ${error.message}`);
+				return;
+			}
+			if (stderr) {
+				console.error(`stderr: ${stderr}`);
+				return;
+			}
+			console.log(`- ${stdout}`);
+		});
 	});
 
 // Parse program setup.
