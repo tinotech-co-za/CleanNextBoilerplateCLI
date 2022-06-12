@@ -8,6 +8,6 @@ const path_1 = __importDefault(require("path"));
 const fs_1 = __importDefault(require("fs"));
 const constants_1 = require("../utils/constants");
 const writeESLintRC = async (basePath) => {
-    fs_1.default.writeFileSync(path_1.default.join(__dirname, basePath, "/next.config.js"), constants_1.ESLINT_RC);
+    fs_1.default.writeFileSync(path_1.default.join(__dirname, basePath, "/.eslintrc.json"), constants_1.ESLINT_RC);
 };
 exports.writeESLintRC = writeESLintRC;
