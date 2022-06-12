@@ -3,6 +3,7 @@ import fs from "fs";
 
 import {
 	getIndex,
+	getJSESLintPackageJson,
 	getJSMongoPackageJson,
 	getJSPackageJson,
 	getManifest,
@@ -35,6 +36,16 @@ export const writeJSMongoPackageJson: Function = async (
 	fs.writeFileSync(
 		path.join(__dirname, basePath, "/package.json"),
 		getJSMongoPackageJson(name)
+	);
+};
+
+export const writeJSESLintPackageJson: Function = async (
+	name: string,
+	basePath: string
+): Promise<void> => {
+	fs.writeFileSync(
+		path.join(__dirname, basePath, "/package.json"),
+		getJSESLintPackageJson(name)
 	);
 };
 

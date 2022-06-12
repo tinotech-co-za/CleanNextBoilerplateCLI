@@ -103,3 +103,8 @@ export const NEXT_CONFIG = `module.exports = {
 	},
 };
 `;
+
+export const ESLINT_RC = `{
+    "extends": "next/core-web-vitals"
+  }
+  `;
