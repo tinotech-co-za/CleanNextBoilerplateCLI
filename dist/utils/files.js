@@ -267,7 +267,7 @@ const getTSPackageJson = (name) => `{
 	"dependencies": {
 		"next": "latest",
 		"react": "latest",
-		"react-dom": "latest",
+		"react-dom": "latest"
 	},
 	"license": "MIT",
 	"devDependencies": {

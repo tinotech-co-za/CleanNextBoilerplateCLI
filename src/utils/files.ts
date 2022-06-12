@@ -272,7 +272,7 @@ export const getTSPackageJson: Function = (name: string): string => `{
 	"dependencies": {
 		"next": "latest",
 		"react": "latest",
-		"react-dom": "latest",
+		"react-dom": "latest"
 	},
 	"license": "MIT",
 	"devDependencies": {

@@ -80,6 +80,7 @@ const run = async (name, basePath) => {
         !answers.sass &&
         !answers.eslint &&
         !answers.mongodb) {
+        // TODO: Add types for TS.
         await (0, common_1.writeCommonFiles)(name, basePath, true, false);
         await (0, common_1.writeTSPackageJson)(name, basePath);
         return console.log("8. typescript");
