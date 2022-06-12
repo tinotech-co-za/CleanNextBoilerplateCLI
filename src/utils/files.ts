@@ -1,4 +1,4 @@
-export const getMeta: Function = (name: string, typeScript: boolean): string =>
+export const getMeta = (name: string, typeScript: boolean): string =>
 	typeScript
 		? `import Head from "next/head";
 
@@ -110,7 +110,7 @@ Meta.defaultProps = {
 export default Meta;
 `;
 
-export const getIndex: Function = (name: string, typeScript: boolean): string =>
+export const getIndex = (name: string, typeScript: boolean): string =>
 	typeScript
 		? `const Home: React.FC = (): JSX.Element => {
 	return (
@@ -133,7 +133,7 @@ export default Home;
 export default Home;
 `;
 
-export const getManifest: Function = (name: string): string => `{
+export const getManifest = (name: string): string => `{
 	"short_name": "${name}",
 	"name": "${name}",
 	"icons": [
@@ -161,7 +161,7 @@ export const getManifest: Function = (name: string): string => `{
 }
 `;
 
-export const getJSPackageJson: Function = (name: string): string => `{
+export const getJSPackageJson = (name: string): string => `{
     "name": "${name.toLowerCase().split(" ").join("-")}",
 	"private": true,
 	"scripts": {
@@ -178,7 +178,7 @@ export const getJSPackageJson: Function = (name: string): string => `{
 }
 `;
 
-export const getJSMongoPackageJson: Function = (name: string): string => `{
+export const getJSMongoPackageJson = (name: string): string => `{
     "name": "${name.toLowerCase().split(" ").join("-")}",
 	"private": true,
 	"scripts": {
@@ -196,7 +196,7 @@ export const getJSMongoPackageJson: Function = (name: string): string => `{
 }
 `;
 
-export const getJSESLintPackageJson: Function = (name: string): string => `{
+export const getJSESLintPackageJson = (name: string): string => `{
     "name": "${name.toLowerCase().split(" ").join("-")}",
 	"private": true,
 	"scripts": {
@@ -217,7 +217,7 @@ export const getJSESLintPackageJson: Function = (name: string): string => `{
 }
 `;
 
-export const getJSSassPackageJson: Function = (name: string): string => `{
+export const getJSSassPackageJson = (name: string): string => `{
     "name": "${name.toLowerCase().split(" ").join("-")}",
 	"private": true,
 	"scripts": {
@@ -237,7 +237,7 @@ export const getJSSassPackageJson: Function = (name: string): string => `{
 }
 `;
 
-export const getJSSassESLintPackageJson: Function = (name: string): string => `{
+export const getJSSassESLintPackageJson = (name: string): string => `{
     "name": "${name.toLowerCase().split(" ").join("-")}",
 	"private": true,
 	"scripts": {
@@ -259,7 +259,7 @@ export const getJSSassESLintPackageJson: Function = (name: string): string => `{
 }
 `;
 
-export const getJSSassMongoPackageJson: Function = (name: string): string => `{
+export const getJSSassMongoPackageJson = (name: string): string => `{
     "name": "${name.toLowerCase().split(" ").join("-")}",
 	"private": true,
 	"scripts": {
@@ -280,9 +280,7 @@ export const getJSSassMongoPackageJson: Function = (name: string): string => `{
 }
 `;
 
-export const getJSESLintMongoPackageJson: Function = (
-	name: string
-): string => `{
+export const getJSESLintMongoPackageJson = (name: string): string => `{
     "name": "${name.toLowerCase().split(" ").join("-")}",
 	"private": true,
 	"scripts": {
@@ -304,9 +302,7 @@ export const getJSESLintMongoPackageJson: Function = (
 }
 `;
 
-export const getJSSassESLintMongoPackageJson: Function = (
-	name: string
-): string => `{
+export const getJSSassESLintMongoPackageJson = (name: string): string => `{
     "name": "${name.toLowerCase().split(" ").join("-")}",
 	"private": true,
 	"scripts": {
@@ -329,7 +325,7 @@ export const getJSSassESLintMongoPackageJson: Function = (
 }
 `;
 
-export const getTSPackageJson: Function = (name: string): string => `{
+export const getTSPackageJson = (name: string): string => `{
     "name": "${name.toLowerCase().split(" ").join("-")}",
 	"private": true,
 	"scripts": {
@@ -353,7 +349,7 @@ export const getTSPackageJson: Function = (name: string): string => `{
 }
 `;
 
-export const getTSMongoPackageJson: Function = (name: string): string => `{
+export const getTSMongoPackageJson = (name: string): string => `{
     "name": "${name.toLowerCase().split(" ").join("-")}",
 	"private": true,
 	"scripts": {
@@ -378,7 +374,7 @@ export const getTSMongoPackageJson: Function = (name: string): string => `{
 }
 `;
 
-export const getTSESLintPackageJson: Function = (name: string): string => `{
+export const getTSESLintPackageJson = (name: string): string => `{
     "name": "${name.toLowerCase().split(" ").join("-")}",
 	"private": true,
 	"scripts": {
@@ -404,7 +400,7 @@ export const getTSESLintPackageJson: Function = (name: string): string => `{
 }
 `;
 
-export const getTSSassPackageJson: Function = (name: string): string => `{
+export const getTSSassPackageJson = (name: string): string => `{
     "name": "${name.toLowerCase().split(" ").join("-")}",
 	"private": true,
 	"scripts": {
@@ -429,7 +425,7 @@ export const getTSSassPackageJson: Function = (name: string): string => `{
 }
 `;
 
-export const getTSSassESLintPackageJson: Function = (name: string): string => `{
+export const getTSSassESLintPackageJson = (name: string): string => `{
     "name": "${name.toLowerCase().split(" ").join("-")}",
 	"private": true,
 	"scripts": {
@@ -456,7 +452,7 @@ export const getTSSassESLintPackageJson: Function = (name: string): string => `{
 }
 `;
 
-export const getTSSassMongoPackageJson: Function = (name: string): string => `{
+export const getTSSassMongoPackageJson = (name: string): string => `{
     "name": "${name.toLowerCase().split(" ").join("-")}",
 	"private": true,
 	"scripts": {
@@ -482,9 +478,7 @@ export const getTSSassMongoPackageJson: Function = (name: string): string => `{
 }
 `;
 
-export const getTSESLintMongoPackageJson: Function = (
-	name: string
-): string => `{
+export const getTSESLintMongoPackageJson = (name: string): string => `{
     "name": "${name.toLowerCase().split(" ").join("-")}",
 	"private": true,
 	"scripts": {
@@ -511,9 +505,7 @@ export const getTSESLintMongoPackageJson: Function = (
 }
 `;
 
-export const getTSSassESLintMongoPackageJson: Function = (
-	name: string
-): string => `{
+export const getTSSassESLintMongoPackageJson = (name: string): string => `{
     "name": "${name.toLowerCase().split(" ").join("-")}",
 	"private": true,
 	"scripts": {
@@ -541,5 +533,5 @@ export const getTSSassESLintMongoPackageJson: Function = (
 }
 `;
 
-export const getReadme: Function = (name: string): string => `# ${name}
+export const getReadme = (name: string): string => `# ${name}
 `;

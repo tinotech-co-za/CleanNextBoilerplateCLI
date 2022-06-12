@@ -10,7 +10,7 @@ import {
 	SASS_MIXINS,
 } from "../utils/constants";
 
-const makeSassDirs: Function = async (basePath: string): Promise<void> => {
+const makeSassDirs = async (basePath: string): Promise<void> => {
 	fs.mkdirSync(path.join(__dirname, basePath, "/sass/abstracts"), {
 		recursive: true,
 	});
@@ -18,55 +18,53 @@ const makeSassDirs: Function = async (basePath: string): Promise<void> => {
 		recursive: true,
 	});
 };
-const writeSassApp: Function = async (basePath: string): Promise<void> => {
+const writeSassApp = async (basePath: string): Promise<void> => {
 	fs.writeFileSync(path.join(__dirname, basePath, "/sass/App.scss"), SASS_APP);
 };
 
-const writeSassBase: Function = async (basePath: string): Promise<void> => {
+const writeSassBase = async (basePath: string): Promise<void> => {
 	fs.writeFileSync(
 		path.join(__dirname, basePath, "/sass/components/_base.scss"),
 		SASS_BASE
 	);
 };
 
-const writeSassBreakpoints: Function = async (
-	basePath: string
-): Promise<void> => {
+const writeSassBreakpoints = async (basePath: string): Promise<void> => {
 	fs.writeFileSync(
 		path.join(__dirname, basePath, "/sass/abstracts/_breakpoints.scss"),
 		SASS_BREAKPOINTS
 	);
 };
 
-const writeSassColours: Function = async (basePath: string): Promise<void> => {
+const writeSassColours = async (basePath: string): Promise<void> => {
 	fs.writeFileSync(
 		path.join(__dirname, basePath, "/sass/abstracts/_colours.scss"),
 		SASS_COLOURS
 	);
 };
 
-const writeSassFonts: Function = async (basePath: string): Promise<void> => {
+const writeSassFonts = async (basePath: string): Promise<void> => {
 	fs.writeFileSync(
 		path.join(__dirname, basePath, "/sass/abstracts/_fonts.scss"),
 		SASS_FONTS
 	);
 };
 
-const writeSassIndex: Function = async (basePath: string): Promise<void> => {
+const writeSassIndex = async (basePath: string): Promise<void> => {
 	fs.writeFileSync(
 		path.join(__dirname, basePath, "/sass/abstracts/_index.scss"),
 		SASS_INDEX
 	);
 };
 
-const writeSassMixins: Function = async (basePath: string): Promise<void> => {
+const writeSassMixins = async (basePath: string): Promise<void> => {
 	fs.writeFileSync(
 		path.join(__dirname, basePath, "/sass/abstracts/_mixins.scss"),
 		SASS_MIXINS
 	);
 };
 
-export const writeSass: Function = async (basePath: string): Promise<void> => {
+export const writeSass = async (basePath: string): Promise<void> => {
 	makeSassDirs(basePath);
 	writeSassApp(basePath);
 	writeSassBase(basePath);

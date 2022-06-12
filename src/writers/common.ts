@@ -37,7 +37,7 @@ import {
 	WRAPPER_TS,
 } from "../utils/constants";
 
-export const writeJSPackageJson: Function = async (
+export const writeJSPackageJson = async (
 	name: string,
 	basePath: string
 ): Promise<void> => {
@@ -47,7 +47,7 @@ export const writeJSPackageJson: Function = async (
 	);
 };
 
-export const writeJSMongoPackageJson: Function = async (
+export const writeJSMongoPackageJson = async (
 	name: string,
 	basePath: string
 ): Promise<void> => {
@@ -57,7 +57,7 @@ export const writeJSMongoPackageJson: Function = async (
 	);
 };
 
-export const writeJSESLintPackageJson: Function = async (
+export const writeJSESLintPackageJson = async (
 	name: string,
 	basePath: string
 ): Promise<void> => {
@@ -67,7 +67,7 @@ export const writeJSESLintPackageJson: Function = async (
 	);
 };
 
-export const writeJSSassPackageJson: Function = async (
+export const writeJSSassPackageJson = async (
 	name: string,
 	basePath: string
 ): Promise<void> => {
@@ -77,7 +77,7 @@ export const writeJSSassPackageJson: Function = async (
 	);
 };
 
-export const writeJSSassESLintPackageJson: Function = async (
+export const writeJSSassESLintPackageJson = async (
 	name: string,
 	basePath: string
 ): Promise<void> => {
@@ -87,7 +87,7 @@ export const writeJSSassESLintPackageJson: Function = async (
 	);
 };
 
-export const writeJSSassMongoPackageJson: Function = async (
+export const writeJSSassMongoPackageJson = async (
 	name: string,
 	basePath: string
 ): Promise<void> => {
@@ -97,7 +97,7 @@ export const writeJSSassMongoPackageJson: Function = async (
 	);
 };
 
-export const writeJSESLintMongoPackageJson: Function = async (
+export const writeJSESLintMongoPackageJson = async (
 	name: string,
 	basePath: string
 ): Promise<void> => {
@@ -107,7 +107,7 @@ export const writeJSESLintMongoPackageJson: Function = async (
 	);
 };
 
-export const writeJSSassESLintMongoPackageJson: Function = async (
+export const writeJSSassESLintMongoPackageJson = async (
 	name: string,
 	basePath: string
 ): Promise<void> => {
@@ -117,7 +117,7 @@ export const writeJSSassESLintMongoPackageJson: Function = async (
 	);
 };
 
-export const writeTSPackageJson: Function = async (
+export const writeTSPackageJson = async (
 	name: string,
 	basePath: string
 ): Promise<void> => {
@@ -127,7 +127,7 @@ export const writeTSPackageJson: Function = async (
 	);
 };
 
-export const writeTSMongoPackageJson: Function = async (
+export const writeTSMongoPackageJson = async (
 	name: string,
 	basePath: string
 ): Promise<void> => {
@@ -137,7 +137,7 @@ export const writeTSMongoPackageJson: Function = async (
 	);
 };
 
-export const writeTSESLintPackageJson: Function = async (
+export const writeTSESLintPackageJson = async (
 	name: string,
 	basePath: string
 ): Promise<void> => {
@@ -147,7 +147,7 @@ export const writeTSESLintPackageJson: Function = async (
 	);
 };
 
-export const writeTSSassPackageJson: Function = async (
+export const writeTSSassPackageJson = async (
 	name: string,
 	basePath: string
 ): Promise<void> => {
@@ -157,7 +157,7 @@ export const writeTSSassPackageJson: Function = async (
 	);
 };
 
-export const writeTSSassESLintPackageJson: Function = async (
+export const writeTSSassESLintPackageJson = async (
 	name: string,
 	basePath: string
 ): Promise<void> => {
@@ -167,7 +167,7 @@ export const writeTSSassESLintPackageJson: Function = async (
 	);
 };
 
-export const writeTSSassMongoPackageJson: Function = async (
+export const writeTSSassMongoPackageJson = async (
 	name: string,
 	basePath: string
 ): Promise<void> => {
@@ -177,7 +177,7 @@ export const writeTSSassMongoPackageJson: Function = async (
 	);
 };
 
-export const writeTSESLintMongoPackageJson: Function = async (
+export const writeTSESLintMongoPackageJson = async (
 	name: string,
 	basePath: string
 ): Promise<void> => {
@@ -187,7 +187,7 @@ export const writeTSESLintMongoPackageJson: Function = async (
 	);
 };
 
-export const writeTSSassESLintMongoPackageJson: Function = async (
+export const writeTSSassESLintMongoPackageJson = async (
 	name: string,
 	basePath: string
 ): Promise<void> => {
@@ -197,7 +197,7 @@ export const writeTSSassESLintMongoPackageJson: Function = async (
 	);
 };
 
-export const writeCommonFiles: Function = async (
+export const writeCommonFiles = async (
 	name: string,
 	basePath: string,
 	typeScript: boolean,

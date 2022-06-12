@@ -2,14 +2,14 @@ import path from "path";
 import fs from "fs";
 import { NEXT_CONFIG, UTILS_DB, UTILS_DB_TS } from "../utils/constants";
 
-const writeNextConfig: Function = async (basePath: string): Promise<void> => {
+const writeNextConfig = async (basePath: string): Promise<void> => {
 	fs.writeFileSync(
 		path.join(__dirname, basePath, "/next.config.js"),
 		NEXT_CONFIG
 	);
 };
 
-const writeUtilsDB: Function = async (
+const writeUtilsDB = async (
 	basePath: string,
 	typeScript: boolean
 ): Promise<void> => {
@@ -19,7 +19,7 @@ const writeUtilsDB: Function = async (
 	);
 };
 
-export const writeMongo: Function = async (
+export const writeMongo = async (
 	basePath: string,
 	typeScript: boolean
 ): Promise<void> => {
