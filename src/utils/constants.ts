@@ -52,7 +52,7 @@ export const API_POST = `const handler = (req, res) => {
 export default handler;
 `;
 
-export const APP_TSX = `import { useEffect } from "react";
+export const APP = `import { useEffect } from "react";
 
 import Wrapper from "../components/Wrapper";
 

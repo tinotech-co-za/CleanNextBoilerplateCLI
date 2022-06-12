@@ -12,7 +12,7 @@ import {
 } from "../utils/files";
 import {
 	API_POST,
-	APP_TSX,
+	APP,
 	GITIGNORE,
 	UTILS_INDEX,
 	VERCEL_JSON,
@@ -92,7 +92,7 @@ export const writeCommonFiles: Function = async (
 	);
 	fs.writeFileSync(
 		path.join(__dirname, basePath, `/pages/_app.${typeScript ? "tsx" : "jsx"}`),
-		APP_TSX
+		APP
 	);
 	fs.writeFileSync(
 		path.join(
