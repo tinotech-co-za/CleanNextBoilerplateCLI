@@ -3,7 +3,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.writeCommonFiles = exports.writeTSESLintPackageJson = exports.writeTSMongoPackageJson = exports.writeTSPackageJson = exports.writeJSSassESLintMongoPackageJson = exports.writeJSESLintMongoPackageJson = exports.writeJSSassMongoPackageJson = exports.writeJSSassESLintPackageJson = exports.writeJSSassPackageJson = exports.writeJSESLintPackageJson = exports.writeJSMongoPackageJson = exports.writeJSPackageJson = void 0;
+exports.writeCommonFiles = exports.writeTSSassPackageJson = exports.writeTSESLintPackageJson = exports.writeTSMongoPackageJson = exports.writeTSPackageJson = exports.writeJSSassESLintMongoPackageJson = exports.writeJSESLintMongoPackageJson = exports.writeJSSassMongoPackageJson = exports.writeJSSassESLintPackageJson = exports.writeJSSassPackageJson = exports.writeJSESLintPackageJson = exports.writeJSMongoPackageJson = exports.writeJSPackageJson = void 0;
 const path_1 = __importDefault(require("path"));
 const fs_1 = __importDefault(require("fs"));
 const files_1 = require("../utils/files");
@@ -52,6 +52,10 @@ const writeTSESLintPackageJson = async (name, basePath) => {
     fs_1.default.writeFileSync(path_1.default.join(__dirname, basePath, "/package.json"), (0, files_1.getTSESLintPackageJson)(name));
 };
 exports.writeTSESLintPackageJson = writeTSESLintPackageJson;
+const writeTSSassPackageJson = async (name, basePath) => {
+    fs_1.default.writeFileSync(path_1.default.join(__dirname, basePath, "/package.json"), (0, files_1.getTSSassPackageJson)(name));
+};
+exports.writeTSSassPackageJson = writeTSSassPackageJson;
 const writeCommonFiles = async (name, basePath, typeScript, sass) => {
     fs_1.default.mkdirSync(path_1.default.join(__dirname, basePath, "/components"), {
         recursive: true,

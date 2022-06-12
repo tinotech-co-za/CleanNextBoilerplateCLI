@@ -404,5 +404,30 @@ export const getTSESLintPackageJson: Function = (name: string): string => `{
 }
 `;
 
+export const getTSSassPackageJson: Function = (name: string): string => `{
+    "name": "${name.toLowerCase().split(" ").join("-")}",
+	"private": true,
+	"scripts": {
+		"dev": "next",
+		"build": "next build",
+		"start": "next start",
+        "type-check": "tsc"
+	},
+	"dependencies": {
+		"next": "latest",
+		"react": "latest",
+		"react-dom": "latest"
+	},
+	"license": "MIT",
+	"devDependencies": {
+		"@types/node": "latest",
+		"@types/react": "latest",
+		"@types/react-dom": "latest",
+        "sass": "latest",
+		"typescript": "latest"
+	}
+}
+`;
+
 export const getReadme: Function = (name: string): string => `# ${name}
 `;

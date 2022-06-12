@@ -17,6 +17,7 @@ import {
 	getTSESLintPackageJson,
 	getTSMongoPackageJson,
 	getTSPackageJson,
+	getTSSassPackageJson,
 } from "../utils/files";
 import {
 	API_POST,
@@ -139,6 +140,16 @@ export const writeTSESLintPackageJson: Function = async (
 	fs.writeFileSync(
 		path.join(__dirname, basePath, "/package.json"),
 		getTSESLintPackageJson(name)
+	);
+};
+
+export const writeTSSassPackageJson: Function = async (
+	name: string,
+	basePath: string
+): Promise<void> => {
+	fs.writeFileSync(
+		path.join(__dirname, basePath, "/package.json"),
+		getTSSassPackageJson(name)
 	);
 };
 
