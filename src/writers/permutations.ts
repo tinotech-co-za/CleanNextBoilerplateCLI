@@ -37,7 +37,7 @@ export const writeTypeScriptSassESLintMongoDB = async (
 	basePath: string,
 	options: Options
 ): Promise<void> => {
-	await writeCommonFiles(name, basePath, options.typeScript, options.sass);
+	await writeCommonFiles(name, basePath, options);
 	await writeTSSassESLintMongoPackageJson(name, basePath);
 	await writeMongo(basePath, options.typeScript);
 	await writeSass(basePath);
@@ -60,7 +60,7 @@ export const writeTypeScriptESLintMongoDB = async (
 	basePath: string,
 	options: Options
 ): Promise<void> => {
-	await writeCommonFiles(name, basePath, options.typeScript, options.sass);
+	await writeCommonFiles(name, basePath, options);
 	await writeTSESLintMongoPackageJson(name, basePath);
 	await writeMongo(basePath, true);
 	await writeESLint(basePath);
@@ -82,7 +82,7 @@ export const writeTypeScriptSassMongoDB = async (
 	basePath: string,
 	options: Options
 ): Promise<void> => {
-	await writeCommonFiles(name, basePath, options.typeScript, options.sass);
+	await writeCommonFiles(name, basePath, options);
 	await writeTSSassMongoPackageJson(name, basePath);
 	await writeMongo(basePath, true);
 	await writeSass(basePath);
@@ -104,7 +104,7 @@ export const writeTypeScriptSassESLint = async (
 	basePath: string,
 	options: Options
 ): Promise<void> => {
-	await writeCommonFiles(name, basePath, options.typeScript, options.sass);
+	await writeCommonFiles(name, basePath, options);
 	await writeTSSassESLintPackageJson(name, basePath);
 	await writeSass(basePath);
 	await writeESLint(basePath);
@@ -126,7 +126,7 @@ export const writeTypeScriptSass = async (
 	basePath: string,
 	options: Options
 ): Promise<void> => {
-	await writeCommonFiles(name, basePath, options.typeScript, options.sass);
+	await writeCommonFiles(name, basePath, options);
 	await writeTSSassPackageJson(name, basePath);
 	await writeSass(basePath);
 	return console.log("5. typescript, sass");
@@ -147,7 +147,7 @@ export const writeTypeScriptESLint = async (
 	basePath: string,
 	options: Options
 ): Promise<void> => {
-	await writeCommonFiles(name, basePath, options.typeScript, options.sass);
+	await writeCommonFiles(name, basePath, options);
 	await writeTSESLintPackageJson(name, basePath);
 	await writeESLint(basePath);
 	return console.log("6. typescript, eslint");
@@ -168,7 +168,7 @@ export const writeTypeScriptMongoDB = async (
 	basePath: string,
 	options: Options
 ): Promise<void> => {
-	await writeCommonFiles(name, basePath, options.typeScript, options.sass);
+	await writeCommonFiles(name, basePath, options);
 	await writeTSMongoPackageJson(name, basePath);
 	await writeMongo(basePath, true);
 	return console.log("7. typescript, mongodb");
@@ -189,7 +189,7 @@ export const writeTypeScript = async (
 	basePath: string,
 	options: Options
 ): Promise<void> => {
-	await writeCommonFiles(name, basePath, options.typeScript, options.sass);
+	await writeCommonFiles(name, basePath, options);
 	await writeTSPackageJson(name, basePath);
 	return console.log("8. typescript");
 };
@@ -209,7 +209,7 @@ export const writeJavaScriptSassESLintMongoDB = async (
 	basePath: string,
 	options: Options
 ): Promise<void> => {
-	await writeCommonFiles(name, basePath, options.typeScript, options.sass);
+	await writeCommonFiles(name, basePath, options);
 	await writeJSSassESLintMongoPackageJson(name, basePath);
 	await writeMongo(basePath, false);
 	await writeESLint(basePath);
@@ -232,7 +232,7 @@ export const writeJavaScriptESLintMongoDB = async (
 	basePath: string,
 	options: Options
 ): Promise<void> => {
-	await writeCommonFiles(name, basePath, options.typeScript, options.sass);
+	await writeCommonFiles(name, basePath, options);
 	await writeJSESLintMongoPackageJson(name, basePath);
 	await writeMongo(basePath, false);
 	await writeESLint(basePath);
@@ -254,7 +254,7 @@ export const writeJavaScriptSassMongoDB = async (
 	basePath: string,
 	options: Options
 ): Promise<void> => {
-	await writeCommonFiles(name, basePath, options.typeScript, options.sass);
+	await writeCommonFiles(name, basePath, options);
 	await writeJSSassMongoPackageJson(name, basePath);
 	await writeSass(basePath);
 	await writeMongo(basePath, false);
@@ -276,7 +276,7 @@ export const writeJavaScriptSassESLint = async (
 	basePath: string,
 	options: Options
 ): Promise<void> => {
-	await writeCommonFiles(name, basePath, options.typeScript, options.sass);
+	await writeCommonFiles(name, basePath, options);
 	await writeJSSassESLintPackageJson(name, basePath);
 	await writeSass(basePath);
 	await writeESLint(basePath);
@@ -298,7 +298,7 @@ export const writeJavaScriptSass = async (
 	basePath: string,
 	options: Options
 ): Promise<void> => {
-	await writeCommonFiles(name, basePath, options.typeScript, options.sass);
+	await writeCommonFiles(name, basePath, options);
 	await writeJSSassPackageJson(name, basePath);
 	await writeSass(basePath);
 	return console.log("13. javascript, sass");
@@ -319,7 +319,7 @@ export const writeJavaScriptESLint = async (
 	basePath: string,
 	options: Options
 ): Promise<void> => {
-	await writeCommonFiles(name, basePath, options.typeScript, options.sass);
+	await writeCommonFiles(name, basePath, options);
 	await writeJSESLintPackageJson(name, basePath);
 	await writeESLint(basePath);
 	return console.log("14. javascript, eslint");
@@ -340,7 +340,7 @@ export const writeJavaScriptMongoDB = async (
 	basePath: string,
 	options: Options
 ): Promise<void> => {
-	await writeCommonFiles(name, basePath, false, false);
+	await writeCommonFiles(name, basePath, options);
 	await writeJSMongoPackageJson(name, basePath);
 	await writeMongo(basePath, false);
 	return console.log("15. javascript, mongodb");
@@ -361,7 +361,7 @@ export const writeJavaScript = async (
 	basePath: string,
 	options: Options
 ): Promise<void> => {
-	await writeCommonFiles(name, basePath, options.typeScript, options.sass);
+	await writeCommonFiles(name, basePath, options);
 	await writeJSPackageJson(name, basePath);
 	return console.log("16. javascript");
 };

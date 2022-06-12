@@ -36,7 +36,13 @@ import {
 	WRAPPER,
 	WRAPPER_TS,
 } from "../utils/constants";
+import { Options } from "../interfaces";
 
+/**
+ * Uses fs to write the package.json file to the directory specified.
+ * @param name The name of the project.
+ * @param basePath The base path to write out the files to.
+ */
 export const writeJSPackageJson = async (
 	name: string,
 	basePath: string
@@ -47,6 +53,11 @@ export const writeJSPackageJson = async (
 	);
 };
 
+/**
+ * Uses fs to write the package.json file to the directory specified.
+ * @param name The name of the project.
+ * @param basePath The base path to write out the files to.
+ */
 export const writeJSMongoPackageJson = async (
 	name: string,
 	basePath: string
@@ -57,6 +68,11 @@ export const writeJSMongoPackageJson = async (
 	);
 };
 
+/**
+ * Uses fs to write the package.json file to the directory specified.
+ * @param name The name of the project.
+ * @param basePath The base path to write out the files to.
+ */
 export const writeJSESLintPackageJson = async (
 	name: string,
 	basePath: string
@@ -67,6 +83,11 @@ export const writeJSESLintPackageJson = async (
 	);
 };
 
+/**
+ * Uses fs to write the package.json file to the directory specified.
+ * @param name The name of the project.
+ * @param basePath The base path to write out the files to.
+ */
 export const writeJSSassPackageJson = async (
 	name: string,
 	basePath: string
@@ -77,6 +98,11 @@ export const writeJSSassPackageJson = async (
 	);
 };
 
+/**
+ * Uses fs to write the package.json file to the directory specified.
+ * @param name The name of the project.
+ * @param basePath The base path to write out the files to.
+ */
 export const writeJSSassESLintPackageJson = async (
 	name: string,
 	basePath: string
@@ -87,6 +113,11 @@ export const writeJSSassESLintPackageJson = async (
 	);
 };
 
+/**
+ * Uses fs to write the package.json file to the directory specified.
+ * @param name The name of the project.
+ * @param basePath The base path to write out the files to.
+ */
 export const writeJSSassMongoPackageJson = async (
 	name: string,
 	basePath: string
@@ -97,6 +128,11 @@ export const writeJSSassMongoPackageJson = async (
 	);
 };
 
+/**
+ * Uses fs to write the package.json file to the directory specified.
+ * @param name The name of the project.
+ * @param basePath The base path to write out the files to.
+ */
 export const writeJSESLintMongoPackageJson = async (
 	name: string,
 	basePath: string
@@ -107,6 +143,11 @@ export const writeJSESLintMongoPackageJson = async (
 	);
 };
 
+/**
+ * Uses fs to write the package.json file to the directory specified.
+ * @param name The name of the project.
+ * @param basePath The base path to write out the files to.
+ */
 export const writeJSSassESLintMongoPackageJson = async (
 	name: string,
 	basePath: string
@@ -117,6 +158,11 @@ export const writeJSSassESLintMongoPackageJson = async (
 	);
 };
 
+/**
+ * Uses fs to write the package.json file to the directory specified.
+ * @param name The name of the project.
+ * @param basePath The base path to write out the files to.
+ */
 export const writeTSPackageJson = async (
 	name: string,
 	basePath: string
@@ -127,6 +173,11 @@ export const writeTSPackageJson = async (
 	);
 };
 
+/**
+ * Uses fs to write the package.json file to the directory specified.
+ * @param name The name of the project.
+ * @param basePath The base path to write out the files to.
+ */
 export const writeTSMongoPackageJson = async (
 	name: string,
 	basePath: string
@@ -137,6 +188,11 @@ export const writeTSMongoPackageJson = async (
 	);
 };
 
+/**
+ * Uses fs to write the package.json file to the directory specified.
+ * @param name The name of the project.
+ * @param basePath The base path to write out the files to.
+ */
 export const writeTSESLintPackageJson = async (
 	name: string,
 	basePath: string
@@ -147,6 +203,11 @@ export const writeTSESLintPackageJson = async (
 	);
 };
 
+/**
+ * Uses fs to write the package.json file to the directory specified.
+ * @param name The name of the project.
+ * @param basePath The base path to write out the files to.
+ */
 export const writeTSSassPackageJson = async (
 	name: string,
 	basePath: string
@@ -157,6 +218,11 @@ export const writeTSSassPackageJson = async (
 	);
 };
 
+/**
+ * Uses fs to write the package.json file to the directory specified.
+ * @param name The name of the project.
+ * @param basePath The base path to write out the files to.
+ */
 export const writeTSSassESLintPackageJson = async (
 	name: string,
 	basePath: string
@@ -167,6 +233,11 @@ export const writeTSSassESLintPackageJson = async (
 	);
 };
 
+/**
+ * Uses fs to write the package.json file to the directory specified.
+ * @param name The name of the project.
+ * @param basePath The base path to write out the files to.
+ */
 export const writeTSSassMongoPackageJson = async (
 	name: string,
 	basePath: string
@@ -177,6 +248,11 @@ export const writeTSSassMongoPackageJson = async (
 	);
 };
 
+/**
+ * Uses fs to write the package.json file to the directory specified.
+ * @param name The name of the project.
+ * @param basePath The base path to write out the files to.
+ */
 export const writeTSESLintMongoPackageJson = async (
 	name: string,
 	basePath: string
@@ -187,6 +263,11 @@ export const writeTSESLintMongoPackageJson = async (
 	);
 };
 
+/**
+ * Uses fs to write the package.json file to the directory specified.
+ * @param name The name of the project.
+ * @param basePath The base path to write out the files to.
+ */
 export const writeTSSassESLintMongoPackageJson = async (
 	name: string,
 	basePath: string
@@ -197,12 +278,11 @@ export const writeTSSassESLintMongoPackageJson = async (
 	);
 };
 
-export const writeCommonFiles = async (
-	name: string,
-	basePath: string,
-	typeScript: boolean,
-	sass: boolean
-): Promise<void> => {
+/**
+ * Uses fs to create all the directories common to all Next.js apps.
+ * @param basePath The base path to write out the directories to.
+ */
+const mkCommonDirs = async (basePath: string): Promise<void> => {
 	fs.mkdirSync(path.join(__dirname, basePath, "/components"), {
 		recursive: true,
 	});
@@ -215,48 +295,79 @@ export const writeCommonFiles = async (
 	fs.mkdirSync(path.join(__dirname, basePath, "/pages/api/post"), {
 		recursive: true,
 	});
+};
+
+/**
+ * Uses fs to write the files that are common to all Next.js apps.
+ * @param name The name of the project.
+ * @param basePath The base path to write out the files to.
+ * @param options The options. Takes the form. {
+	typeScript: boolean;
+	sass: boolean;
+} where typeScript is if this is a TypeScript object and where sass is whether this project should include sass.
+ */
+export const writeCommonFiles = async (
+	name: string,
+	basePath: string,
+	options: Options
+): Promise<void> => {
+	mkCommonDirs(basePath);
 	fs.writeFileSync(
 		path.join(
 			__dirname,
 			basePath,
-			`/components/Meta.${typeScript ? "tsx" : "jsx"}`
+			`/components/Meta.${options.typeScript ? "tsx" : "jsx"}`
 		),
-		getMeta(name, typeScript)
+		getMeta(name, options.typeScript)
 	);
 	fs.writeFileSync(
 		path.join(
 			__dirname,
 			basePath,
-			`/components/Wrapper.${typeScript ? "tsx" : "jsx"}`
+			`/components/Wrapper.${options.typeScript ? "tsx" : "jsx"}`
 		),
-		typeScript ? WRAPPER_TS : WRAPPER
+		options.typeScript ? WRAPPER_TS : WRAPPER
 	);
 	fs.writeFileSync(
 		path.join(
 			__dirname,
 			basePath,
-			`/pages/api/post/index.${typeScript ? "ts" : "js"}`
+			`/pages/api/post/index.${options.typeScript ? "ts" : "js"}`
 		),
-		typeScript ? API_POST_TS : API_POST
-	);
-	fs.writeFileSync(
-		path.join(__dirname, basePath, `/pages/_app.${typeScript ? "tsx" : "jsx"}`),
-		sass ? (typeScript ? APP_SASS_TS : APP_SASS) : typeScript ? APP_TS : APP
+		options.typeScript ? API_POST_TS : API_POST
 	);
 	fs.writeFileSync(
 		path.join(
 			__dirname,
 			basePath,
-			`/pages/index.${typeScript ? "tsx" : "jsx"}`
+			`/pages/_app.${options.typeScript ? "tsx" : "jsx"}`
 		),
-		getIndex(name, typeScript)
+		options.sass
+			? options.typeScript
+				? APP_SASS_TS
+				: APP_SASS
+			: options.typeScript
+			? APP_TS
+			: APP
+	);
+	fs.writeFileSync(
+		path.join(
+			__dirname,
+			basePath,
+			`/pages/index.${options.typeScript ? "tsx" : "jsx"}`
+		),
+		getIndex(name, options.typeScript)
 	);
 	fs.writeFileSync(
 		path.join(__dirname, basePath, "/public/manifest.json"),
 		getManifest(name)
 	);
 	fs.writeFileSync(
-		path.join(__dirname, basePath, `/utils/index.${typeScript ? "ts" : "js"}`),
+		path.join(
+			__dirname,
+			basePath,
+			`/utils/index.${options.typeScript ? "ts" : "js"}`
+		),
 		UTILS_INDEX
 	);
 	fs.writeFileSync(path.join(__dirname, basePath, "/.gitignore"), GITIGNORE);
