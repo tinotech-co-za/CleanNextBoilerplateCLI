@@ -1,7 +1,8 @@
 import inquirer from "inquirer";
 import { program } from "commander";
 import path from "path";
-import { writeCommonFiles } from "./writers/common";
+
+import { writeCommonFiles, writeJSPackageJson } from "./writers/common";
 
 const run = async (name: string, basePath: string) => {
 	const answers = await inquirer.prompt([
@@ -153,6 +154,7 @@ const run = async (name: string, basePath: string) => {
 		!answers.mongodb
 	) {
 		await writeCommonFiles(name, basePath, false);
+		await writeJSPackageJson(name, basePath);
 		return console.log("16. javascript");
 	}
 	console.log(answers);

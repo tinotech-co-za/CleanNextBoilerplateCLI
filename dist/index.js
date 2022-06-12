@@ -126,6 +126,7 @@ const run = async (name, basePath) => {
         !answers.eslint &&
         !answers.mongodb) {
         await (0, common_1.writeCommonFiles)(name, basePath, false);
+        await (0, common_1.writeJSPackageJson)(name, basePath);
         return console.log("16. javascript");
     }
     console.log(answers);

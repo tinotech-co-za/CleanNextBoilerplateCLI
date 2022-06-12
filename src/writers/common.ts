@@ -1,7 +1,13 @@
 import path from "path";
 import fs from "fs";
 
-import { getIndex, getManifest, getMeta, getReadme } from "../utils/files";
+import {
+	getIndex,
+	getJSPackageJson,
+	getManifest,
+	getMeta,
+	getReadme,
+} from "../utils/files";
 import {
 	API_POST,
 	APP_TSX,
@@ -10,6 +16,16 @@ import {
 	VERCEL_JSON,
 	WRAPPER,
 } from "../utils/constants";
+
+export const writeJSPackageJson: Function = async (
+	name: string,
+	basePath: string
+): Promise<void> => {
+	fs.writeFileSync(
+		path.join(__dirname, basePath, "package.json"),
+		getJSPackageJson(name)
+	);
+};
 
 export const writeCommonFiles: Function = async (
 	name: string,
