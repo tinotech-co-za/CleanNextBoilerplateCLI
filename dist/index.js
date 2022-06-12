@@ -9,6 +9,7 @@ const path_1 = __importDefault(require("path"));
 const common_1 = require("./writers/common");
 const mongodb_1 = require("./writers/mongodb");
 const eslint_1 = require("./writers/eslint");
+const sass_1 = require("./writers/sass");
 const run = async (name, basePath) => {
     const answers = await inquirer_1.default.prompt([
         {
@@ -109,6 +110,9 @@ const run = async (name, basePath) => {
         answers.sass &&
         !answers.eslint &&
         !answers.mongodb) {
+        await (0, common_1.writeCommonFiles)(name, basePath, false);
+        await (0, common_1.writeJSSassPackageJson)(name, basePath);
+        await (0, sass_1.writeSass)(basePath);
         return console.log("13. javascript, sass");
     }
     if (!answers.typescript &&

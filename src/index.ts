@@ -7,9 +7,11 @@ import {
 	writeJSESLintPackageJson,
 	writeJSMongoPackageJson,
 	writeJSPackageJson,
+	writeJSSassPackageJson,
 } from "./writers/common";
 import { writeNextConfig, writeUtilsDB } from "./writers/mongodb";
 import { writeESLintRC } from "./writers/eslint";
+import { writeSass } from "./writers/sass";
 
 const run = async (name: string, basePath: string) => {
 	const answers = await inquirer.prompt([
@@ -136,6 +138,9 @@ const run = async (name: string, basePath: string) => {
 		!answers.eslint &&
 		!answers.mongodb
 	) {
+		await writeCommonFiles(name, basePath, false);
+		await writeJSSassPackageJson(name, basePath);
+		await writeSass(basePath);
 		return console.log("13. javascript, sass");
 	}
 	if (
