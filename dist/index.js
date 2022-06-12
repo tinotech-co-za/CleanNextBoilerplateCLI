@@ -99,9 +99,8 @@ const run = async (name, basePath) => {
         !answers.eslint &&
         answers.mongodb) {
         await (0, common_1.writeCommonFiles)(name, basePath, false, true);
-        await (0, common_1.writeJSSassPackageJson)(name, basePath);
+        await (0, common_1.writeJSSassMongoPackageJson)(name, basePath);
         await (0, sass_1.writeSass)(basePath);
-        await (0, common_1.writeJSMongoPackageJson)(name, basePath);
         await (0, mongodb_1.writeNextConfig)(basePath);
         await (0, mongodb_1.writeUtilsDB)(basePath, false);
         return console.log("11. javascript, sass, mongodb");
@@ -111,9 +110,8 @@ const run = async (name, basePath) => {
         answers.eslint &&
         !answers.mongodb) {
         await (0, common_1.writeCommonFiles)(name, basePath, false, true);
-        await (0, common_1.writeJSSassPackageJson)(name, basePath);
+        await (0, common_1.writeJSSassESLintPackageJson)(name, basePath);
         await (0, sass_1.writeSass)(basePath);
-        await (0, common_1.writeJSESLintPackageJson)(name, basePath);
         await (0, eslint_1.writeESLintRC)(basePath);
         return console.log("12. javascript, sass, eslint");
     }

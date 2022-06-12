@@ -7,6 +7,8 @@ import {
 	writeJSESLintPackageJson,
 	writeJSMongoPackageJson,
 	writeJSPackageJson,
+	writeJSSassESLintPackageJson,
+	writeJSSassMongoPackageJson,
 	writeJSSassPackageJson,
 } from "./writers/common";
 import { writeNextConfig, writeUtilsDB } from "./writers/mongodb";
@@ -123,9 +125,8 @@ const run = async (name: string, basePath: string) => {
 		answers.mongodb
 	) {
 		await writeCommonFiles(name, basePath, false, true);
-		await writeJSSassPackageJson(name, basePath);
+		await writeJSSassMongoPackageJson(name, basePath);
 		await writeSass(basePath);
-		await writeJSMongoPackageJson(name, basePath);
 		await writeNextConfig(basePath);
 		await writeUtilsDB(basePath, false);
 		return console.log("11. javascript, sass, mongodb");
@@ -137,9 +138,8 @@ const run = async (name: string, basePath: string) => {
 		!answers.mongodb
 	) {
 		await writeCommonFiles(name, basePath, false, true);
-		await writeJSSassPackageJson(name, basePath);
+		await writeJSSassESLintPackageJson(name, basePath);
 		await writeSass(basePath);
-		await writeJSESLintPackageJson(name, basePath);
 		await writeESLintRC(basePath);
 		return console.log("12. javascript, sass, eslint");
 	}
