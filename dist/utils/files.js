@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.getReadme = exports.getTSESLintMongoPackageJson = exports.getTSSassMongoPackageJson = exports.getTSSassESLintPackageJson = exports.getTSSassPackageJson = exports.getTSESLintPackageJson = exports.getTSMongoPackageJson = exports.getTSPackageJson = exports.getJSSassESLintMongoPackageJson = exports.getJSESLintMongoPackageJson = exports.getJSSassMongoPackageJson = exports.getJSSassESLintPackageJson = exports.getJSSassPackageJson = exports.getJSESLintPackageJson = exports.getJSMongoPackageJson = exports.getJSPackageJson = exports.getManifest = exports.getIndex = exports.getMeta = void 0;
+exports.getReadme = exports.getTSSassESLintMongoPackageJson = exports.getTSESLintMongoPackageJson = exports.getTSSassMongoPackageJson = exports.getTSSassESLintPackageJson = exports.getTSSassPackageJson = exports.getTSESLintPackageJson = exports.getTSMongoPackageJson = exports.getTSPackageJson = exports.getJSSassESLintMongoPackageJson = exports.getJSESLintMongoPackageJson = exports.getJSSassMongoPackageJson = exports.getJSSassESLintPackageJson = exports.getJSSassPackageJson = exports.getJSESLintPackageJson = exports.getJSMongoPackageJson = exports.getJSPackageJson = exports.getManifest = exports.getIndex = exports.getMeta = void 0;
 const getMeta = (name, typeScript) => typeScript
     ? `import Head from "next/head";
 
@@ -116,7 +116,7 @@ const getIndex = (name, typeScript) => typeScript
     ? `const Home: React.FC = (): JSX.Element => {
 	return (
 		<main>
-			<p>Clean Next.js with TypeScript and Sass Boilerplate</p>
+			<p>${name}</p>
 		</main>
 	);
 };
@@ -506,6 +506,34 @@ const getTSESLintMongoPackageJson = (name) => `{
 }
 `;
 exports.getTSESLintMongoPackageJson = getTSESLintMongoPackageJson;
+const getTSSassESLintMongoPackageJson = (name) => `{
+    "name": "${name.toLowerCase().split(" ").join("-")}",
+	"private": true,
+	"scripts": {
+		"dev": "next",
+		"build": "next build",
+		"start": "next start",
+        "type-check": "tsc"
+	},
+	"dependencies": {
+		"next": "latest",
+		"react": "latest",
+		"react-dom": "latest",
+        "mongoose": "latest"
+	},
+	"license": "MIT",
+	"devDependencies": {
+		"@types/node": "latest",
+		"@types/react": "latest",
+		"@types/react-dom": "latest",
+		"eslint": "latest",
+		"eslint-config-next": "latest",
+        "sass": "latest",
+		"typescript": "latest"
+	}
+}
+`;
+exports.getTSSassESLintMongoPackageJson = getTSSassESLintMongoPackageJson;
 const getReadme = (name) => `# ${name}
 `;
 exports.getReadme = getReadme;

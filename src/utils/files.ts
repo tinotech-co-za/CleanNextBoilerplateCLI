@@ -115,7 +115,7 @@ export const getIndex: Function = (name: string, typeScript: boolean): string =>
 		? `const Home: React.FC = (): JSX.Element => {
 	return (
 		<main>
-			<p>Clean Next.js with TypeScript and Sass Boilerplate</p>
+			<p>${name}</p>
 		</main>
 	);
 };
@@ -506,6 +506,36 @@ export const getTSESLintMongoPackageJson: Function = (
 		"@types/react-dom": "latest",
 		"eslint": "latest",
 		"eslint-config-next": "latest",
+		"typescript": "latest"
+	}
+}
+`;
+
+export const getTSSassESLintMongoPackageJson: Function = (
+	name: string
+): string => `{
+    "name": "${name.toLowerCase().split(" ").join("-")}",
+	"private": true,
+	"scripts": {
+		"dev": "next",
+		"build": "next build",
+		"start": "next start",
+        "type-check": "tsc"
+	},
+	"dependencies": {
+		"next": "latest",
+		"react": "latest",
+		"react-dom": "latest",
+        "mongoose": "latest"
+	},
+	"license": "MIT",
+	"devDependencies": {
+		"@types/node": "latest",
+		"@types/react": "latest",
+		"@types/react-dom": "latest",
+		"eslint": "latest",
+		"eslint-config-next": "latest",
+        "sass": "latest",
 		"typescript": "latest"
 	}
 }
