@@ -2,7 +2,12 @@ import inquirer from "inquirer";
 import { program } from "commander";
 import path from "path";
 
-import { writeCommonFiles, writeJSPackageJson } from "./writers/common";
+import {
+	writeCommonFiles,
+	writeJSMongoPackageJson,
+	writeJSPackageJson,
+} from "./writers/common";
+import { writeNextConfig, writeUtilsDB } from "./writers/mongodb";
 
 const run = async (name: string, basePath: string) => {
 	const answers = await inquirer.prompt([
@@ -145,6 +150,10 @@ const run = async (name: string, basePath: string) => {
 		!answers.eslint &&
 		answers.mongodb
 	) {
+		await writeCommonFiles(name, basePath, false);
+		await writeJSMongoPackageJson(name, basePath);
+		await writeNextConfig(basePath);
+		await writeUtilsDB(basePath, false);
 		return console.log("15. javascript, mongodb");
 	}
 	if (
