@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.getReadme = exports.getJSPackageJson = exports.getManifest = exports.getIndex = exports.getMeta = void 0;
+exports.getReadme = exports.getJSMongoPackageJson = exports.getJSPackageJson = exports.getManifest = exports.getIndex = exports.getMeta = void 0;
 const getMeta = (name) => `import Head from "next/head";
 
 import { BASE_URL } from "../utils";
@@ -109,6 +109,24 @@ const getJSPackageJson = (name) => `{
 }
 `;
 exports.getJSPackageJson = getJSPackageJson;
+const getJSMongoPackageJson = (name) => `{
+    "name": "${name.toLowerCase().split(" ").join("-")}",
+	"private": true,
+	"scripts": {
+		"dev": "next",
+		"build": "next build",
+		"start": "next start"
+	},
+	"dependencies": {
+		"next": "latest",
+		"react": "latest",
+		"react-dom": "latest",
+        "mongoose": "latest"
+	},
+	"license": "MIT"
+}
+`;
+exports.getJSMongoPackageJson = getJSMongoPackageJson;
 const getReadme = (name) => `# ${name}
 `;
 exports.getReadme = getReadme;

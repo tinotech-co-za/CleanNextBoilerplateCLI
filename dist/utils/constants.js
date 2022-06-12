@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.WRAPPER = exports.APP_TSX = exports.API_POST = exports.UTILS_INDEX = exports.GITIGNORE = exports.VERCEL_JSON = void 0;
+exports.NEXT_CONFIG = exports.WRAPPER = exports.APP_TSX = exports.API_POST = exports.UTILS_INDEX = exports.GITIGNORE = exports.VERCEL_JSON = void 0;
 exports.VERCEL_JSON = `{
     "github": {
         "silent": true
@@ -91,4 +91,12 @@ const Wrapper = ({ children }) => {
 };
 
 export default Wrapper;
+`;
+exports.NEXT_CONFIG = `module.exports = {
+	webpack5: true,
+	env: {
+		// Ensure you've added this in an .env file.
+		MONGO_URI: process.env.MONGO_URI,
+	},
+};
 `;

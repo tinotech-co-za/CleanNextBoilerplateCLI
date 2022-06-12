@@ -7,6 +7,7 @@ const inquirer_1 = __importDefault(require("inquirer"));
 const commander_1 = require("commander");
 const path_1 = __importDefault(require("path"));
 const common_1 = require("./writers/common");
+const mongodb_1 = require("./writers/mongodb");
 const run = async (name, basePath) => {
     const answers = await inquirer_1.default.prompt([
         {
@@ -119,6 +120,10 @@ const run = async (name, basePath) => {
         !answers.sass &&
         !answers.eslint &&
         answers.mongodb) {
+        await (0, common_1.writeCommonFiles)(name, basePath, false);
+        await (0, common_1.writeJSMongoPackageJson)(name, basePath);
+        await (0, mongodb_1.writeNextConfig)(basePath);
+        await (0, mongodb_1.writeUtilsDB)(basePath, false);
         return console.log("15. javascript, mongodb");
     }
     if (!answers.typescript &&

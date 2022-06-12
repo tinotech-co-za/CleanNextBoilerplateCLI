@@ -3,15 +3,19 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.writeCommonFiles = exports.writeJSPackageJson = void 0;
+exports.writeCommonFiles = exports.writeJSMongoPackageJson = exports.writeJSPackageJson = void 0;
 const path_1 = __importDefault(require("path"));
 const fs_1 = __importDefault(require("fs"));
 const files_1 = require("../utils/files");
 const constants_1 = require("../utils/constants");
 const writeJSPackageJson = async (name, basePath) => {
-    fs_1.default.writeFileSync(path_1.default.join(__dirname, basePath, "package.json"), (0, files_1.getJSPackageJson)(name));
+    fs_1.default.writeFileSync(path_1.default.join(__dirname, basePath, "/package.json"), (0, files_1.getJSPackageJson)(name));
 };
 exports.writeJSPackageJson = writeJSPackageJson;
+const writeJSMongoPackageJson = async (name, basePath) => {
+    fs_1.default.writeFileSync(path_1.default.join(__dirname, basePath, "/package.json"), (0, files_1.getJSMongoPackageJson)(name));
+};
+exports.writeJSMongoPackageJson = writeJSMongoPackageJson;
 const writeCommonFiles = async (name, basePath, typeScript) => {
     fs_1.default.mkdirSync(path_1.default.join(__dirname, basePath, "/components"), {
         recursive: true,
