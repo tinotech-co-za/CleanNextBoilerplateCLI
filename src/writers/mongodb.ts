@@ -1,6 +1,6 @@
 import path from "path";
 import fs from "fs";
-import { NEXT_CONFIG } from "../utils/constants";
+import { NEXT_CONFIG, UTILS_DB, UTILS_DB_TS } from "../utils/constants";
 
 const writeNextConfig: Function = async (basePath: string): Promise<void> => {
 	fs.writeFileSync(
@@ -15,7 +15,7 @@ const writeUtilsDB: Function = async (
 ): Promise<void> => {
 	fs.writeFileSync(
 		path.join(__dirname, basePath, `/utils/db.${typeScript ? "ts" : "js"}`),
-		NEXT_CONFIG
+		typeScript ? UTILS_DB_TS : UTILS_DB
 	);
 };
 

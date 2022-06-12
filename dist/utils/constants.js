@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.SASS_APP = exports.SASS_BASE = exports.SASS_INDEX = exports.SASS_MIXINS = exports.SASS_FONTS = exports.SASS_COLOURS = exports.SASS_BREAKPOINTS = exports.ESLINT_RC = exports.NEXT_CONFIG = exports.WRAPPER_TS = exports.WRAPPER = exports.APP_SASS_TS = exports.APP_SASS = exports.APP_TS = exports.APP = exports.API_POST_TS = exports.API_POST = exports.UTILS_INDEX = exports.GITIGNORE = exports.VERCEL_JSON = void 0;
+exports.UTILS_DB_TS = exports.UTILS_DB = exports.SASS_APP = exports.SASS_BASE = exports.SASS_INDEX = exports.SASS_MIXINS = exports.SASS_FONTS = exports.SASS_COLOURS = exports.SASS_BREAKPOINTS = exports.ESLINT_RC = exports.NEXT_CONFIG = exports.WRAPPER_TS = exports.WRAPPER = exports.APP_SASS_TS = exports.APP_SASS = exports.APP_TS = exports.APP = exports.API_POST_TS = exports.API_POST = exports.UTILS_INDEX = exports.GITIGNORE = exports.VERCEL_JSON = void 0;
 exports.VERCEL_JSON = `{
     "github": {
         "silent": true
@@ -277,4 +277,89 @@ body {
 }
 `;
 exports.SASS_APP = `@use "./components/base";
+`;
+exports.UTILS_DB = `import mongoose from "mongoose";
+
+const MONGO_URI = process.env.MONGO_URI;
+
+if (!MONGO_URI) {
+	throw new Error("An error occured please refresh or contact the developer.");
+}
+
+let cached = { conn: null, promise: null };
+
+if (!cached) {
+	cached = { conn: null, promise: null };
+}
+
+/**
+ * Connect to the database.
+ * @returns A mongoose object.
+ */
+const dbConnect = async () => {
+	if (cached.conn) {
+		return cached.conn;
+	}
+
+	if (!cached.promise) {
+		const opts = {
+			useNewUrlParser: true,
+			useUnifiedTopology: true,
+			bufferCommands: false,
+		};
+
+		cached.promise = mongoose.connect(MONGO_URI, opts).then((mongoose) => {
+			return mongoose;
+		});
+	}
+	cached.conn = await cached.promise;
+	return cached.conn;
+};
+
+export default dbConnect;
+`;
+exports.UTILS_DB_TS = `import mongoose from "mongoose";
+
+const MONGO_URI = process.env.MONGO_URI;
+
+if (!MONGO_URI) {
+	throw new Error("An error occured please refresh or contact the developer.");
+}
+
+let cached: {
+	conn: null | typeof mongoose;
+	promise: null | Promise<typeof mongoose>;
+} = { conn: null, promise: null };
+
+if (!cached) {
+	cached = { conn: null, promise: null };
+}
+
+/**
+ * Connect to the database.
+ * @returns A mongoose object.
+ */
+const dbConnect: Function = async (): Promise<typeof mongoose> => {
+	if (cached.conn) {
+		return cached.conn;
+	}
+
+	if (!cached.promise) {
+		const opts = {
+			useNewUrlParser: true,
+			useUnifiedTopology: true,
+			bufferCommands: false,
+		};
+
+		cached.promise = mongoose
+			.connect(MONGO_URI as string, opts)
+			.then((mongoose) => {
+				return mongoose;
+			});
+	}
+	cached.conn = await cached.promise;
+	return cached.conn;
+};
+
+export default dbConnect;
 `;
