@@ -1,3 +1,7 @@
+/**
+ * Vercel config file that silences Vercel/GitHub notifications for building/pull requests.
+ * vercel.json
+ */
 export const VERCEL_JSON = `{
     "github": {
         "silent": true
@@ -5,6 +9,10 @@ export const VERCEL_JSON = `{
 }
 `;
 
+/**
+ * Standard .gitignore file.
+ * .gitignore
+ */
 export const GITIGNORE = `# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
 
 # dependencies
@@ -41,10 +49,18 @@ yarn-error.log*
 .vercel
 `;
 
+/**
+ * A utils file that contains a ternary for the base url of the project.
+ * utils/index.ts/js
+ */
 export const UTILS_INDEX = `export const BASE_URL =
 	process.env.NODE_ENV === "production" ? "" : "http://localhost:3000";
 `;
 
+/**
+ * A dummy API endpoint.
+ * pages/api/post/index.js
+ */
 export const API_POST = `const handler = (req, res) => {
 	res.status(200).json({ message: "Hello there" });
 };
@@ -52,6 +68,10 @@ export const API_POST = `const handler = (req, res) => {
 export default handler;
 `;
 
+/**
+ * A dummy TypeScript API endpoint.
+ * pages/api/post/index.ts
+ */
 export const API_POST_TS = `import { NextApiRequest, NextApiResponse } from "next";
 
 const handler = (req: NextApiRequest, res: NextApiResponse) => {
@@ -61,6 +81,10 @@ const handler = (req: NextApiRequest, res: NextApiResponse) => {
 export default handler;
 `;
 
+/**
+ * Next.js app file.
+ * pages/_app.jsx
+ */
 export const APP = `import { useEffect } from "react";
 
 import Wrapper from "../components/Wrapper";
@@ -90,6 +114,10 @@ const MyApp = ({ Component, pageProps }) => {
 export default MyApp;
 `;
 
+/**
+ * Next.js TypeScript app file.
+ * pages/_app.tsx
+ */
 export const APP_TS = `import { AppProps } from "next/app";
 import { useEffect } from "react";
 
@@ -120,6 +148,10 @@ const MyApp= ({ Component, pageProps }: AppProps) => {
 export default MyApp;
 `;
 
+/**
+ * Next.js app file with Sass import.
+ * pages/_app.jsx
+ */
 export const APP_SASS = `import { useEffect } from "react";
 
 import Wrapper from "../components/Wrapper";
@@ -150,6 +182,10 @@ const MyApp = ({ Component, pageProps }) => {
 export default MyApp;
 `;
 
+/**
+ * Next.js app TypeScript file with Sass import.
+ * pages/_app.tsx
+ */
 export const APP_SASS_TS = `import { AppProps } from "next/app";
 import { useEffect } from "react";
 
@@ -180,6 +216,10 @@ const MyApp= ({ Component, pageProps }: AppProps) => {
 export default MyApp;
 `;
 
+/**
+ * Container file for wrapping components around app.
+ * components/Wrapper.jsx
+ */
 export const WRAPPER = `import Meta from "./Meta";
 
 const Wrapper = ({ children }) => {
@@ -194,6 +234,10 @@ const Wrapper = ({ children }) => {
 export default Wrapper;
 `;
 
+/**
+ * TypeScript Container file for wrapping components around app.
+ * components/Wrapper.tsx
+ */
 export const WRAPPER_TS = `import { WrapperProps } from "../interfaces";
 
 import Meta from "./Meta";
@@ -210,6 +254,10 @@ const Wrapper: React.FC<WrapperProps> = ({ children }): JSX.Element => {
 export default Wrapper;
 `;
 
+/**
+ * Next.js config file.
+ * next.config.js
+ */
 export const NEXT_CONFIG = `module.exports = {
 	webpack5: true,
 	env: {
@@ -219,11 +267,19 @@ export const NEXT_CONFIG = `module.exports = {
 };
 `;
 
+/**
+ * ESLint config file.
+ * .eslintrc.json
+ */
 export const ESLINT_RC = `{
     "extends": "next/core-web-vitals"
   }
   `;
 
+/**
+ * Sass breakpoints file containing a map for common screen breakpoints.
+ * sass/abstracts/_breakpoints.scss
+ */
 export const SASS_BREAKPOINTS = `$breakpoints: (
     phone-xs: 400px,
     phone: 500px,
@@ -232,9 +288,17 @@ export const SASS_BREAKPOINTS = `$breakpoints: (
     desktop-xl: 1500px,
 );`;
 
+/**
+ * Sass colours file with a variable for the white colour.
+ * sass/abstracts/_colours.scss
+ */
 export const SASS_COLOURS = `$white: white;
 `;
 
+/**
+ * Sass fonts file containing common font sizes as well as an import for Google fonts Poppins font.
+ * sass/abstracts/_fonts.scss
+ */
 export const SASS_FONTS = `@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap");
 
 $font-xxxl: 8rem;
@@ -247,6 +311,10 @@ $font-rg: 1rem;
 $font-xs: 0.7rem;
 `;
 
+/**
+ * Sass mixins file containing a few mixins.
+ * sass/abstracts/_mixins.scss
+ */
 export const SASS_MIXINS = `@use "./breakpoints" as *;
 
 @mixin flexAllRow {
@@ -271,11 +339,19 @@ export const SASS_MIXINS = `@use "./breakpoints" as *;
 }
 `;
 
+/**
+ * Sass index file that forwards all abstracts.
+ * sass/abstracts/_index.scss
+ */
 export const SASS_INDEX = `@forward "../abstracts/colours";
 @forward "../abstracts/fonts";
 @forward "../abstracts/mixins";
 `;
 
+/**
+ * Sass base file containing a reset.
+ * sass/components/_base.scss
+ */
 export const SASS_BASE = `@use "../abstracts/" as *;
 
 *,
@@ -292,9 +368,17 @@ body {
 }
 `;
 
+/**
+ * Sass app file for using components.
+ * sass/App.scss
+ */
 export const SASS_APP = `@use "./components/base";
 `;
 
+/**
+ * Configuration for using a MongoDB database.
+ * utils/db.js
+ */
 export const UTILS_DB = `import mongoose from "mongoose";
 
 const MONGO_URI = process.env.MONGO_URI;
@@ -336,6 +420,10 @@ const dbConnect = async () => {
 export default dbConnect;
 `;
 
+/**
+ * TypeScript Configuration for using a MongoDB database.
+ * utils/db.ts
+ */
 export const UTILS_DB_TS = `import mongoose from "mongoose";
 
 const MONGO_URI = process.env.MONGO_URI;
