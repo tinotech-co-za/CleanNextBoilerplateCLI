@@ -12,6 +12,7 @@ import {
 	writeJSSassESLintPackageJson,
 	writeJSSassMongoPackageJson,
 	writeJSSassPackageJson,
+	writeTSPackageJson,
 } from "./writers/common";
 import { writeMongo } from "./writers/mongodb";
 import { writeESLint } from "./writers/eslint";
@@ -102,6 +103,8 @@ const run = async (name: string, basePath: string) => {
 		!answers.eslint &&
 		!answers.mongodb
 	) {
+		await writeCommonFiles(name, basePath, true, false);
+		await writeTSPackageJson(name, basePath);
 		return console.log("8. typescript");
 	}
 	if (

@@ -261,5 +261,28 @@ export const getJSSassESLintMongoPackageJson: Function = (
 }
 `;
 
+export const getTSPackageJson: Function = (name: string): string => `{
+    "name": "${name.toLowerCase().split(" ").join("-")}",
+	"private": true,
+	"scripts": {
+		"dev": "next",
+		"build": "next build",
+		"start": "next start"
+	},
+	"dependencies": {
+		"next": "latest",
+		"react": "latest",
+		"react-dom": "latest",
+	},
+	"license": "MIT",
+	"devDependencies": {
+		"@types/node": "latest",
+		"@types/react": "latest",
+		"@types/react-dom": "latest",
+		"typescript": "latest"
+	}
+}
+`;
+
 export const getReadme: Function = (name: string): string => `# ${name}
 `;
