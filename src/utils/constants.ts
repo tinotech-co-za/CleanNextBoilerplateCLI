@@ -81,6 +81,36 @@ const MyApp = ({ Component, pageProps }) => {
 export default MyApp;
 `;
 
+export const APP_SASS = `import { useEffect } from "react";
+
+import Wrapper from "../components/Wrapper";
+import "../sass/App.scss";
+
+const MyApp = ({ Component, pageProps }) => {
+	useEffect(() => {
+		const disableReactDevTools = () => {
+			const noop = () => undefined;
+			const DEV_TOOLS = window.__REACT_DEVTOOLS_GLOBAL_HOOK__;
+
+			if (typeof DEV_TOOLS === "object") {
+				for (const [key, value] of Object.entries(DEV_TOOLS)) {
+					DEV_TOOLS[key] = typeof value === "function" ? noop : null;
+				}
+			}
+		};
+		if (process.env.NODE_ENV === "production") disableReactDevTools();
+	}, []);
+
+	return (
+		<Wrapper>
+			<Component {...pageProps} />
+		</Wrapper>
+	);
+};
+
+export default MyApp;
+`;
+
 export const WRAPPER = `import Meta from "./Meta";
 
 const Wrapper = ({ children }) => {
@@ -108,3 +138,74 @@ export const ESLINT_RC = `{
     "extends": "next/core-web-vitals"
   }
   `;
+
+export const SASS_BREAKPOINTS = `$breakpoints: (
+    phone-xs: 400px,
+    phone: 500px,
+    tablet: 1024px,
+    desktop: 1300px,
+    desktop-xl: 1500px,
+);`;
+
+export const SASS_COLOURS = `$white: white;
+`;
+
+export const SASS_FONTS = `@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap");
+
+$font-xxxl: 8rem;
+$font-xxl: 5rem;
+$font-xl: 4rem;
+$font-lg: 3rem;
+$font-md: 2rem;
+$font-sm: 1.5rem;
+$font-rg: 1rem;
+$font-xs: 0.7rem;
+`;
+
+export const SASS_MIXINS = `@use "./breakpoints" as *;
+
+@mixin flexAllRow {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+@mixin flexAllCol {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+}
+
+@mixin mq($key) {
+	$size: map-get($breakpoints, $key);
+  
+	@media only screen and (max-width: $size) {
+	  @content;
+	}
+}
+`;
+
+export const SASS_INDEX = `@forward "../abstracts/colours";
+@forward "../abstracts/fonts";
+@forward "../abstracts/mixins";
+`;
+
+export const SASS_BASE = `@use "../abstracts/" as *;
+
+*,
+*::before,
+*::after {
+	font-family: "Poppins", sans-serif;
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+
+body {
+	overflow-x: hidden;
+}
+`;
+
+export const SASS_APP = `@use "./components/base";
+`;

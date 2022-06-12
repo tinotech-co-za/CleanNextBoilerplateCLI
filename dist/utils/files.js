@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.getReadme = exports.getJSESLintPackageJson = exports.getJSMongoPackageJson = exports.getJSPackageJson = exports.getManifest = exports.getIndex = exports.getMeta = void 0;
+exports.getReadme = exports.getJSSassPackageJson = exports.getJSESLintPackageJson = exports.getJSMongoPackageJson = exports.getJSPackageJson = exports.getManifest = exports.getIndex = exports.getMeta = void 0;
 const getMeta = (name) => `import Head from "next/head";
 
 import { BASE_URL } from "../utils";
@@ -138,8 +138,7 @@ const getJSESLintPackageJson = (name) => `{
 	"dependencies": {
 		"next": "latest",
 		"react": "latest",
-		"react-dom": "latest",
-        "mongoose": "latest"
+		"react-dom": "latest"
 	},
 	"license": "MIT",
 	"devDependencies": {
@@ -149,6 +148,26 @@ const getJSESLintPackageJson = (name) => `{
 }
 `;
 exports.getJSESLintPackageJson = getJSESLintPackageJson;
+const getJSSassPackageJson = (name) => `{
+    "name": "${name.toLowerCase().split(" ").join("-")}",
+	"private": true,
+	"scripts": {
+		"dev": "next",
+		"build": "next build",
+		"start": "next start"
+	},
+	"dependencies": {
+		"next": "latest",
+		"react": "latest",
+		"react-dom": "latest"
+	},
+	"license": "MIT",
+	"devDependencies": {
+		"sass": "latest"
+	}
+}
+`;
+exports.getJSSassPackageJson = getJSSassPackageJson;
 const getReadme = (name) => `# ${name}
 `;
 exports.getReadme = getReadme;

@@ -139,13 +139,32 @@ export const getJSESLintPackageJson: Function = (name: string): string => `{
 	"dependencies": {
 		"next": "latest",
 		"react": "latest",
-		"react-dom": "latest",
-        "mongoose": "latest"
+		"react-dom": "latest"
 	},
 	"license": "MIT",
 	"devDependencies": {
 		"eslint": "8.11.0",
 		"eslint-config-next": "12.1.0"
+	}
+}
+`;
+
+export const getJSSassPackageJson: Function = (name: string): string => `{
+    "name": "${name.toLowerCase().split(" ").join("-")}",
+	"private": true,
+	"scripts": {
+		"dev": "next",
+		"build": "next build",
+		"start": "next start"
+	},
+	"dependencies": {
+		"next": "latest",
+		"react": "latest",
+		"react-dom": "latest"
+	},
+	"license": "MIT",
+	"devDependencies": {
+		"sass": "latest"
 	}
 }
 `;
