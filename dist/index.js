@@ -44,6 +44,10 @@ const run = async (name, basePath) => {
         !answers.sass &&
         answers.eslint &&
         answers.mongodb) {
+        await (0, common_1.writeCommonFiles)(name, basePath, true, false);
+        await (0, common_1.writeTSESLintMongoPackageJson)(name, basePath);
+        await (0, mongodb_1.writeMongo)(basePath, true);
+        await (0, eslint_1.writeESLint)(basePath);
         return console.log("2. typescript, eslint, mongodb");
     }
     if (answers.typescript &&

@@ -14,6 +14,7 @@ import {
 	getManifest,
 	getMeta,
 	getReadme,
+	getTSESLintMongoPackageJson,
 	getTSESLintPackageJson,
 	getTSMongoPackageJson,
 	getTSPackageJson,
@@ -172,6 +173,16 @@ export const writeTSSassMongoPackageJson: Function = async (
 	fs.writeFileSync(
 		path.join(__dirname, basePath, "/package.json"),
 		getTSSassMongoPackageJson(name)
+	);
+};
+
+export const writeTSESLintMongoPackageJson: Function = async (
+	name: string,
+	basePath: string
+): Promise<void> => {
+	fs.writeFileSync(
+		path.join(__dirname, basePath, "/package.json"),
+		getTSESLintMongoPackageJson(name)
 	);
 };
 
