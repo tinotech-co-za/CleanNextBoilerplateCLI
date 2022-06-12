@@ -37,20 +37,39 @@ const writeCommonFiles: Function = async (
 		recursive: true,
 	});
 	fs.writeFileSync(
-		path.join(__dirname, basePath, "/components/Meta.jsx"),
+		path.join(
+			__dirname,
+			basePath,
+			`/components/Meta.${typeScript ? "tsx" : "jsx"}`
+		),
 		getMeta(name)
 	);
 	fs.writeFileSync(
-		path.join(__dirname, basePath, "/components/Wrapper.jsx"),
+		path.join(
+			__dirname,
+			basePath,
+			`/components/Wrapper.${typeScript ? "tsx" : "jsx"}`
+		),
 		WRAPPER
 	);
 	fs.writeFileSync(
-		path.join(__dirname, basePath, "/pages/api/post/index.js"),
+		path.join(
+			__dirname,
+			basePath,
+			`/pages/api/post/index.${typeScript ? "ts" : "js"}`
+		),
 		API_POST
 	);
-	fs.writeFileSync(path.join(__dirname, basePath, "/pages/_app.jsx"), APP_TSX);
 	fs.writeFileSync(
-		path.join(__dirname, basePath, "/pages/index.jsx"),
+		path.join(__dirname, basePath, `/pages/_app.${typeScript ? "tsx" : "jsx"}`),
+		APP_TSX
+	);
+	fs.writeFileSync(
+		path.join(
+			__dirname,
+			basePath,
+			`/pages/index.${typeScript ? "tsx" : "jsx"}`
+		),
 		getIndex(name)
 	);
 	fs.writeFileSync(
@@ -58,7 +77,7 @@ const writeCommonFiles: Function = async (
 		getManifest(name)
 	);
 	fs.writeFileSync(
-		path.join(__dirname, basePath, "/utils/index.js"),
+		path.join(__dirname, basePath, `/utils/index.${typeScript ? "ts" : "js"}`),
 		UTILS_INDEX
 	);
 	fs.writeFileSync(path.join(__dirname, basePath, "/.gitignore"), GITIGNORE);
