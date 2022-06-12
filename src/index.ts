@@ -12,7 +12,7 @@ import {
 	writeJSSassMongoPackageJson,
 	writeJSSassPackageJson,
 } from "./writers/common";
-import { writeNextConfig, writeUtilsDB } from "./writers/mongodb";
+import { writeMongo } from "./writers/mongodb";
 import { writeESLint } from "./writers/eslint";
 import { writeSass } from "./writers/sass";
 
@@ -119,8 +119,7 @@ const run = async (name: string, basePath: string) => {
 	) {
 		await writeCommonFiles(name, basePath, false, false);
 		await writeJSESLintMongoPackageJson(name, basePath);
-		await writeNextConfig(basePath);
-		await writeUtilsDB(basePath, false);
+		await writeMongo(basePath, false);
 		await writeESLint(basePath);
 		return console.log("10. javascript, eslint, mongodb");
 	}
@@ -133,8 +132,7 @@ const run = async (name: string, basePath: string) => {
 		await writeCommonFiles(name, basePath, false, true);
 		await writeJSSassMongoPackageJson(name, basePath);
 		await writeSass(basePath);
-		await writeNextConfig(basePath);
-		await writeUtilsDB(basePath, false);
+		await writeMongo(basePath, false);
 		return console.log("11. javascript, sass, mongodb");
 	}
 	if (
@@ -179,8 +177,7 @@ const run = async (name: string, basePath: string) => {
 	) {
 		await writeCommonFiles(name, basePath, false, false);
 		await writeJSMongoPackageJson(name, basePath);
-		await writeNextConfig(basePath);
-		await writeUtilsDB(basePath, false);
+		await writeMongo(basePath, false);
 		return console.log("15. javascript, mongodb");
 	}
 	if (
