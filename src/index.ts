@@ -8,6 +8,7 @@ import {
 	writeJSESLintPackageJson,
 	writeJSMongoPackageJson,
 	writeJSPackageJson,
+	writeJSSassESLintMongoPackageJson,
 	writeJSSassESLintPackageJson,
 	writeJSSassMongoPackageJson,
 	writeJSSassPackageJson,
@@ -109,6 +110,11 @@ const run = async (name: string, basePath: string) => {
 		answers.eslint &&
 		answers.mongodb
 	) {
+		await writeCommonFiles(name, basePath, false, true);
+		await writeJSSassESLintMongoPackageJson(name, basePath);
+		await writeMongo(basePath, false);
+		await writeESLint(basePath);
+		await writeSass(basePath);
 		return console.log("9. javascript, sass, eslint, mongodb");
 	}
 	if (
