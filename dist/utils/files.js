@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.getReadme = exports.getTSSassPackageJson = exports.getTSESLintPackageJson = exports.getTSMongoPackageJson = exports.getTSPackageJson = exports.getJSSassESLintMongoPackageJson = exports.getJSESLintMongoPackageJson = exports.getJSSassMongoPackageJson = exports.getJSSassESLintPackageJson = exports.getJSSassPackageJson = exports.getJSESLintPackageJson = exports.getJSMongoPackageJson = exports.getJSPackageJson = exports.getManifest = exports.getIndex = exports.getMeta = void 0;
+exports.getReadme = exports.getTSSassESLintPackageJson = exports.getTSSassPackageJson = exports.getTSESLintPackageJson = exports.getTSMongoPackageJson = exports.getTSPackageJson = exports.getJSSassESLintMongoPackageJson = exports.getJSESLintMongoPackageJson = exports.getJSSassMongoPackageJson = exports.getJSSassESLintPackageJson = exports.getJSSassPackageJson = exports.getJSESLintPackageJson = exports.getJSMongoPackageJson = exports.getJSPackageJson = exports.getManifest = exports.getIndex = exports.getMeta = void 0;
 const getMeta = (name, typeScript) => typeScript
     ? `import Head from "next/head";
 
@@ -426,6 +426,33 @@ const getTSSassPackageJson = (name) => `{
 }
 `;
 exports.getTSSassPackageJson = getTSSassPackageJson;
+const getTSSassESLintPackageJson = (name) => `{
+    "name": "${name.toLowerCase().split(" ").join("-")}",
+	"private": true,
+	"scripts": {
+		"dev": "next",
+		"build": "next build",
+		"start": "next start",
+        "type-check": "tsc"
+	},
+	"dependencies": {
+		"next": "latest",
+		"react": "latest",
+		"react-dom": "latest"
+	},
+	"license": "MIT",
+	"devDependencies": {
+		"@types/node": "latest",
+		"@types/react": "latest",
+		"@types/react-dom": "latest",
+        "eslint": "latest",
+		"eslint-config-next": "latest",
+		"sass": "latest",
+		"typescript": "latest"
+	}
+}
+`;
+exports.getTSSassESLintPackageJson = getTSSassESLintPackageJson;
 const getReadme = (name) => `# ${name}
 `;
 exports.getReadme = getReadme;
