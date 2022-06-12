@@ -8,6 +8,7 @@ const commander_1 = require("commander");
 const path_1 = __importDefault(require("path"));
 const common_1 = require("./writers/common");
 const mongodb_1 = require("./writers/mongodb");
+const eslint_1 = require("./writers/eslint");
 const run = async (name, basePath) => {
     const answers = await inquirer_1.default.prompt([
         {
@@ -114,6 +115,9 @@ const run = async (name, basePath) => {
         !answers.sass &&
         answers.eslint &&
         !answers.mongodb) {
+        await (0, common_1.writeCommonFiles)(name, basePath, false);
+        await (0, common_1.writeJSESLintPackageJson)(name, basePath);
+        await (0, eslint_1.writeESLintRC)(basePath);
         return console.log("14. javascript, eslint");
     }
     if (!answers.typescript &&

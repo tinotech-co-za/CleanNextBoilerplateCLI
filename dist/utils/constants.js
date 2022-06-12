@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.NEXT_CONFIG = exports.WRAPPER = exports.APP_TSX = exports.API_POST = exports.UTILS_INDEX = exports.GITIGNORE = exports.VERCEL_JSON = void 0;
+exports.ESLINT_RC = exports.NEXT_CONFIG = exports.WRAPPER = exports.APP_TSX = exports.API_POST = exports.UTILS_INDEX = exports.GITIGNORE = exports.VERCEL_JSON = void 0;
 exports.VERCEL_JSON = `{
     "github": {
         "silent": true
@@ -100,3 +100,7 @@ exports.NEXT_CONFIG = `module.exports = {
 	},
 };
 `;
+exports.ESLINT_RC = `{
+    "extends": "next/core-web-vitals"
+  }
+  `;

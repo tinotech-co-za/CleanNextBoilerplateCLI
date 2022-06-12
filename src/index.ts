@@ -4,10 +4,12 @@ import path from "path";
 
 import {
 	writeCommonFiles,
+	writeJSESLintPackageJson,
 	writeJSMongoPackageJson,
 	writeJSPackageJson,
 } from "./writers/common";
 import { writeNextConfig, writeUtilsDB } from "./writers/mongodb";
+import { writeESLintRC } from "./writers/eslint";
 
 const run = async (name: string, basePath: string) => {
 	const answers = await inquirer.prompt([
@@ -142,6 +144,9 @@ const run = async (name: string, basePath: string) => {
 		answers.eslint &&
 		!answers.mongodb
 	) {
+		await writeCommonFiles(name, basePath, false);
+		await writeJSESLintPackageJson(name, basePath);
+		await writeESLintRC(basePath);
 		return console.log("14. javascript, eslint");
 	}
 	if (
