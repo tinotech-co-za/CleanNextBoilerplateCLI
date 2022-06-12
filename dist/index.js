@@ -6,10 +6,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const inquirer_1 = __importDefault(require("inquirer"));
 const commander_1 = require("commander");
 const path_1 = __importDefault(require("path"));
-const common_1 = require("./writers/common");
-const mongodb_1 = require("./writers/mongodb");
-const eslint_1 = require("./writers/eslint");
-const sass_1 = require("./writers/sass");
+const permutations_1 = require("./writers/permutations");
 const run = async (name, basePath) => {
     const answers = await inquirer_1.default.prompt([
         {
@@ -38,153 +35,145 @@ const run = async (name, basePath) => {
         },
     ]);
     if (answers.typescript && answers.sass && answers.eslint && answers.mongodb) {
-        await (0, common_1.writeCommonFiles)(name, basePath, true, true);
-        await (0, common_1.writeTSSassESLintMongoPackageJson)(name, basePath);
-        await (0, mongodb_1.writeMongo)(basePath, true);
-        await (0, sass_1.writeSass)(basePath);
-        await (0, eslint_1.writeESLint)(basePath);
-        return console.log("1. typescript, sass, eslint, mongodb");
+        await (0, permutations_1.writeTypeScriptSassESLintMongoDB)(name, basePath, {
+            typeScript: true,
+            sass: true,
+        });
     }
     if (answers.typescript &&
         !answers.sass &&
         answers.eslint &&
         answers.mongodb) {
-        await (0, common_1.writeCommonFiles)(name, basePath, true, false);
-        await (0, common_1.writeTSESLintMongoPackageJson)(name, basePath);
-        await (0, mongodb_1.writeMongo)(basePath, true);
-        await (0, eslint_1.writeESLint)(basePath);
-        return console.log("2. typescript, eslint, mongodb");
+        await (0, permutations_1.writeTypeScriptESLintMongoDB)(name, basePath, {
+            typeScript: true,
+            sass: false,
+        });
     }
     if (answers.typescript &&
         answers.sass &&
         !answers.eslint &&
         answers.mongodb) {
-        await (0, common_1.writeCommonFiles)(name, basePath, true, true);
-        await (0, common_1.writeTSSassMongoPackageJson)(name, basePath);
-        await (0, mongodb_1.writeMongo)(basePath, true);
-        await (0, sass_1.writeSass)(basePath);
-        return console.log("3. typescript, sass, mongodb");
+        await (0, permutations_1.writeTypeScriptSassMongoDB)(name, basePath, {
+            typeScript: true,
+            sass: true,
+        });
     }
     if (answers.typescript &&
         answers.sass &&
         answers.eslint &&
         !answers.mongodb) {
-        await (0, common_1.writeCommonFiles)(name, basePath, true, true);
-        await (0, common_1.writeTSSassESLintPackageJson)(name, basePath);
-        await (0, sass_1.writeSass)(basePath);
-        await (0, eslint_1.writeESLint)(basePath);
-        return console.log("4. typescript, sass, eslint");
+        await (0, permutations_1.writeTypeScriptSassESLint)(name, basePath, {
+            typeScript: true,
+            sass: true,
+        });
     }
     if (answers.typescript &&
         answers.sass &&
         !answers.eslint &&
         !answers.mongodb) {
-        await (0, common_1.writeCommonFiles)(name, basePath, true, true);
-        await (0, common_1.writeTSSassPackageJson)(name, basePath);
-        await (0, sass_1.writeSass)(basePath);
-        return console.log("5. typescript, sass");
+        await (0, permutations_1.writeTypeScriptSass)(name, basePath, {
+            typeScript: true,
+            sass: true,
+        });
     }
     if (answers.typescript &&
         !answers.sass &&
         answers.eslint &&
         !answers.mongodb) {
-        await (0, common_1.writeCommonFiles)(name, basePath, true, false);
-        await (0, common_1.writeTSESLintPackageJson)(name, basePath);
-        await (0, eslint_1.writeESLint)(basePath);
-        return console.log("6. typescript, eslint");
+        await (0, permutations_1.writeTypeScriptESLint)(name, basePath, {
+            typeScript: true,
+            sass: false,
+        });
     }
     if (answers.typescript &&
         !answers.sass &&
         !answers.eslint &&
         answers.mongodb) {
-        await (0, common_1.writeCommonFiles)(name, basePath, true, false);
-        await (0, common_1.writeTSMongoPackageJson)(name, basePath);
-        await (0, mongodb_1.writeMongo)(basePath, true);
-        return console.log("7. typescript, mongodb");
+        await (0, permutations_1.writeTypeScriptMongoDB)(name, basePath, {
+            typeScript: true,
+            sass: false,
+        });
     }
     if (answers.typescript &&
         !answers.sass &&
         !answers.eslint &&
         !answers.mongodb) {
-        await (0, common_1.writeCommonFiles)(name, basePath, true, false);
-        await (0, common_1.writeTSPackageJson)(name, basePath);
-        return console.log("8. typescript");
+        await (0, permutations_1.writeTypeScript)(name, basePath, {
+            typeScript: true,
+            sass: false,
+        });
     }
     if (!answers.typescript &&
         answers.sass &&
         answers.eslint &&
         answers.mongodb) {
-        await (0, common_1.writeCommonFiles)(name, basePath, false, true);
-        await (0, common_1.writeJSSassESLintMongoPackageJson)(name, basePath);
-        await (0, mongodb_1.writeMongo)(basePath, false);
-        await (0, eslint_1.writeESLint)(basePath);
-        await (0, sass_1.writeSass)(basePath);
-        return console.log("9. javascript, sass, eslint, mongodb");
+        await (0, permutations_1.writeJavaScriptSassESLintMongoDB)(name, basePath, {
+            typeScript: false,
+            sass: true,
+        });
     }
     if (!answers.typescript &&
         !answers.sass &&
         answers.eslint &&
         answers.mongodb) {
-        await (0, common_1.writeCommonFiles)(name, basePath, false, false);
-        await (0, common_1.writeJSESLintMongoPackageJson)(name, basePath);
-        await (0, mongodb_1.writeMongo)(basePath, false);
-        await (0, eslint_1.writeESLint)(basePath);
-        return console.log("10. javascript, eslint, mongodb");
+        await (0, permutations_1.writeJavaScriptESLintMongoDB)(name, basePath, {
+            typeScript: false,
+            sass: false,
+        });
     }
     if (!answers.typescript &&
         answers.sass &&
         !answers.eslint &&
         answers.mongodb) {
-        await (0, common_1.writeCommonFiles)(name, basePath, false, true);
-        await (0, common_1.writeJSSassMongoPackageJson)(name, basePath);
-        await (0, sass_1.writeSass)(basePath);
-        await (0, mongodb_1.writeMongo)(basePath, false);
-        return console.log("11. javascript, sass, mongodb");
+        await (0, permutations_1.writeJavaScriptSassMongoDB)(name, basePath, {
+            typeScript: false,
+            sass: true,
+        });
     }
     if (!answers.typescript &&
         answers.sass &&
         answers.eslint &&
         !answers.mongodb) {
-        await (0, common_1.writeCommonFiles)(name, basePath, false, true);
-        await (0, common_1.writeJSSassESLintPackageJson)(name, basePath);
-        await (0, sass_1.writeSass)(basePath);
-        await (0, eslint_1.writeESLint)(basePath);
-        return console.log("12. javascript, sass, eslint");
+        await (0, permutations_1.writeJavaScriptSassESLint)(name, basePath, {
+            typeScript: false,
+            sass: true,
+        });
     }
     if (!answers.typescript &&
         answers.sass &&
         !answers.eslint &&
         !answers.mongodb) {
-        await (0, common_1.writeCommonFiles)(name, basePath, false, true);
-        await (0, common_1.writeJSSassPackageJson)(name, basePath);
-        await (0, sass_1.writeSass)(basePath);
-        return console.log("13. javascript, sass");
+        await (0, permutations_1.writeJavaScriptSass)(name, basePath, {
+            typeScript: false,
+            sass: true,
+        });
     }
     if (!answers.typescript &&
         !answers.sass &&
         answers.eslint &&
         !answers.mongodb) {
-        await (0, common_1.writeCommonFiles)(name, basePath, false, false);
-        await (0, common_1.writeJSESLintPackageJson)(name, basePath);
-        await (0, eslint_1.writeESLint)(basePath);
-        return console.log("14. javascript, eslint");
+        await (0, permutations_1.writeJavaScriptESLint)(name, basePath, {
+            typeScript: false,
+            sass: false,
+        });
     }
     if (!answers.typescript &&
         !answers.sass &&
         !answers.eslint &&
         answers.mongodb) {
-        await (0, common_1.writeCommonFiles)(name, basePath, false, false);
-        await (0, common_1.writeJSMongoPackageJson)(name, basePath);
-        await (0, mongodb_1.writeMongo)(basePath, false);
-        return console.log("15. javascript, mongodb");
+        await (0, permutations_1.writeJavaScriptMongoDB)(name, basePath, {
+            typeScript: false,
+            sass: false,
+        });
     }
     if (!answers.typescript &&
         !answers.sass &&
         !answers.eslint &&
         !answers.mongodb) {
-        await (0, common_1.writeCommonFiles)(name, basePath, false, false);
-        await (0, common_1.writeJSPackageJson)(name, basePath);
-        return console.log("16. javascript");
+        await (0, permutations_1.writeJavaScript)(name, basePath, {
+            typeScript: false,
+            sass: false,
+        });
     }
     console.log(answers);
 };
@@ -205,7 +194,10 @@ commander_1.program
     ]);
     console.log(answers.name);
     if (options.yes) {
-        console.log("1. typescript, sass, eslint, mongodb");
+        return await (0, permutations_1.writeTypeScriptSassESLintMongoDB)(answers.name, basepath, {
+            typeScript: true,
+            sass: true,
+        });
     }
     else {
         run(answers.name, basepath);

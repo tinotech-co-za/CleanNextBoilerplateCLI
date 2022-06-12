@@ -92,7 +92,7 @@ import { useEffect } from "react";
 
 import Wrapper from "../components/Wrapper";
 
-const MyApp: Function = ({ Component, pageProps }: AppProps) => {
+const MyApp= ({ Component, pageProps }: AppProps) => {
 	useEffect(() => {
 		const disableReactDevTools = (): void => {
 			const noop = (): void => undefined;
@@ -151,7 +151,7 @@ import { useEffect } from "react";
 import Wrapper from "../components/Wrapper";
 import "../sass/App.scss";
 
-const MyApp: Function = ({ Component, pageProps }: AppProps) => {
+const MyApp= ({ Component, pageProps }: AppProps) => {
 	useEffect(() => {
 		const disableReactDevTools = (): void => {
 			const noop = (): void => undefined;
@@ -339,7 +339,7 @@ if (!cached) {
  * Connect to the database.
  * @returns A mongoose object.
  */
-const dbConnect: Function = async (): Promise<typeof mongoose> => {
+const dbConnect= async (): Promise<typeof mongoose> => {
 	if (cached.conn) {
 		return cached.conn;
 	}

@@ -1,29 +1,24 @@
 import inquirer from "inquirer";
 import { program } from "commander";
 import path from "path";
-
 import {
-	writeCommonFiles,
-	writeJSESLintMongoPackageJson,
-	writeJSESLintPackageJson,
-	writeJSMongoPackageJson,
-	writeJSPackageJson,
-	writeJSSassESLintMongoPackageJson,
-	writeJSSassESLintPackageJson,
-	writeJSSassMongoPackageJson,
-	writeJSSassPackageJson,
-	writeTSESLintMongoPackageJson,
-	writeTSESLintPackageJson,
-	writeTSMongoPackageJson,
-	writeTSPackageJson,
-	writeTSSassESLintMongoPackageJson,
-	writeTSSassESLintPackageJson,
-	writeTSSassMongoPackageJson,
-	writeTSSassPackageJson,
-} from "./writers/common";
-import { writeMongo } from "./writers/mongodb";
-import { writeESLint } from "./writers/eslint";
-import { writeSass } from "./writers/sass";
+	writeJavaScript,
+	writeJavaScriptESLint,
+	writeJavaScriptESLintMongoDB,
+	writeJavaScriptMongoDB,
+	writeJavaScriptSass,
+	writeJavaScriptSassESLint,
+	writeJavaScriptSassESLintMongoDB,
+	writeJavaScriptSassMongoDB,
+	writeTypeScript,
+	writeTypeScriptESLint,
+	writeTypeScriptESLintMongoDB,
+	writeTypeScriptMongoDB,
+	writeTypeScriptSass,
+	writeTypeScriptSassESLint,
+	writeTypeScriptSassESLintMongoDB,
+	writeTypeScriptSassMongoDB,
+} from "./writers/permutations";
 
 const run = async (name: string, basePath: string) => {
 	const answers = await inquirer.prompt([
@@ -54,12 +49,10 @@ const run = async (name: string, basePath: string) => {
 	]);
 
 	if (answers.typescript && answers.sass && answers.eslint && answers.mongodb) {
-		await writeCommonFiles(name, basePath, true, true);
-		await writeTSSassESLintMongoPackageJson(name, basePath);
-		await writeMongo(basePath, true);
-		await writeSass(basePath);
-		await writeESLint(basePath);
-		return console.log("1. typescript, sass, eslint, mongodb");
+		await writeTypeScriptSassESLintMongoDB(name, basePath, {
+			typeScript: true,
+			sass: true,
+		});
 	}
 	if (
 		answers.typescript &&
@@ -67,11 +60,10 @@ const run = async (name: string, basePath: string) => {
 		answers.eslint &&
 		answers.mongodb
 	) {
-		await writeCommonFiles(name, basePath, true, false);
-		await writeTSESLintMongoPackageJson(name, basePath);
-		await writeMongo(basePath, true);
-		await writeESLint(basePath);
-		return console.log("2. typescript, eslint, mongodb");
+		await writeTypeScriptESLintMongoDB(name, basePath, {
+			typeScript: true,
+			sass: false,
+		});
 	}
 	if (
 		answers.typescript &&
@@ -79,11 +71,10 @@ const run = async (name: string, basePath: string) => {
 		!answers.eslint &&
 		answers.mongodb
 	) {
-		await writeCommonFiles(name, basePath, true, true);
-		await writeTSSassMongoPackageJson(name, basePath);
-		await writeMongo(basePath, true);
-		await writeSass(basePath);
-		return console.log("3. typescript, sass, mongodb");
+		await writeTypeScriptSassMongoDB(name, basePath, {
+			typeScript: true,
+			sass: true,
+		});
 	}
 	if (
 		answers.typescript &&
@@ -91,11 +82,10 @@ const run = async (name: string, basePath: string) => {
 		answers.eslint &&
 		!answers.mongodb
 	) {
-		await writeCommonFiles(name, basePath, true, true);
-		await writeTSSassESLintPackageJson(name, basePath);
-		await writeSass(basePath);
-		await writeESLint(basePath);
-		return console.log("4. typescript, sass, eslint");
+		await writeTypeScriptSassESLint(name, basePath, {
+			typeScript: true,
+			sass: true,
+		});
 	}
 	if (
 		answers.typescript &&
@@ -103,10 +93,10 @@ const run = async (name: string, basePath: string) => {
 		!answers.eslint &&
 		!answers.mongodb
 	) {
-		await writeCommonFiles(name, basePath, true, true);
-		await writeTSSassPackageJson(name, basePath);
-		await writeSass(basePath);
-		return console.log("5. typescript, sass");
+		await writeTypeScriptSass(name, basePath, {
+			typeScript: true,
+			sass: true,
+		});
 	}
 	if (
 		answers.typescript &&
@@ -114,10 +104,10 @@ const run = async (name: string, basePath: string) => {
 		answers.eslint &&
 		!answers.mongodb
 	) {
-		await writeCommonFiles(name, basePath, true, false);
-		await writeTSESLintPackageJson(name, basePath);
-		await writeESLint(basePath);
-		return console.log("6. typescript, eslint");
+		await writeTypeScriptESLint(name, basePath, {
+			typeScript: true,
+			sass: false,
+		});
 	}
 	if (
 		answers.typescript &&
@@ -125,10 +115,10 @@ const run = async (name: string, basePath: string) => {
 		!answers.eslint &&
 		answers.mongodb
 	) {
-		await writeCommonFiles(name, basePath, true, false);
-		await writeTSMongoPackageJson(name, basePath);
-		await writeMongo(basePath, true);
-		return console.log("7. typescript, mongodb");
+		await writeTypeScriptMongoDB(name, basePath, {
+			typeScript: true,
+			sass: false,
+		});
 	}
 	if (
 		answers.typescript &&
@@ -136,9 +126,10 @@ const run = async (name: string, basePath: string) => {
 		!answers.eslint &&
 		!answers.mongodb
 	) {
-		await writeCommonFiles(name, basePath, true, false);
-		await writeTSPackageJson(name, basePath);
-		return console.log("8. typescript");
+		await writeTypeScript(name, basePath, {
+			typeScript: true,
+			sass: false,
+		});
 	}
 	if (
 		!answers.typescript &&
@@ -146,12 +137,10 @@ const run = async (name: string, basePath: string) => {
 		answers.eslint &&
 		answers.mongodb
 	) {
-		await writeCommonFiles(name, basePath, false, true);
-		await writeJSSassESLintMongoPackageJson(name, basePath);
-		await writeMongo(basePath, false);
-		await writeESLint(basePath);
-		await writeSass(basePath);
-		return console.log("9. javascript, sass, eslint, mongodb");
+		await writeJavaScriptSassESLintMongoDB(name, basePath, {
+			typeScript: false,
+			sass: true,
+		});
 	}
 	if (
 		!answers.typescript &&
@@ -159,11 +148,10 @@ const run = async (name: string, basePath: string) => {
 		answers.eslint &&
 		answers.mongodb
 	) {
-		await writeCommonFiles(name, basePath, false, false);
-		await writeJSESLintMongoPackageJson(name, basePath);
-		await writeMongo(basePath, false);
-		await writeESLint(basePath);
-		return console.log("10. javascript, eslint, mongodb");
+		await writeJavaScriptESLintMongoDB(name, basePath, {
+			typeScript: false,
+			sass: false,
+		});
 	}
 	if (
 		!answers.typescript &&
@@ -171,11 +159,10 @@ const run = async (name: string, basePath: string) => {
 		!answers.eslint &&
 		answers.mongodb
 	) {
-		await writeCommonFiles(name, basePath, false, true);
-		await writeJSSassMongoPackageJson(name, basePath);
-		await writeSass(basePath);
-		await writeMongo(basePath, false);
-		return console.log("11. javascript, sass, mongodb");
+		await writeJavaScriptSassMongoDB(name, basePath, {
+			typeScript: false,
+			sass: true,
+		});
 	}
 	if (
 		!answers.typescript &&
@@ -183,11 +170,10 @@ const run = async (name: string, basePath: string) => {
 		answers.eslint &&
 		!answers.mongodb
 	) {
-		await writeCommonFiles(name, basePath, false, true);
-		await writeJSSassESLintPackageJson(name, basePath);
-		await writeSass(basePath);
-		await writeESLint(basePath);
-		return console.log("12. javascript, sass, eslint");
+		await writeJavaScriptSassESLint(name, basePath, {
+			typeScript: false,
+			sass: true,
+		});
 	}
 	if (
 		!answers.typescript &&
@@ -195,10 +181,10 @@ const run = async (name: string, basePath: string) => {
 		!answers.eslint &&
 		!answers.mongodb
 	) {
-		await writeCommonFiles(name, basePath, false, true);
-		await writeJSSassPackageJson(name, basePath);
-		await writeSass(basePath);
-		return console.log("13. javascript, sass");
+		await writeJavaScriptSass(name, basePath, {
+			typeScript: false,
+			sass: true,
+		});
 	}
 	if (
 		!answers.typescript &&
@@ -206,10 +192,10 @@ const run = async (name: string, basePath: string) => {
 		answers.eslint &&
 		!answers.mongodb
 	) {
-		await writeCommonFiles(name, basePath, false, false);
-		await writeJSESLintPackageJson(name, basePath);
-		await writeESLint(basePath);
-		return console.log("14. javascript, eslint");
+		await writeJavaScriptESLint(name, basePath, {
+			typeScript: false,
+			sass: false,
+		});
 	}
 	if (
 		!answers.typescript &&
@@ -217,10 +203,10 @@ const run = async (name: string, basePath: string) => {
 		!answers.eslint &&
 		answers.mongodb
 	) {
-		await writeCommonFiles(name, basePath, false, false);
-		await writeJSMongoPackageJson(name, basePath);
-		await writeMongo(basePath, false);
-		return console.log("15. javascript, mongodb");
+		await writeJavaScriptMongoDB(name, basePath, {
+			typeScript: false,
+			sass: false,
+		});
 	}
 	if (
 		!answers.typescript &&
@@ -228,9 +214,10 @@ const run = async (name: string, basePath: string) => {
 		!answers.eslint &&
 		!answers.mongodb
 	) {
-		await writeCommonFiles(name, basePath, false, false);
-		await writeJSPackageJson(name, basePath);
-		return console.log("16. javascript");
+		await writeJavaScript(name, basePath, {
+			typeScript: false,
+			sass: false,
+		});
 	}
 	console.log(answers);
 };
@@ -256,7 +243,10 @@ program
 		console.log(answers.name);
 
 		if (options.yes) {
-			console.log("1. typescript, sass, eslint, mongodb");
+			return await writeTypeScriptSassESLintMongoDB(answers.name, basepath, {
+				typeScript: true,
+				sass: true,
+			});
 		} else {
 			run(answers.name, basepath);
 		}
