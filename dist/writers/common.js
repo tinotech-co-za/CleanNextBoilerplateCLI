@@ -24,7 +24,7 @@ const writeJSSassPackageJson = async (name, basePath) => {
     fs_1.default.writeFileSync(path_1.default.join(__dirname, basePath, "/package.json"), (0, files_1.getJSSassPackageJson)(name));
 };
 exports.writeJSSassPackageJson = writeJSSassPackageJson;
-const writeCommonFiles = async (name, basePath, typeScript) => {
+const writeCommonFiles = async (name, basePath, typeScript, sass) => {
     fs_1.default.mkdirSync(path_1.default.join(__dirname, basePath, "/components"), {
         recursive: true,
     });
@@ -40,7 +40,7 @@ const writeCommonFiles = async (name, basePath, typeScript) => {
     fs_1.default.writeFileSync(path_1.default.join(__dirname, basePath, `/components/Meta.${typeScript ? "tsx" : "jsx"}`), (0, files_1.getMeta)(name));
     fs_1.default.writeFileSync(path_1.default.join(__dirname, basePath, `/components/Wrapper.${typeScript ? "tsx" : "jsx"}`), constants_1.WRAPPER);
     fs_1.default.writeFileSync(path_1.default.join(__dirname, basePath, `/pages/api/post/index.${typeScript ? "ts" : "js"}`), constants_1.API_POST);
-    fs_1.default.writeFileSync(path_1.default.join(__dirname, basePath, `/pages/_app.${typeScript ? "tsx" : "jsx"}`), constants_1.APP);
+    fs_1.default.writeFileSync(path_1.default.join(__dirname, basePath, `/pages/_app.${typeScript ? "tsx" : "jsx"}`), sass ? constants_1.APP_SASS : constants_1.APP);
     fs_1.default.writeFileSync(path_1.default.join(__dirname, basePath, `/pages/index.${typeScript ? "tsx" : "jsx"}`), (0, files_1.getIndex)(name));
     fs_1.default.writeFileSync(path_1.default.join(__dirname, basePath, "/public/manifest.json"), (0, files_1.getManifest)(name));
     fs_1.default.writeFileSync(path_1.default.join(__dirname, basePath, `/utils/index.${typeScript ? "ts" : "js"}`), constants_1.UTILS_INDEX);

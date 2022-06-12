@@ -14,6 +14,7 @@ import {
 import {
 	API_POST,
 	APP,
+	APP_SASS,
 	GITIGNORE,
 	UTILS_INDEX,
 	VERCEL_JSON,
@@ -63,7 +64,8 @@ export const writeJSSassPackageJson: Function = async (
 export const writeCommonFiles: Function = async (
 	name: string,
 	basePath: string,
-	typeScript: boolean
+	typeScript: boolean,
+	sass: boolean
 ): Promise<void> => {
 	fs.mkdirSync(path.join(__dirname, basePath, "/components"), {
 		recursive: true,
@@ -103,7 +105,7 @@ export const writeCommonFiles: Function = async (
 	);
 	fs.writeFileSync(
 		path.join(__dirname, basePath, `/pages/_app.${typeScript ? "tsx" : "jsx"}`),
-		APP
+		sass ? APP_SASS : APP
 	);
 	fs.writeFileSync(
 		path.join(

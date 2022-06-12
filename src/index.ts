@@ -138,7 +138,7 @@ const run = async (name: string, basePath: string) => {
 		!answers.eslint &&
 		!answers.mongodb
 	) {
-		await writeCommonFiles(name, basePath, false);
+		await writeCommonFiles(name, basePath, false, true);
 		await writeJSSassPackageJson(name, basePath);
 		await writeSass(basePath);
 		return console.log("13. javascript, sass");
@@ -149,7 +149,7 @@ const run = async (name: string, basePath: string) => {
 		answers.eslint &&
 		!answers.mongodb
 	) {
-		await writeCommonFiles(name, basePath, false);
+		await writeCommonFiles(name, basePath, false, false);
 		await writeJSESLintPackageJson(name, basePath);
 		await writeESLintRC(basePath);
 		return console.log("14. javascript, eslint");
@@ -160,7 +160,7 @@ const run = async (name: string, basePath: string) => {
 		!answers.eslint &&
 		answers.mongodb
 	) {
-		await writeCommonFiles(name, basePath, false);
+		await writeCommonFiles(name, basePath, false, false);
 		await writeJSMongoPackageJson(name, basePath);
 		await writeNextConfig(basePath);
 		await writeUtilsDB(basePath, false);
@@ -172,7 +172,7 @@ const run = async (name: string, basePath: string) => {
 		!answers.eslint &&
 		!answers.mongodb
 	) {
-		await writeCommonFiles(name, basePath, false);
+		await writeCommonFiles(name, basePath, false, false);
 		await writeJSPackageJson(name, basePath);
 		return console.log("16. javascript");
 	}
