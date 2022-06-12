@@ -2,7 +2,7 @@ import path from "path";
 import fs from "fs";
 import { ESLINT_RC } from "../utils/constants";
 
-export const writeESLintRC: Function = async (
+export const writeESLint: Function = async (
 	basePath: string
 ): Promise<void> => {
 	fs.writeFileSync(
