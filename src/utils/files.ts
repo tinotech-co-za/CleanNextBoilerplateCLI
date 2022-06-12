@@ -1,3 +1,9 @@
+/**
+ * Generates a Meta file containing meta tags for a web app.
+ * @param name The name of the project.
+ * @param typeScript Whether this project uses TypeScript or not
+ * @returns	A string containing a Meta file for setting meta tags for the project.
+ */
 export const getMeta = (name: string, typeScript: boolean): string =>
 	typeScript
 		? `import Head from "next/head";
@@ -49,9 +55,9 @@ const Meta: React.FC<MetaProps> = ({
 );
 
 Meta.defaultProps = {
-	title: "Next.js Boilerplate",
+	title: "${name}",
 	keywords: "next.js",
-	description: "Clean Next.js with TypeScript Boilerplate",
+	description: "Your description here",
 	image: "https://unsplash.it/1000",
 	url: BASE_URL,
 };
@@ -110,6 +116,12 @@ Meta.defaultProps = {
 export default Meta;
 `;
 
+/**
+ * Generates the entry point for a Next.js app.
+ * @param name The name of the project
+ * @param typeScript Whether or not this project uses TypeScript
+ * @returns A string containing the index file for the project.
+ */
 export const getIndex = (name: string, typeScript: boolean): string =>
 	typeScript
 		? `const Home: React.FC = (): JSX.Element => {
@@ -133,6 +145,11 @@ export default Home;
 export default Home;
 `;
 
+/**
+ * Generates a manifest for a Next.js app.
+ * @param name The name of the project.
+ * @returns A string containing the manifest.json for the project.
+ */
 export const getManifest = (name: string): string => `{
 	"short_name": "${name}",
 	"name": "${name}",
@@ -161,6 +178,11 @@ export const getManifest = (name: string): string => `{
 }
 `;
 
+/**
+ * Generates a package.json for a Next.js app that uses JavaScript.
+ * @param name The name of the project.
+ * @returns A string containing the package file.
+ */
 export const getJSPackageJson = (name: string): string => `{
     "name": "${name.toLowerCase().split(" ").join("-")}",
 	"private": true,
@@ -178,6 +200,11 @@ export const getJSPackageJson = (name: string): string => `{
 }
 `;
 
+/**
+ * Generates a package.json for a Next.js app that uses JavaScript and MongoDB.
+ * @param name The name of the project.
+ * @returns A string containing the package file.
+ */
 export const getJSMongoPackageJson = (name: string): string => `{
     "name": "${name.toLowerCase().split(" ").join("-")}",
 	"private": true,
@@ -196,6 +223,11 @@ export const getJSMongoPackageJson = (name: string): string => `{
 }
 `;
 
+/**
+ * Generates a package.json for a Next.js app that uses JavaScript and ESLint.
+ * @param name The name of the project.
+ * @returns A string containing the package file.
+ */
 export const getJSESLintPackageJson = (name: string): string => `{
     "name": "${name.toLowerCase().split(" ").join("-")}",
 	"private": true,
@@ -217,6 +249,11 @@ export const getJSESLintPackageJson = (name: string): string => `{
 }
 `;
 
+/**
+ * Generates a package.json for a Next.js app that uses JavaScript and Sass.
+ * @param name The name of the project.
+ * @returns A string containing the package file.
+ */
 export const getJSSassPackageJson = (name: string): string => `{
     "name": "${name.toLowerCase().split(" ").join("-")}",
 	"private": true,
@@ -237,6 +274,11 @@ export const getJSSassPackageJson = (name: string): string => `{
 }
 `;
 
+/**
+ * Generates a package.json for a Next.js app that uses JavaScript, Sass and ESLint.
+ * @param name The name of the project.
+ * @returns A string containing the package file.
+ */
 export const getJSSassESLintPackageJson = (name: string): string => `{
     "name": "${name.toLowerCase().split(" ").join("-")}",
 	"private": true,
@@ -259,6 +301,11 @@ export const getJSSassESLintPackageJson = (name: string): string => `{
 }
 `;
 
+/**
+ * Generates a package.json for a Next.js app that uses JavaScript, Sass and MongoDB.
+ * @param name The name of the project.
+ * @returns A string containing the package file.
+ */
 export const getJSSassMongoPackageJson = (name: string): string => `{
     "name": "${name.toLowerCase().split(" ").join("-")}",
 	"private": true,
@@ -280,6 +327,11 @@ export const getJSSassMongoPackageJson = (name: string): string => `{
 }
 `;
 
+/**
+ * Generates a package.json for a Next.js app that uses JavaScript, ESLint and Mongo.
+ * @param name The name of the project.
+ * @returns A string containing the package file.
+ */
 export const getJSESLintMongoPackageJson = (name: string): string => `{
     "name": "${name.toLowerCase().split(" ").join("-")}",
 	"private": true,
@@ -302,6 +354,11 @@ export const getJSESLintMongoPackageJson = (name: string): string => `{
 }
 `;
 
+/**
+ * Generates a package.json for a Next.js app that uses JavaScript, Sass and ESLint.
+ * @param name The name of the project.
+ * @returns A string containing the package file.
+ */
 export const getJSSassESLintMongoPackageJson = (name: string): string => `{
     "name": "${name.toLowerCase().split(" ").join("-")}",
 	"private": true,
@@ -325,6 +382,11 @@ export const getJSSassESLintMongoPackageJson = (name: string): string => `{
 }
 `;
 
+/**
+ * Generates a package.json for a Next.js app that uses TypeScript.
+ * @param name The name of the project.
+ * @returns A string containing the package file.
+ */
 export const getTSPackageJson = (name: string): string => `{
     "name": "${name.toLowerCase().split(" ").join("-")}",
 	"private": true,
@@ -349,6 +411,11 @@ export const getTSPackageJson = (name: string): string => `{
 }
 `;
 
+/**
+ * Generates a package.json for a Next.js app that uses TypeScript and MongoDB.
+ * @param name The name of the project.
+ * @returns A string containing the package file.
+ */
 export const getTSMongoPackageJson = (name: string): string => `{
     "name": "${name.toLowerCase().split(" ").join("-")}",
 	"private": true,
@@ -374,6 +441,11 @@ export const getTSMongoPackageJson = (name: string): string => `{
 }
 `;
 
+/**
+ * Generates a package.json for a Next.js app that uses TypeScript and ESLint.
+ * @param name The name of the project.
+ * @returns A string containing the package file.
+ */
 export const getTSESLintPackageJson = (name: string): string => `{
     "name": "${name.toLowerCase().split(" ").join("-")}",
 	"private": true,
@@ -400,6 +472,11 @@ export const getTSESLintPackageJson = (name: string): string => `{
 }
 `;
 
+/**
+ * Generates a package.json for a Next.js app that uses TypeScript and Sass.
+ * @param name The name of the project.
+ * @returns A string containing the package file.
+ */
 export const getTSSassPackageJson = (name: string): string => `{
     "name": "${name.toLowerCase().split(" ").join("-")}",
 	"private": true,
@@ -425,6 +502,11 @@ export const getTSSassPackageJson = (name: string): string => `{
 }
 `;
 
+/**
+ * Generates a package.json for a Next.js app that uses TypeScript, Sass and ESLint.
+ * @param name The name of the project.
+ * @returns A string containing the package file.
+ */
 export const getTSSassESLintPackageJson = (name: string): string => `{
     "name": "${name.toLowerCase().split(" ").join("-")}",
 	"private": true,
@@ -452,6 +534,11 @@ export const getTSSassESLintPackageJson = (name: string): string => `{
 }
 `;
 
+/**
+ * Generates a package.json for a Next.js app that uses TypeScript, Sass and MongoDB.
+ * @param name The name of the project.
+ * @returns A string containing the package file.
+ */
 export const getTSSassMongoPackageJson = (name: string): string => `{
     "name": "${name.toLowerCase().split(" ").join("-")}",
 	"private": true,
@@ -478,6 +565,11 @@ export const getTSSassMongoPackageJson = (name: string): string => `{
 }
 `;
 
+/**
+ * Generates a package.json for a Next.js app that uses TypeScript, ESLint and MongoDB.
+ * @param name The name of the project.
+ * @returns A string containing the package file.
+ */
 export const getTSESLintMongoPackageJson = (name: string): string => `{
     "name": "${name.toLowerCase().split(" ").join("-")}",
 	"private": true,
@@ -505,6 +597,11 @@ export const getTSESLintMongoPackageJson = (name: string): string => `{
 }
 `;
 
+/**
+ * Generates a package.json for a Next.js app that uses TypeScript, Sass, ESLint and MongoDB.
+ * @param name The name of the project.
+ * @returns A string containing the package file.
+ */
 export const getTSSassESLintMongoPackageJson = (name: string): string => `{
     "name": "${name.toLowerCase().split(" ").join("-")}",
 	"private": true,
@@ -533,5 +630,10 @@ export const getTSSassESLintMongoPackageJson = (name: string): string => `{
 }
 `;
 
+/**
+ * Generates a README file with the project's name.
+ * @param name The name of the project.
+ * @returns A string containing a Readme with the project's name.
+ */
 export const getReadme = (name: string): string => `# ${name}
 `;
