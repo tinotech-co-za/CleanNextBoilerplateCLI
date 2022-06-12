@@ -103,7 +103,6 @@ const run = async (name: string, basePath: string) => {
 		!answers.eslint &&
 		!answers.mongodb
 	) {
-		// TODO: Add types for TS.
 		await writeCommonFiles(name, basePath, true, false);
 		await writeTSPackageJson(name, basePath);
 		return console.log("8. typescript");
