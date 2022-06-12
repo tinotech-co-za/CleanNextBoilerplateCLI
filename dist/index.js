@@ -7,6 +7,11 @@ const inquirer_1 = __importDefault(require("inquirer"));
 const commander_1 = require("commander");
 const path_1 = __importDefault(require("path"));
 const permutations_1 = require("./writers/permutations");
+/**
+ * Run Inquirer to get options for what to include in the generated project.
+ * @param name The name of the project.
+ * @param basePath The base path to write out the files to.
+ */
 const run = async (name, basePath) => {
     const answers = await inquirer_1.default.prompt([
         {
@@ -34,6 +39,7 @@ const run = async (name, basePath) => {
             default: true,
         },
     ]);
+    // Determine which permutation to use.
     if (answers.typescript && answers.sass && answers.eslint && answers.mongodb) {
         await (0, permutations_1.writeTypeScriptSassESLintMongoDB)(name, basePath, {
             typeScript: true,
@@ -175,15 +181,13 @@ const run = async (name, basePath) => {
             sass: false,
         });
     }
-    console.log(answers);
 };
+// Setup commander program.
 commander_1.program.version("1.0.0").description("Clean Next.js Boilerplate CLI");
 commander_1.program
     .argument("[basepath]", " the base path to generate the project at", "./")
     .option("-y, --yes", "answer yes to all the prompts")
     .action(async (basepath, options) => {
-    const obj = { basePath: basepath, yes: options.yes };
-    console.log(obj);
     const answers = await inquirer_1.default.prompt([
         {
             type: "input",
@@ -192,7 +196,7 @@ commander_1.program
             default: path_1.default.basename(__dirname),
         },
     ]);
-    console.log(answers.name);
+    // If yes, skip Inquirer questions and generate boilerplate with all the options. Else run Inquirer questions.
     if (options.yes) {
         return await (0, permutations_1.writeTypeScriptSassESLintMongoDB)(answers.name, basepath, {
             typeScript: true,
@@ -203,4 +207,5 @@ commander_1.program
         run(answers.name, basepath);
     }
 });
+// Parse program setup.
 commander_1.program.parse();

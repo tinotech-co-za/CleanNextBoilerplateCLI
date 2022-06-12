@@ -1,6 +1,7 @@
 import inquirer from "inquirer";
 import { program } from "commander";
 import path from "path";
+
 import {
 	writeJavaScript,
 	writeJavaScriptESLint,
@@ -20,6 +21,11 @@ import {
 	writeTypeScriptSassMongoDB,
 } from "./writers/permutations";
 
+/**
+ * Run Inquirer to get options for what to include in the generated project.
+ * @param name The name of the project.
+ * @param basePath The base path to write out the files to.
+ */
 const run = async (name: string, basePath: string) => {
 	const answers = await inquirer.prompt([
 		{
@@ -48,6 +54,7 @@ const run = async (name: string, basePath: string) => {
 		},
 	]);
 
+	// Determine which permutation to use.
 	if (answers.typescript && answers.sass && answers.eslint && answers.mongodb) {
 		await writeTypeScriptSassESLintMongoDB(name, basePath, {
 			typeScript: true,
@@ -219,18 +226,15 @@ const run = async (name: string, basePath: string) => {
 			sass: false,
 		});
 	}
-	console.log(answers);
 };
 
+// Setup commander program.
 program.version("1.0.0").description("Clean Next.js Boilerplate CLI");
 
 program
 	.argument("[basepath]", " the base path to generate the project at", "./")
 	.option("-y, --yes", "answer yes to all the prompts")
 	.action(async (basepath, options) => {
-		const obj = { basePath: basepath, yes: options.yes };
-		console.log(obj);
-
 		const answers = await inquirer.prompt([
 			{
 				type: "input",
@@ -240,8 +244,7 @@ program
 			},
 		]);
 
-		console.log(answers.name);
-
+		// If yes, skip Inquirer questions and generate boilerplate with all the options. Else run Inquirer questions.
 		if (options.yes) {
 			return await writeTypeScriptSassESLintMongoDB(answers.name, basepath, {
 				typeScript: true,
@@ -252,4 +255,5 @@ program
 		}
 	});
 
+// Parse program setup.
 program.parse();
