@@ -2,12 +2,27 @@ import inquirer from "inquirer";
 import { program } from "commander";
 import path from "path";
 import fs from "fs";
-import { getMeta } from "./utils/files";
-import { WRAPPER } from "./utils/constants";
+
+import {
+	getIndex,
+	getJSPackageJson,
+	getManifest,
+	getMeta,
+	getReadme,
+} from "./utils/files";
+import {
+	API_POST,
+	APP_TSX,
+	GITIGNORE,
+	UTILS_INDEX,
+	VERCEL_JSON,
+	WRAPPER,
+} from "./utils/constants";
 
 const writeCommonFiles: Function = async (
 	name: string,
-	basePath: string
+	basePath: string,
+	typeScript: boolean
 ): Promise<void> => {
 	fs.mkdirSync(path.join(__dirname, basePath, "/components"), {
 		recursive: true,
@@ -29,6 +44,29 @@ const writeCommonFiles: Function = async (
 		path.join(__dirname, basePath, "/components/Wrapper.jsx"),
 		WRAPPER
 	);
+	fs.writeFileSync(
+		path.join(__dirname, basePath, "/pages/api/post/index.js"),
+		API_POST
+	);
+	fs.writeFileSync(path.join(__dirname, basePath, "/pages/_app.jsx"), APP_TSX);
+	fs.writeFileSync(
+		path.join(__dirname, basePath, "/pages/index.jsx"),
+		getIndex(name)
+	);
+	fs.writeFileSync(
+		path.join(__dirname, basePath, "/public/manifest.json"),
+		getManifest(name)
+	);
+	fs.writeFileSync(
+		path.join(__dirname, basePath, "/utils/index.js"),
+		UTILS_INDEX
+	);
+	fs.writeFileSync(path.join(__dirname, basePath, "/.gitignore"), GITIGNORE);
+	fs.writeFileSync(
+		path.join(__dirname, basePath, "/README.MD"),
+		getReadme(name)
+	);
+	fs.writeFileSync(path.join(__dirname, basePath, "/vercel.json"), VERCEL_JSON);
 };
 
 const run = async (name: string, basePath: string) => {
@@ -180,7 +218,7 @@ const run = async (name: string, basePath: string) => {
 		!answers.eslint &&
 		!answers.mongodb
 	) {
-		await writeCommonFiles(name, basePath);
+		await writeCommonFiles(name, basePath, false);
 		return console.log("16. javascript");
 	}
 	console.log(answers);
