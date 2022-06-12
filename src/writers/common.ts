@@ -18,12 +18,16 @@ import {
 } from "../utils/files";
 import {
 	API_POST,
+	API_POST_TS,
 	APP,
 	APP_SASS,
+	APP_SASS_TS,
+	APP_TS,
 	GITIGNORE,
 	UTILS_INDEX,
 	VERCEL_JSON,
 	WRAPPER,
+	WRAPPER_TS,
 } from "../utils/constants";
 
 export const writeJSPackageJson: Function = async (
@@ -140,7 +144,7 @@ export const writeCommonFiles: Function = async (
 			basePath,
 			`/components/Meta.${typeScript ? "tsx" : "jsx"}`
 		),
-		getMeta(name)
+		getMeta(name, typeScript)
 	);
 	fs.writeFileSync(
 		path.join(
@@ -148,7 +152,7 @@ export const writeCommonFiles: Function = async (
 			basePath,
 			`/components/Wrapper.${typeScript ? "tsx" : "jsx"}`
 		),
-		WRAPPER
+		typeScript ? WRAPPER_TS : WRAPPER
 	);
 	fs.writeFileSync(
 		path.join(
@@ -156,11 +160,11 @@ export const writeCommonFiles: Function = async (
 			basePath,
 			`/pages/api/post/index.${typeScript ? "ts" : "js"}`
 		),
-		API_POST
+		typeScript ? API_POST_TS : API_POST
 	);
 	fs.writeFileSync(
 		path.join(__dirname, basePath, `/pages/_app.${typeScript ? "tsx" : "jsx"}`),
-		sass ? APP_SASS : APP
+		sass ? (typeScript ? APP_SASS_TS : APP_SASS) : typeScript ? APP_TS : APP
 	);
 	fs.writeFileSync(
 		path.join(
@@ -168,7 +172,7 @@ export const writeCommonFiles: Function = async (
 			basePath,
 			`/pages/index.${typeScript ? "tsx" : "jsx"}`
 		),
-		getIndex(name)
+		getIndex(name, typeScript)
 	);
 	fs.writeFileSync(
 		path.join(__dirname, basePath, "/public/manifest.json"),

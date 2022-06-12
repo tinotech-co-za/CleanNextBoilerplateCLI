@@ -52,6 +52,15 @@ export const API_POST = `const handler = (req, res) => {
 export default handler;
 `;
 
+export const API_POST_TS = `import { NextApiRequest, NextApiResponse } from "next";
+
+const handler = (req: NextApiRequest, res: NextApiResponse) => {
+	res.status(200).json({ message: "Hello there" });
+};
+
+export default handler;
+`;
+
 export const APP = `import { useEffect } from "react";
 
 import Wrapper from "../components/Wrapper";
@@ -61,6 +70,36 @@ const MyApp = ({ Component, pageProps }) => {
 		const disableReactDevTools = () => {
 			const noop = () => undefined;
 			const DEV_TOOLS = window.__REACT_DEVTOOLS_GLOBAL_HOOK__;
+
+			if (typeof DEV_TOOLS === "object") {
+				for (const [key, value] of Object.entries(DEV_TOOLS)) {
+					DEV_TOOLS[key] = typeof value === "function" ? noop : null;
+				}
+			}
+		};
+		if (process.env.NODE_ENV === "production") disableReactDevTools();
+	}, []);
+
+	return (
+		<Wrapper>
+			<Component {...pageProps} />
+		</Wrapper>
+	);
+};
+
+export default MyApp;
+`;
+
+export const APP_TS = `import { AppProps } from "next/app";
+import { useEffect } from "react";
+
+import Wrapper from "../components/Wrapper";
+
+const MyApp: Function = ({ Component, pageProps }: AppProps) => {
+	useEffect(() => {
+		const disableReactDevTools = (): void => {
+			const noop = (): void => undefined;
+			const DEV_TOOLS = (window as any).__REACT_DEVTOOLS_GLOBAL_HOOK__;
 
 			if (typeof DEV_TOOLS === "object") {
 				for (const [key, value] of Object.entries(DEV_TOOLS)) {
@@ -111,9 +150,55 @@ const MyApp = ({ Component, pageProps }) => {
 export default MyApp;
 `;
 
+export const APP_SASS_TS = `import { AppProps } from "next/app";
+import { useEffect } from "react";
+
+import Wrapper from "../components/Wrapper";
+import "../sass/App.scss";
+
+const MyApp: Function = ({ Component, pageProps }: AppProps) => {
+	useEffect(() => {
+		const disableReactDevTools = (): void => {
+			const noop = (): void => undefined;
+			const DEV_TOOLS = (window as any).__REACT_DEVTOOLS_GLOBAL_HOOK__;
+
+			if (typeof DEV_TOOLS === "object") {
+				for (const [key, value] of Object.entries(DEV_TOOLS)) {
+					DEV_TOOLS[key] = typeof value === "function" ? noop : null;
+				}
+			}
+		};
+		if (process.env.NODE_ENV === "production") disableReactDevTools();
+	}, []);
+	return (
+		<Wrapper>
+			<Component {...pageProps} />
+		</Wrapper>
+	);
+};
+
+export default MyApp;
+`;
+
 export const WRAPPER = `import Meta from "./Meta";
 
 const Wrapper = ({ children }) => {
+	return (
+		<>
+			<Meta />
+			{children}
+		</>
+	);
+};
+
+export default Wrapper;
+`;
+
+export const WRAPPER_TS = `import { WrapperProps } from "../interfaces";
+
+import Meta from "./Meta";
+
+const Wrapper: React.FC<WrapperProps> = ({ children }): JSX.Element => {
 	return (
 		<>
 			<Meta />

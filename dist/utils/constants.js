@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.SASS_APP = exports.SASS_BASE = exports.SASS_INDEX = exports.SASS_MIXINS = exports.SASS_FONTS = exports.SASS_COLOURS = exports.SASS_BREAKPOINTS = exports.ESLINT_RC = exports.NEXT_CONFIG = exports.WRAPPER = exports.APP_SASS = exports.APP = exports.API_POST = exports.UTILS_INDEX = exports.GITIGNORE = exports.VERCEL_JSON = void 0;
+exports.SASS_APP = exports.SASS_BASE = exports.SASS_INDEX = exports.SASS_MIXINS = exports.SASS_FONTS = exports.SASS_COLOURS = exports.SASS_BREAKPOINTS = exports.ESLINT_RC = exports.NEXT_CONFIG = exports.WRAPPER_TS = exports.WRAPPER = exports.APP_SASS_TS = exports.APP_SASS = exports.APP_TS = exports.APP = exports.API_POST_TS = exports.API_POST = exports.UTILS_INDEX = exports.GITIGNORE = exports.VERCEL_JSON = void 0;
 exports.VERCEL_JSON = `{
     "github": {
         "silent": true
@@ -51,6 +51,14 @@ exports.API_POST = `const handler = (req, res) => {
 
 export default handler;
 `;
+exports.API_POST_TS = `import { NextApiRequest, NextApiResponse } from "next";
+
+const handler = (req: NextApiRequest, res: NextApiResponse) => {
+	res.status(200).json({ message: "Hello there" });
+};
+
+export default handler;
+`;
 exports.APP = `import { useEffect } from "react";
 
 import Wrapper from "../components/Wrapper";
@@ -60,6 +68,35 @@ const MyApp = ({ Component, pageProps }) => {
 		const disableReactDevTools = () => {
 			const noop = () => undefined;
 			const DEV_TOOLS = window.__REACT_DEVTOOLS_GLOBAL_HOOK__;
+
+			if (typeof DEV_TOOLS === "object") {
+				for (const [key, value] of Object.entries(DEV_TOOLS)) {
+					DEV_TOOLS[key] = typeof value === "function" ? noop : null;
+				}
+			}
+		};
+		if (process.env.NODE_ENV === "production") disableReactDevTools();
+	}, []);
+
+	return (
+		<Wrapper>
+			<Component {...pageProps} />
+		</Wrapper>
+	);
+};
+
+export default MyApp;
+`;
+exports.APP_TS = `import { AppProps } from "next/app";
+import { useEffect } from "react";
+
+import Wrapper from "../components/Wrapper";
+
+const MyApp: Function = ({ Component, pageProps }: AppProps) => {
+	useEffect(() => {
+		const disableReactDevTools = (): void => {
+			const noop = (): void => undefined;
+			const DEV_TOOLS = (window as any).__REACT_DEVTOOLS_GLOBAL_HOOK__;
 
 			if (typeof DEV_TOOLS === "object") {
 				for (const [key, value] of Object.entries(DEV_TOOLS)) {
@@ -108,9 +145,53 @@ const MyApp = ({ Component, pageProps }) => {
 
 export default MyApp;
 `;
+exports.APP_SASS_TS = `import { AppProps } from "next/app";
+import { useEffect } from "react";
+
+import Wrapper from "../components/Wrapper";
+import "../sass/App.scss";
+
+const MyApp: Function = ({ Component, pageProps }: AppProps) => {
+	useEffect(() => {
+		const disableReactDevTools = (): void => {
+			const noop = (): void => undefined;
+			const DEV_TOOLS = (window as any).__REACT_DEVTOOLS_GLOBAL_HOOK__;
+
+			if (typeof DEV_TOOLS === "object") {
+				for (const [key, value] of Object.entries(DEV_TOOLS)) {
+					DEV_TOOLS[key] = typeof value === "function" ? noop : null;
+				}
+			}
+		};
+		if (process.env.NODE_ENV === "production") disableReactDevTools();
+	}, []);
+	return (
+		<Wrapper>
+			<Component {...pageProps} />
+		</Wrapper>
+	);
+};
+
+export default MyApp;
+`;
 exports.WRAPPER = `import Meta from "./Meta";
 
 const Wrapper = ({ children }) => {
+	return (
+		<>
+			<Meta />
+			{children}
+		</>
+	);
+};
+
+export default Wrapper;
+`;
+exports.WRAPPER_TS = `import { WrapperProps } from "../interfaces";
+
+import Meta from "./Meta";
+
+const Wrapper: React.FC<WrapperProps> = ({ children }): JSX.Element => {
 	return (
 		<>
 			<Meta />
