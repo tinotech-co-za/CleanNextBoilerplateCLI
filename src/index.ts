@@ -4,6 +4,7 @@ import path from "path";
 
 import {
 	writeCommonFiles,
+	writeJSESLintMongoPackageJson,
 	writeJSESLintPackageJson,
 	writeJSMongoPackageJson,
 	writeJSPackageJson,
@@ -116,6 +117,11 @@ const run = async (name: string, basePath: string) => {
 		answers.eslint &&
 		answers.mongodb
 	) {
+		await writeCommonFiles(name, basePath, false, false);
+		await writeJSESLintMongoPackageJson(name, basePath);
+		await writeNextConfig(basePath);
+		await writeUtilsDB(basePath, false);
+		await writeESLintRC(basePath);
 		return console.log("10. javascript, eslint, mongodb");
 	}
 	if (
