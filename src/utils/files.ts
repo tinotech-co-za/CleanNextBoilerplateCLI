@@ -110,5 +110,23 @@ export const getJSPackageJson: Function = (name: string): string => `{
 }
 `;
 
+export const getJSMongoPackageJson: Function = (name: string): string => `{
+    "name": "${name.toLowerCase().split(" ").join("-")}",
+	"private": true,
+	"scripts": {
+		"dev": "next",
+		"build": "next build",
+		"start": "next start"
+	},
+	"dependencies": {
+		"next": "latest",
+		"react": "latest",
+		"react-dom": "latest",
+        "mongoose": "latest"
+	},
+	"license": "MIT"
+}
+`;
+
 export const getReadme: Function = (name: string): string => `# ${name}
 `;
