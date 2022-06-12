@@ -14,6 +14,7 @@ import {
 	getManifest,
 	getMeta,
 	getReadme,
+	getTSMongoPackageJson,
 	getTSPackageJson,
 } from "../utils/files";
 import {
@@ -117,6 +118,16 @@ export const writeTSPackageJson: Function = async (
 	fs.writeFileSync(
 		path.join(__dirname, basePath, "/package.json"),
 		getTSPackageJson(name)
+	);
+};
+
+export const writeTSMongoPackageJson: Function = async (
+	name: string,
+	basePath: string
+): Promise<void> => {
+	fs.writeFileSync(
+		path.join(__dirname, basePath, "/package.json"),
+		getTSMongoPackageJson(name)
 	);
 };
 

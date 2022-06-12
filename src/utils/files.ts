@@ -335,12 +335,38 @@ export const getTSPackageJson: Function = (name: string): string => `{
 	"scripts": {
 		"dev": "next",
 		"build": "next build",
-		"start": "next start"
+		"start": "next start",
+        "type-check": "tsc"
 	},
 	"dependencies": {
 		"next": "latest",
 		"react": "latest",
 		"react-dom": "latest"
+	},
+	"license": "MIT",
+	"devDependencies": {
+		"@types/node": "latest",
+		"@types/react": "latest",
+		"@types/react-dom": "latest",
+		"typescript": "latest"
+	}
+}
+`;
+
+export const getTSMongoPackageJson: Function = (name: string): string => `{
+    "name": "${name.toLowerCase().split(" ").join("-")}",
+	"private": true,
+	"scripts": {
+		"dev": "next",
+		"build": "next build",
+		"start": "next start",
+        "type-check": "tsc"
+	},
+	"dependencies": {
+		"next": "latest",
+		"react": "latest",
+		"react-dom": "latest",
+        "mongoose": "latest"
 	},
 	"license": "MIT",
 	"devDependencies": {
