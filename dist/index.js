@@ -41,7 +41,7 @@ const run = async (name, basePath) => {
     ]);
     // Determine which permutation to use.
     if (answers.typescript && answers.sass && answers.eslint && answers.mongodb) {
-        await (0, permutations_1.writeTypeScriptSassESLintMongoDB)(name, basePath, {
+        return await (0, permutations_1.writeTypeScriptSassESLintMongoDB)(name, basePath, {
             typeScript: true,
             sass: true,
         });
@@ -50,7 +50,7 @@ const run = async (name, basePath) => {
         !answers.sass &&
         answers.eslint &&
         answers.mongodb) {
-        await (0, permutations_1.writeTypeScriptESLintMongoDB)(name, basePath, {
+        return await (0, permutations_1.writeTypeScriptESLintMongoDB)(name, basePath, {
             typeScript: true,
             sass: false,
         });
@@ -59,7 +59,7 @@ const run = async (name, basePath) => {
         answers.sass &&
         !answers.eslint &&
         answers.mongodb) {
-        await (0, permutations_1.writeTypeScriptSassMongoDB)(name, basePath, {
+        return await (0, permutations_1.writeTypeScriptSassMongoDB)(name, basePath, {
             typeScript: true,
             sass: true,
         });
@@ -68,7 +68,7 @@ const run = async (name, basePath) => {
         answers.sass &&
         answers.eslint &&
         !answers.mongodb) {
-        await (0, permutations_1.writeTypeScriptSassESLint)(name, basePath, {
+        return await (0, permutations_1.writeTypeScriptSassESLint)(name, basePath, {
             typeScript: true,
             sass: true,
         });
@@ -77,7 +77,7 @@ const run = async (name, basePath) => {
         answers.sass &&
         !answers.eslint &&
         !answers.mongodb) {
-        await (0, permutations_1.writeTypeScriptSass)(name, basePath, {
+        return await (0, permutations_1.writeTypeScriptSass)(name, basePath, {
             typeScript: true,
             sass: true,
         });
@@ -86,7 +86,7 @@ const run = async (name, basePath) => {
         !answers.sass &&
         answers.eslint &&
         !answers.mongodb) {
-        await (0, permutations_1.writeTypeScriptESLint)(name, basePath, {
+        return await (0, permutations_1.writeTypeScriptESLint)(name, basePath, {
             typeScript: true,
             sass: false,
         });
@@ -95,7 +95,7 @@ const run = async (name, basePath) => {
         !answers.sass &&
         !answers.eslint &&
         answers.mongodb) {
-        await (0, permutations_1.writeTypeScriptMongoDB)(name, basePath, {
+        return await (0, permutations_1.writeTypeScriptMongoDB)(name, basePath, {
             typeScript: true,
             sass: false,
         });
@@ -104,7 +104,7 @@ const run = async (name, basePath) => {
         !answers.sass &&
         !answers.eslint &&
         !answers.mongodb) {
-        await (0, permutations_1.writeTypeScript)(name, basePath, {
+        return await (0, permutations_1.writeTypeScript)(name, basePath, {
             typeScript: true,
             sass: false,
         });
@@ -113,7 +113,7 @@ const run = async (name, basePath) => {
         answers.sass &&
         answers.eslint &&
         answers.mongodb) {
-        await (0, permutations_1.writeJavaScriptSassESLintMongoDB)(name, basePath, {
+        return await (0, permutations_1.writeJavaScriptSassESLintMongoDB)(name, basePath, {
             typeScript: false,
             sass: true,
         });
@@ -122,7 +122,7 @@ const run = async (name, basePath) => {
         !answers.sass &&
         answers.eslint &&
         answers.mongodb) {
-        await (0, permutations_1.writeJavaScriptESLintMongoDB)(name, basePath, {
+        return await (0, permutations_1.writeJavaScriptESLintMongoDB)(name, basePath, {
             typeScript: false,
             sass: false,
         });
@@ -131,7 +131,7 @@ const run = async (name, basePath) => {
         answers.sass &&
         !answers.eslint &&
         answers.mongodb) {
-        await (0, permutations_1.writeJavaScriptSassMongoDB)(name, basePath, {
+        return await (0, permutations_1.writeJavaScriptSassMongoDB)(name, basePath, {
             typeScript: false,
             sass: true,
         });
@@ -140,7 +140,7 @@ const run = async (name, basePath) => {
         answers.sass &&
         answers.eslint &&
         !answers.mongodb) {
-        await (0, permutations_1.writeJavaScriptSassESLint)(name, basePath, {
+        return await (0, permutations_1.writeJavaScriptSassESLint)(name, basePath, {
             typeScript: false,
             sass: true,
         });
@@ -149,7 +149,7 @@ const run = async (name, basePath) => {
         answers.sass &&
         !answers.eslint &&
         !answers.mongodb) {
-        await (0, permutations_1.writeJavaScriptSass)(name, basePath, {
+        return await (0, permutations_1.writeJavaScriptSass)(name, basePath, {
             typeScript: false,
             sass: true,
         });
@@ -158,7 +158,7 @@ const run = async (name, basePath) => {
         !answers.sass &&
         answers.eslint &&
         !answers.mongodb) {
-        await (0, permutations_1.writeJavaScriptESLint)(name, basePath, {
+        return await (0, permutations_1.writeJavaScriptESLint)(name, basePath, {
             typeScript: false,
             sass: false,
         });
@@ -167,7 +167,7 @@ const run = async (name, basePath) => {
         !answers.sass &&
         !answers.eslint &&
         answers.mongodb) {
-        await (0, permutations_1.writeJavaScriptMongoDB)(name, basePath, {
+        return await (0, permutations_1.writeJavaScriptMongoDB)(name, basePath, {
             typeScript: false,
             sass: false,
         });
@@ -176,7 +176,7 @@ const run = async (name, basePath) => {
         !answers.sass &&
         !answers.eslint &&
         !answers.mongodb) {
-        await (0, permutations_1.writeJavaScript)(name, basePath, {
+        return await (0, permutations_1.writeJavaScript)(name, basePath, {
             typeScript: false,
             sass: false,
         });
