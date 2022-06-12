@@ -7,6 +7,7 @@ import {
 	getJSESLintPackageJson,
 	getJSMongoPackageJson,
 	getJSPackageJson,
+	getJSSassESLintMongoPackageJson,
 	getJSSassESLintPackageJson,
 	getJSSassMongoPackageJson,
 	getJSSassPackageJson,
@@ -91,6 +92,16 @@ export const writeJSESLintMongoPackageJson: Function = async (
 	fs.writeFileSync(
 		path.join(__dirname, basePath, "/package.json"),
 		getJSESLintMongoPackageJson(name)
+	);
+};
+
+export const writeJSSassESLintMongoPackageJson: Function = async (
+	name: string,
+	basePath: string
+): Promise<void> => {
+	fs.writeFileSync(
+		path.join(__dirname, basePath, "/package.json"),
+		getJSSassESLintMongoPackageJson(name)
 	);
 };
 

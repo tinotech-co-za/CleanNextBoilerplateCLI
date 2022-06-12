@@ -236,5 +236,30 @@ export const getJSESLintMongoPackageJson: Function = (
 }
 `;
 
+export const getJSSassESLintMongoPackageJson: Function = (
+	name: string
+): string => `{
+    "name": "${name.toLowerCase().split(" ").join("-")}",
+	"private": true,
+	"scripts": {
+		"dev": "next",
+		"build": "next build",
+		"start": "next start"
+	},
+	"dependencies": {
+		"next": "latest",
+		"react": "latest",
+		"react-dom": "latest",
+        "mongoose": "latest"
+	},
+	"license": "MIT",
+	"devDependencies": {
+		"eslint": "8.11.0",
+		"eslint-config-next": "12.1.0",
+        "sass": "latest"
+	}
+}
+`;
+
 export const getReadme: Function = (name: string): string => `# ${name}
 `;
