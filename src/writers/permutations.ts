@@ -20,11 +20,7 @@ import {
 import { writeMongo } from "../writers/mongodb";
 import { writeESLint } from "../writers/eslint";
 import { writeSass } from "../writers/sass";
-
-type Options = {
-	typeScript: boolean;
-	sass: boolean;
-};
+import { Options } from "../interfaces";
 
 /**
  * Generates boilerplate for a Next.js project that uses TypeScript, Sass, ESLint and MongoDB.
