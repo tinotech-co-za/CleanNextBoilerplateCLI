@@ -19,12 +19,15 @@
 		"clean",
 		"tinotech"
 	],
-	"author": "Tino Muzambi",
+	"author": "Tino Muzambi <tino@tinotech.co.za> (http://tinotech.co.za)",
 	"license": "MIT",
 	"bugs": {
 		"url": "https://github.com/TinoMuzambi/CleanNextBoilerplateCLI/issues"
 	},
 	"homepage": "https://github.com/TinoMuzambi/CleanNextBoilerplateCLI#readme",
+	"publishConfig": {
+		"registry": "https://npm.pkg.github.com/"
+	},
 	"devDependencies": {
 		"@tsconfig/node16": "^1.0.2",
 		"@types/inquirer": "^8.2.1",
