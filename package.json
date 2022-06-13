@@ -20,7 +20,7 @@
 		"tinotech"
 	],
 	"author": "Tino Muzambi",
-	"license": "ISC",
+	"license": "MIT",
 	"bugs": {
 		"url": "https://github.com/TinoMuzambi/CleanNextBoilerplateCLI/issues"
 	},
