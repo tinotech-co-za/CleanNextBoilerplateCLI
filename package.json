@@ -2,8 +2,8 @@
 	"name": "clean-next-boilerplate",
 	"version": "1.1.0",
 	"description": "Generate a clean Next.js boilerplate with various base configurations.",
-	"main": "dist/index.js",
-	"bin": "dist/index.js",
+	"main": "index.js",
+	"bin": "index.js",
 	"scripts": {
 		"build": "npx tsc",
 		"start": "node dist/index.js",
