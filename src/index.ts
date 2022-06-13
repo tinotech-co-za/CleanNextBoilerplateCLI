@@ -249,12 +249,16 @@ program
 
 		// If yes, skip Inquirer questions and generate boilerplate with all the options. Else run Inquirer questions.
 		if (options.yes) {
-			return await writeTypeScriptSassESLintMongoDB(answers.name, basepath, {
-				typeScript: true,
-				sass: true,
-			});
+			return await writeTypeScriptSassESLintMongoDB(
+				answers.name,
+				`../../${basepath}`,
+				{
+					typeScript: true,
+					sass: true,
+				}
+			);
 		} else {
-			await run(answers.name, basepath);
+			await run(answers.name, `../${basepath}`);
 		}
 		console.log("- Generating git project.");
 		exec("git init", (error, stdout, stderr) => {

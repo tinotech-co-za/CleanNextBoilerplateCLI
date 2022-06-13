@@ -200,13 +200,13 @@ commander_1.program
     ]);
     // If yes, skip Inquirer questions and generate boilerplate with all the options. Else run Inquirer questions.
     if (options.yes) {
-        return await (0, permutations_1.writeTypeScriptSassESLintMongoDB)(answers.name, basepath, {
+        return await (0, permutations_1.writeTypeScriptSassESLintMongoDB)(answers.name, `../../${basepath}`, {
             typeScript: true,
             sass: true,
         });
     }
     else {
-        await run(answers.name, basepath);
+        await run(answers.name, `../${basepath}`);
     }
     console.log("- Generating git project.");
     (0, child_process_1.exec)("git init", (error, stdout, stderr) => {
