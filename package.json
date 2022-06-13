@@ -1,6 +1,6 @@
 {
 	"name": "clean-next-boilerplate",
-	"version": "1.0.3",
+	"version": "1.1.0",
 	"description": "Generate a clean Next.js boilerplate with various base configurations.",
 	"main": "dist/index.js",
 	"bin": "dist/index.js",
