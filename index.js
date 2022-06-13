@@ -185,7 +185,7 @@ const run = async (name, basePath) => {
     }
 };
 // Setup commander program.
-commander_1.program.version("1.1.4").description("Clean Next.js Boilerplate CLI");
+commander_1.program.version("2.0.0").description("Clean Next.js Boilerplate CLI");
 commander_1.program
     .argument("[basepath]", " the base path to generate the project at", "./")
     .option("-y, --yes", "answer yes to all the prompts")

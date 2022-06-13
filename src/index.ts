@@ -232,7 +232,7 @@ const run = async (name: string, basePath: string) => {
 };
 
 // Setup commander program.
-program.version("1.1.4").description("Clean Next.js Boilerplate CLI");
+program.version("2.0.0").description("Clean Next.js Boilerplate CLI");
 
 program
 	.argument("[basepath]", " the base path to generate the project at", "./")
