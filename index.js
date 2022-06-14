@@ -22,25 +22,25 @@ const run = async (name, basePath) => {
         {
             type: "confirm",
             name: "typescript",
-            message: "Do you want to use TypeScript in your project?",
+            message: `Do you want to use ${chalk_1.default.blue("TypeScript")} in your project?`,
             default: true,
         },
         {
             type: "confirm",
             name: "sass",
-            message: "Do you want to use Sass in your project?",
+            message: `Do you want to use ${chalk_1.default.magenta("Sass")} in your project?`,
             default: true,
         },
         {
             type: "confirm",
             name: "eslint",
-            message: "Do you want to use ESLint in your project?",
+            message: `Do you want to use ${chalk_1.default.hex("#6a0dad")("ESLint")} in your project?`,
             default: true,
         },
         {
             type: "confirm",
             name: "mongodb",
-            message: "Do you want to use MongoDB in your project?",
+            message: `Do you want to use ${chalk_1.default.green("MongoDB")} in your project?`,
             default: true,
         },
     ]);

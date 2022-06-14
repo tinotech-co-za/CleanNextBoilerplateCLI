@@ -38,25 +38,33 @@ const run = async (name: string, basePath: string) => {
 		{
 			type: "confirm",
 			name: "typescript",
-			message: "Do you want to use TypeScript in your project?",
+			message: `Do you want to use ${chalk.blue.bold(
+				"TypeScript"
+			)} in your project?`,
 			default: true,
 		},
 		{
 			type: "confirm",
 			name: "sass",
-			message: "Do you want to use Sass in your project?",
+			message: `Do you want to use ${chalk.magenta.bold(
+				"Sass"
+			)} in your project?`,
 			default: true,
 		},
 		{
 			type: "confirm",
 			name: "eslint",
-			message: "Do you want to use ESLint in your project?",
+			message: `Do you want to use ${chalk
+				.hex("#6a0dad")
+				.bold("ESLint")} in your project?`,
 			default: true,
 		},
 		{
 			type: "confirm",
 			name: "mongodb",
-			message: "Do you want to use MongoDB in your project?",
+			message: `Do you want to use ${chalk.green.bold(
+				"MongoDB"
+			)} in your project?`,
 			default: true,
 		},
 	]);
