@@ -5,6 +5,7 @@ import { program } from "commander";
 import path from "path";
 import { exec } from "child_process";
 import fs from "fs";
+const packageJson = require("../package.json");
 
 import {
 	writeJavaScript,
@@ -233,7 +234,9 @@ const run = async (name: string, basePath: string) => {
 };
 
 // Setup commander program.
-program.version("2.0.0").description("Clean Next.js Boilerplate CLI");
+program
+	.version(packageJson.version)
+	.description("Clean Next.js Boilerplate CLI");
 
 program
 	.argument("[basepath]", " the base path to generate the project at", "./")
