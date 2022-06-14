@@ -1,3 +1,5 @@
+import chalk from "chalk";
+
 import {
 	writeCommonFiles,
 	writeJSESLintMongoPackageJson,
@@ -43,7 +45,9 @@ export const writeTypeScriptSassESLintMongoDB = async (
 	await writeSass(basePath);
 	await writeESLint(basePath);
 	console.log(
-		"\n- Generated Next.js app with TypeScript, Sass, ESLint and MongoDB"
+		chalk.green(
+			"\n- Generated Next.js app with TypeScript, Sass, ESLint and MongoDB"
+		)
 	);
 };
 
@@ -66,7 +70,9 @@ export const writeTypeScriptESLintMongoDB = async (
 	await writeTSESLintMongoPackageJson(name, basePath);
 	await writeMongo(basePath, true);
 	await writeESLint(basePath);
-	console.log("\n- Generated Next.js app with TypeScript, ESLint and MongoDB");
+	console.log(
+		chalk.green("\n- Generated Next.js app with TypeScript, ESLint and MongoDB")
+	);
 };
 
 /**
@@ -88,7 +94,9 @@ export const writeTypeScriptSassMongoDB = async (
 	await writeTSSassMongoPackageJson(name, basePath);
 	await writeMongo(basePath, true);
 	await writeSass(basePath);
-	console.log("\n- Generated Next.js app with TypeScript, Sass and MongoDB");
+	console.log(
+		chalk.green("\n- Generated Next.js app with TypeScript, Sass and MongoDB")
+	);
 };
 
 /**
@@ -110,7 +118,9 @@ export const writeTypeScriptSassESLint = async (
 	await writeTSSassESLintPackageJson(name, basePath);
 	await writeSass(basePath);
 	await writeESLint(basePath);
-	console.log("\n- Generated Next.js app with TypeScript, Sass and ESLint");
+	console.log(
+		chalk.green("\n- Generated Next.js app with TypeScript, Sass and ESLint")
+	);
 };
 
 /**
@@ -131,7 +141,9 @@ export const writeTypeScriptSass = async (
 	await writeCommonFiles(name, basePath, options);
 	await writeTSSassPackageJson(name, basePath);
 	await writeSass(basePath);
-	console.log("\n- Generated Next.js app with TypeScript and Sass");
+	console.log(
+		chalk.green("\n- Generated Next.js app with TypeScript and Sass")
+	);
 };
 
 /**
@@ -152,7 +164,9 @@ export const writeTypeScriptESLint = async (
 	await writeCommonFiles(name, basePath, options);
 	await writeTSESLintPackageJson(name, basePath);
 	await writeESLint(basePath);
-	console.log("\n- Generated Next.js app with TypeScript and ESLint");
+	console.log(
+		chalk.green("\n- Generated Next.js app with TypeScript and ESLint")
+	);
 };
 
 /**
@@ -173,7 +187,9 @@ export const writeTypeScriptMongoDB = async (
 	await writeCommonFiles(name, basePath, options);
 	await writeTSMongoPackageJson(name, basePath);
 	await writeMongo(basePath, true);
-	console.log("\n- Generated Next.js app with TypeScript and MongoDB");
+	console.log(
+		chalk.green("\n- Generated Next.js app with TypeScript and MongoDB")
+	);
 };
 
 /**
@@ -193,7 +209,7 @@ export const writeTypeScript = async (
 ): Promise<void> => {
 	await writeCommonFiles(name, basePath, options);
 	await writeTSPackageJson(name, basePath);
-	console.log("\n- Generated Next.js app with TypeScript");
+	console.log(chalk.green("\n- Generated Next.js app with TypeScript"));
 };
 
 /**
@@ -217,7 +233,9 @@ export const writeJavaScriptSassESLintMongoDB = async (
 	await writeESLint(basePath);
 	await writeSass(basePath);
 	console.log(
-		"\n- Generated Next.js app with JavaScript, Sass, ESLint and MongoDB"
+		chalk.green(
+			"\n- Generated Next.js app with JavaScript, Sass, ESLint and MongoDB"
+		)
 	);
 };
 
@@ -240,7 +258,9 @@ export const writeJavaScriptESLintMongoDB = async (
 	await writeJSESLintMongoPackageJson(name, basePath);
 	await writeMongo(basePath, false);
 	await writeESLint(basePath);
-	console.log("\n- Generated Next.js app with JavaScript, ESLint and MongoDB");
+	console.log(
+		chalk.green("\n- Generated Next.js app with JavaScript, ESLint and MongoDB")
+	);
 };
 
 /**
@@ -262,7 +282,9 @@ export const writeJavaScriptSassMongoDB = async (
 	await writeJSSassMongoPackageJson(name, basePath);
 	await writeSass(basePath);
 	await writeMongo(basePath, false);
-	console.log("\n- Generated Next.js app with JavaScript, Sass and MongoDB");
+	console.log(
+		chalk.green("\n- Generated Next.js app with JavaScript, Sass and MongoDB")
+	);
 };
 
 /**
@@ -284,7 +306,9 @@ export const writeJavaScriptSassESLint = async (
 	await writeJSSassESLintPackageJson(name, basePath);
 	await writeSass(basePath);
 	await writeESLint(basePath);
-	console.log("\n- Generated Next.js app with JavaScript, Sass and ESLint");
+	console.log(
+		chalk.green("\n- Generated Next.js app with JavaScript, Sass and ESLint")
+	);
 };
 
 /**
@@ -305,7 +329,9 @@ export const writeJavaScriptSass = async (
 	await writeCommonFiles(name, basePath, options);
 	await writeJSSassPackageJson(name, basePath);
 	await writeSass(basePath);
-	console.log("\n- Generated Next.js app with JavaScript and Sass");
+	console.log(
+		chalk.green("\n- Generated Next.js app with JavaScript and Sass")
+	);
 };
 
 /**
@@ -326,7 +352,9 @@ export const writeJavaScriptESLint = async (
 	await writeCommonFiles(name, basePath, options);
 	await writeJSESLintPackageJson(name, basePath);
 	await writeESLint(basePath);
-	console.log("\n- Generated Next.js app with JavaScript and ESLint");
+	console.log(
+		chalk.green("\n- Generated Next.js app with JavaScript and ESLint")
+	);
 };
 
 /**
@@ -347,7 +375,9 @@ export const writeJavaScriptMongoDB = async (
 	await writeCommonFiles(name, basePath, options);
 	await writeJSMongoPackageJson(name, basePath);
 	await writeMongo(basePath, false);
-	console.log("\n- Generated Next.js app with JavaScript and MongoDB");
+	console.log(
+		chalk.green("\n- Generated Next.js app with JavaScript and MongoDB")
+	);
 };
 
 /**
@@ -367,5 +397,5 @@ export const writeJavaScript = async (
 ): Promise<void> => {
 	await writeCommonFiles(name, basePath, options);
 	await writeJSPackageJson(name, basePath);
-	console.log("\n- Generated Next.js app with JavaScript");
+	console.log(chalk.green("\n- Generated Next.js app with JavaScript"));
 };

@@ -4,6 +4,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
+const chalk_1 = __importDefault(require("chalk"));
 const inquirer_1 = __importDefault(require("inquirer"));
 const commander_1 = require("commander");
 const path_1 = __importDefault(require("path"));
@@ -21,25 +22,27 @@ const run = async (name, basePath) => {
         {
             type: "confirm",
             name: "typescript",
-            message: "Do you want to use TypeScript in your project?",
+            message: `Do you want to use ${chalk_1.default.blue.bold("TypeScript")} in your project?`,
             default: true,
         },
         {
             type: "confirm",
             name: "sass",
-            message: "Do you want to use Sass in your project?",
+            message: `Do you want to use ${chalk_1.default.magenta.bold("Sass")} in your project?`,
             default: true,
         },
         {
             type: "confirm",
             name: "eslint",
-            message: "Do you want to use ESLint in your project?",
+            message: `Do you want to use ${chalk_1.default
+                .hex("#6a0dad")
+                .bold("ESLint")} in your project?`,
             default: true,
         },
         {
             type: "confirm",
             name: "mongodb",
-            message: "Do you want to use MongoDB in your project?",
+            message: `Do you want to use ${chalk_1.default.green.bold("MongoDB")} in your project?`,
             default: true,
         },
     ]);
@@ -207,7 +210,7 @@ commander_1.program
     ]);
     // If yes, skip Inquirer questions and generate boilerplate with all the options. Else run Inquirer questions.
     if (options.yes) {
-        return await (0, permutations_1.writeTypeScriptSassESLintMongoDB)(answers.name, `./`, {
+        await (0, permutations_1.writeTypeScriptSassESLintMongoDB)(answers.name, `./`, {
             typeScript: true,
             sass: true,
         });
@@ -215,7 +218,7 @@ commander_1.program
     else {
         await run(answers.name, `./`);
     }
-    console.log("- Generating git project.");
+    console.log(chalk_1.default.blue("- Generating Git project."));
     (0, child_process_1.exec)("git init", (error, stdout, stderr) => {
         if (error) {
             console.error(`error: ${error.message}`);
@@ -225,7 +228,7 @@ commander_1.program
             console.error(`stderr: ${stderr}`);
             return;
         }
-        console.log(`- ${stdout}`);
+        console.log(chalk_1.default.green(`- ${stdout}`));
     });
 });
 // Parse program setup.
