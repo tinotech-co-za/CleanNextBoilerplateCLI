@@ -14,7 +14,7 @@ const constants_1 = require("../utils/constants");
  * @param basePath The base path to write out the files to.
  */
 const writeJSPackageJson = async (name, basePath) => {
-    fs_1.default.writeFileSync(path_1.default.join(__dirname, basePath, "/package.json"), (0, files_1.getJSPackageJson)(name));
+    fs_1.default.writeFileSync(path_1.default.join(basePath, "/package.json"), (0, files_1.getJSPackageJson)(name));
 };
 exports.writeJSPackageJson = writeJSPackageJson;
 /**
@@ -23,7 +23,7 @@ exports.writeJSPackageJson = writeJSPackageJson;
  * @param basePath The base path to write out the files to.
  */
 const writeJSMongoPackageJson = async (name, basePath) => {
-    fs_1.default.writeFileSync(path_1.default.join(__dirname, basePath, "/package.json"), (0, files_1.getJSMongoPackageJson)(name));
+    fs_1.default.writeFileSync(path_1.default.join(basePath, "/package.json"), (0, files_1.getJSMongoPackageJson)(name));
 };
 exports.writeJSMongoPackageJson = writeJSMongoPackageJson;
 /**
@@ -32,7 +32,7 @@ exports.writeJSMongoPackageJson = writeJSMongoPackageJson;
  * @param basePath The base path to write out the files to.
  */
 const writeJSESLintPackageJson = async (name, basePath) => {
-    fs_1.default.writeFileSync(path_1.default.join(__dirname, basePath, "/package.json"), (0, files_1.getJSESLintPackageJson)(name));
+    fs_1.default.writeFileSync(path_1.default.join(basePath, "/package.json"), (0, files_1.getJSESLintPackageJson)(name));
 };
 exports.writeJSESLintPackageJson = writeJSESLintPackageJson;
 /**
@@ -41,7 +41,7 @@ exports.writeJSESLintPackageJson = writeJSESLintPackageJson;
  * @param basePath The base path to write out the files to.
  */
 const writeJSSassPackageJson = async (name, basePath) => {
-    fs_1.default.writeFileSync(path_1.default.join(__dirname, basePath, "/package.json"), (0, files_1.getJSSassPackageJson)(name));
+    fs_1.default.writeFileSync(path_1.default.join(basePath, "/package.json"), (0, files_1.getJSSassPackageJson)(name));
 };
 exports.writeJSSassPackageJson = writeJSSassPackageJson;
 /**
@@ -50,7 +50,7 @@ exports.writeJSSassPackageJson = writeJSSassPackageJson;
  * @param basePath The base path to write out the files to.
  */
 const writeJSSassESLintPackageJson = async (name, basePath) => {
-    fs_1.default.writeFileSync(path_1.default.join(__dirname, basePath, "/package.json"), (0, files_1.getJSSassESLintPackageJson)(name));
+    fs_1.default.writeFileSync(path_1.default.join(basePath, "/package.json"), (0, files_1.getJSSassESLintPackageJson)(name));
 };
 exports.writeJSSassESLintPackageJson = writeJSSassESLintPackageJson;
 /**
@@ -59,7 +59,7 @@ exports.writeJSSassESLintPackageJson = writeJSSassESLintPackageJson;
  * @param basePath The base path to write out the files to.
  */
 const writeJSSassMongoPackageJson = async (name, basePath) => {
-    fs_1.default.writeFileSync(path_1.default.join(__dirname, basePath, "/package.json"), (0, files_1.getJSSassMongoPackageJson)(name));
+    fs_1.default.writeFileSync(path_1.default.join(basePath, "/package.json"), (0, files_1.getJSSassMongoPackageJson)(name));
 };
 exports.writeJSSassMongoPackageJson = writeJSSassMongoPackageJson;
 /**
@@ -68,7 +68,7 @@ exports.writeJSSassMongoPackageJson = writeJSSassMongoPackageJson;
  * @param basePath The base path to write out the files to.
  */
 const writeJSESLintMongoPackageJson = async (name, basePath) => {
-    fs_1.default.writeFileSync(path_1.default.join(__dirname, basePath, "/package.json"), (0, files_1.getJSESLintMongoPackageJson)(name));
+    fs_1.default.writeFileSync(path_1.default.join(basePath, "/package.json"), (0, files_1.getJSESLintMongoPackageJson)(name));
 };
 exports.writeJSESLintMongoPackageJson = writeJSESLintMongoPackageJson;
 /**
@@ -77,7 +77,7 @@ exports.writeJSESLintMongoPackageJson = writeJSESLintMongoPackageJson;
  * @param basePath The base path to write out the files to.
  */
 const writeJSSassESLintMongoPackageJson = async (name, basePath) => {
-    fs_1.default.writeFileSync(path_1.default.join(__dirname, basePath, "/package.json"), (0, files_1.getJSSassESLintMongoPackageJson)(name));
+    fs_1.default.writeFileSync(path_1.default.join(basePath, "/package.json"), (0, files_1.getJSSassESLintMongoPackageJson)(name));
 };
 exports.writeJSSassESLintMongoPackageJson = writeJSSassESLintMongoPackageJson;
 /**
@@ -86,7 +86,7 @@ exports.writeJSSassESLintMongoPackageJson = writeJSSassESLintMongoPackageJson;
  * @param basePath The base path to write out the files to.
  */
 const writeTSPackageJson = async (name, basePath) => {
-    fs_1.default.writeFileSync(path_1.default.join(__dirname, basePath, "/package.json"), (0, files_1.getTSPackageJson)(name));
+    fs_1.default.writeFileSync(path_1.default.join(basePath, "/package.json"), (0, files_1.getTSPackageJson)(name));
 };
 exports.writeTSPackageJson = writeTSPackageJson;
 /**
@@ -95,7 +95,7 @@ exports.writeTSPackageJson = writeTSPackageJson;
  * @param basePath The base path to write out the files to.
  */
 const writeTSMongoPackageJson = async (name, basePath) => {
-    fs_1.default.writeFileSync(path_1.default.join(__dirname, basePath, "/package.json"), (0, files_1.getTSMongoPackageJson)(name));
+    fs_1.default.writeFileSync(path_1.default.join(basePath, "/package.json"), (0, files_1.getTSMongoPackageJson)(name));
 };
 exports.writeTSMongoPackageJson = writeTSMongoPackageJson;
 /**
@@ -104,7 +104,7 @@ exports.writeTSMongoPackageJson = writeTSMongoPackageJson;
  * @param basePath The base path to write out the files to.
  */
 const writeTSESLintPackageJson = async (name, basePath) => {
-    fs_1.default.writeFileSync(path_1.default.join(__dirname, basePath, "/package.json"), (0, files_1.getTSESLintPackageJson)(name));
+    fs_1.default.writeFileSync(path_1.default.join(basePath, "/package.json"), (0, files_1.getTSESLintPackageJson)(name));
 };
 exports.writeTSESLintPackageJson = writeTSESLintPackageJson;
 /**
@@ -113,7 +113,7 @@ exports.writeTSESLintPackageJson = writeTSESLintPackageJson;
  * @param basePath The base path to write out the files to.
  */
 const writeTSSassPackageJson = async (name, basePath) => {
-    fs_1.default.writeFileSync(path_1.default.join(__dirname, basePath, "/package.json"), (0, files_1.getTSSassPackageJson)(name));
+    fs_1.default.writeFileSync(path_1.default.join(basePath, "/package.json"), (0, files_1.getTSSassPackageJson)(name));
 };
 exports.writeTSSassPackageJson = writeTSSassPackageJson;
 /**
@@ -122,7 +122,7 @@ exports.writeTSSassPackageJson = writeTSSassPackageJson;
  * @param basePath The base path to write out the files to.
  */
 const writeTSSassESLintPackageJson = async (name, basePath) => {
-    fs_1.default.writeFileSync(path_1.default.join(__dirname, basePath, "/package.json"), (0, files_1.getTSSassESLintPackageJson)(name));
+    fs_1.default.writeFileSync(path_1.default.join(basePath, "/package.json"), (0, files_1.getTSSassESLintPackageJson)(name));
 };
 exports.writeTSSassESLintPackageJson = writeTSSassESLintPackageJson;
 /**
@@ -131,7 +131,7 @@ exports.writeTSSassESLintPackageJson = writeTSSassESLintPackageJson;
  * @param basePath The base path to write out the files to.
  */
 const writeTSSassMongoPackageJson = async (name, basePath) => {
-    fs_1.default.writeFileSync(path_1.default.join(__dirname, basePath, "/package.json"), (0, files_1.getTSSassMongoPackageJson)(name));
+    fs_1.default.writeFileSync(path_1.default.join(basePath, "/package.json"), (0, files_1.getTSSassMongoPackageJson)(name));
 };
 exports.writeTSSassMongoPackageJson = writeTSSassMongoPackageJson;
 /**
@@ -140,7 +140,7 @@ exports.writeTSSassMongoPackageJson = writeTSSassMongoPackageJson;
  * @param basePath The base path to write out the files to.
  */
 const writeTSESLintMongoPackageJson = async (name, basePath) => {
-    fs_1.default.writeFileSync(path_1.default.join(__dirname, basePath, "/package.json"), (0, files_1.getTSESLintMongoPackageJson)(name));
+    fs_1.default.writeFileSync(path_1.default.join(basePath, "/package.json"), (0, files_1.getTSESLintMongoPackageJson)(name));
 };
 exports.writeTSESLintMongoPackageJson = writeTSESLintMongoPackageJson;
 /**
@@ -149,7 +149,7 @@ exports.writeTSESLintMongoPackageJson = writeTSESLintMongoPackageJson;
  * @param basePath The base path to write out the files to.
  */
 const writeTSSassESLintMongoPackageJson = async (name, basePath) => {
-    fs_1.default.writeFileSync(path_1.default.join(__dirname, basePath, "/package.json"), (0, files_1.getTSSassESLintMongoPackageJson)(name));
+    fs_1.default.writeFileSync(path_1.default.join(basePath, "/package.json"), (0, files_1.getTSSassESLintMongoPackageJson)(name));
 };
 exports.writeTSSassESLintMongoPackageJson = writeTSSassESLintMongoPackageJson;
 /**
@@ -157,16 +157,16 @@ exports.writeTSSassESLintMongoPackageJson = writeTSSassESLintMongoPackageJson;
  * @param basePath The base path to write out the directories to.
  */
 const mkCommonDirs = async (basePath) => {
-    fs_1.default.mkdirSync(path_1.default.join(__dirname, basePath, "/components"), {
+    fs_1.default.mkdirSync(path_1.default.join(basePath, "/components"), {
         recursive: true,
     });
-    fs_1.default.mkdirSync(path_1.default.join(__dirname, basePath, "/public"), {
+    fs_1.default.mkdirSync(path_1.default.join(basePath, "/public"), {
         recursive: true,
     });
-    fs_1.default.mkdirSync(path_1.default.join(__dirname, basePath, "/utils"), {
+    fs_1.default.mkdirSync(path_1.default.join(basePath, "/utils"), {
         recursive: true,
     });
-    fs_1.default.mkdirSync(path_1.default.join(__dirname, basePath, "/pages/api/post"), {
+    fs_1.default.mkdirSync(path_1.default.join(basePath, "/pages/api/post"), {
         recursive: true,
     });
 };
@@ -181,21 +181,21 @@ const mkCommonDirs = async (basePath) => {
  */
 const writeCommonFiles = async (name, basePath, options) => {
     mkCommonDirs(basePath);
-    fs_1.default.writeFileSync(path_1.default.join(__dirname, basePath, `/components/Meta.${options.typeScript ? "tsx" : "jsx"}`), (0, files_1.getMeta)(name, options.typeScript));
-    fs_1.default.writeFileSync(path_1.default.join(__dirname, basePath, `/components/Wrapper.${options.typeScript ? "tsx" : "jsx"}`), options.typeScript ? constants_1.WRAPPER_TS : constants_1.WRAPPER);
-    fs_1.default.writeFileSync(path_1.default.join(__dirname, basePath, `/pages/api/post/index.${options.typeScript ? "ts" : "js"}`), options.typeScript ? constants_1.API_POST_TS : constants_1.API_POST);
-    fs_1.default.writeFileSync(path_1.default.join(__dirname, basePath, `/pages/_app.${options.typeScript ? "tsx" : "jsx"}`), options.sass
+    fs_1.default.writeFileSync(path_1.default.join(basePath, `/components/Meta.${options.typeScript ? "tsx" : "jsx"}`), (0, files_1.getMeta)(name, options.typeScript));
+    fs_1.default.writeFileSync(path_1.default.join(basePath, `/components/Wrapper.${options.typeScript ? "tsx" : "jsx"}`), options.typeScript ? constants_1.WRAPPER_TS : constants_1.WRAPPER);
+    fs_1.default.writeFileSync(path_1.default.join(basePath, `/pages/api/post/index.${options.typeScript ? "ts" : "js"}`), options.typeScript ? constants_1.API_POST_TS : constants_1.API_POST);
+    fs_1.default.writeFileSync(path_1.default.join(basePath, `/pages/_app.${options.typeScript ? "tsx" : "jsx"}`), options.sass
         ? options.typeScript
             ? constants_1.APP_SASS_TS
             : constants_1.APP_SASS
         : options.typeScript
             ? constants_1.APP_TS
             : constants_1.APP);
-    fs_1.default.writeFileSync(path_1.default.join(__dirname, basePath, `/pages/index.${options.typeScript ? "tsx" : "jsx"}`), (0, files_1.getIndex)(name, options.typeScript));
-    fs_1.default.writeFileSync(path_1.default.join(__dirname, basePath, "/public/manifest.json"), (0, files_1.getManifest)(name));
-    fs_1.default.writeFileSync(path_1.default.join(__dirname, basePath, `/utils/index.${options.typeScript ? "ts" : "js"}`), constants_1.UTILS_INDEX);
-    fs_1.default.writeFileSync(path_1.default.join(__dirname, basePath, "/.gitignore"), constants_1.GITIGNORE);
-    fs_1.default.writeFileSync(path_1.default.join(__dirname, basePath, "/README.MD"), (0, files_1.getReadme)(name));
-    fs_1.default.writeFileSync(path_1.default.join(__dirname, basePath, "/vercel.json"), constants_1.VERCEL_JSON);
+    fs_1.default.writeFileSync(path_1.default.join(basePath, `/pages/index.${options.typeScript ? "tsx" : "jsx"}`), (0, files_1.getIndex)(name, options.typeScript));
+    fs_1.default.writeFileSync(path_1.default.join(basePath, "/public/manifest.json"), (0, files_1.getManifest)(name));
+    fs_1.default.writeFileSync(path_1.default.join(basePath, `/utils/index.${options.typeScript ? "ts" : "js"}`), constants_1.UTILS_INDEX);
+    fs_1.default.writeFileSync(path_1.default.join(basePath, "/.gitignore"), constants_1.GITIGNORE);
+    fs_1.default.writeFileSync(path_1.default.join(basePath, "/README.MD"), (0, files_1.getReadme)(name));
+    fs_1.default.writeFileSync(path_1.default.join(basePath, "/vercel.json"), constants_1.VERCEL_JSON);
 };
 exports.writeCommonFiles = writeCommonFiles;

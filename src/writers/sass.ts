@@ -16,10 +16,10 @@ import {
  * @param basePath The base path to write out the files to.
  */
 const makeSassDirs = async (basePath: string): Promise<void> => {
-	fs.mkdirSync(path.join(__dirname, basePath, "/sass/abstracts"), {
+	fs.mkdirSync(path.join(basePath, "/sass/abstracts"), {
 		recursive: true,
 	});
-	fs.mkdirSync(path.join(__dirname, basePath, "/sass/components"), {
+	fs.mkdirSync(path.join(basePath, "/sass/components"), {
 		recursive: true,
 	});
 };
@@ -29,7 +29,7 @@ const makeSassDirs = async (basePath: string): Promise<void> => {
  * @param basePath The base path to write out the files to.
  */
 const writeSassApp = async (basePath: string): Promise<void> => {
-	fs.writeFileSync(path.join(__dirname, basePath, "/sass/App.scss"), SASS_APP);
+	fs.writeFileSync(path.join(basePath, "/sass/App.scss"), SASS_APP);
 };
 
 /**
@@ -38,7 +38,7 @@ const writeSassApp = async (basePath: string): Promise<void> => {
  */
 const writeSassBase = async (basePath: string): Promise<void> => {
 	fs.writeFileSync(
-		path.join(__dirname, basePath, "/sass/components/_base.scss"),
+		path.join(basePath, "/sass/components/_base.scss"),
 		SASS_BASE
 	);
 };
@@ -49,7 +49,7 @@ const writeSassBase = async (basePath: string): Promise<void> => {
  */
 const writeSassBreakpoints = async (basePath: string): Promise<void> => {
 	fs.writeFileSync(
-		path.join(__dirname, basePath, "/sass/abstracts/_breakpoints.scss"),
+		path.join(basePath, "/sass/abstracts/_breakpoints.scss"),
 		SASS_BREAKPOINTS
 	);
 };
@@ -60,7 +60,7 @@ const writeSassBreakpoints = async (basePath: string): Promise<void> => {
  */
 const writeSassColours = async (basePath: string): Promise<void> => {
 	fs.writeFileSync(
-		path.join(__dirname, basePath, "/sass/abstracts/_colours.scss"),
+		path.join(basePath, "/sass/abstracts/_colours.scss"),
 		SASS_COLOURS
 	);
 };
@@ -71,7 +71,7 @@ const writeSassColours = async (basePath: string): Promise<void> => {
  */
 const writeSassFonts = async (basePath: string): Promise<void> => {
 	fs.writeFileSync(
-		path.join(__dirname, basePath, "/sass/abstracts/_fonts.scss"),
+		path.join(basePath, "/sass/abstracts/_fonts.scss"),
 		SASS_FONTS
 	);
 };
@@ -82,7 +82,7 @@ const writeSassFonts = async (basePath: string): Promise<void> => {
  */
 const writeSassIndex = async (basePath: string): Promise<void> => {
 	fs.writeFileSync(
-		path.join(__dirname, basePath, "/sass/abstracts/_index.scss"),
+		path.join(basePath, "/sass/abstracts/_index.scss"),
 		SASS_INDEX
 	);
 };
@@ -93,7 +93,7 @@ const writeSassIndex = async (basePath: string): Promise<void> => {
  */
 const writeSassMixins = async (basePath: string): Promise<void> => {
 	fs.writeFileSync(
-		path.join(__dirname, basePath, "/sass/abstracts/_mixins.scss"),
+		path.join(basePath, "/sass/abstracts/_mixins.scss"),
 		SASS_MIXINS
 	);
 };

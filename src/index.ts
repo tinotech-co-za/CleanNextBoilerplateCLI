@@ -4,6 +4,7 @@ import inquirer from "inquirer";
 import { program } from "commander";
 import path from "path";
 import { exec } from "child_process";
+import fs from "fs";
 
 import {
 	writeJavaScript,
@@ -247,18 +248,17 @@ program
 			},
 		]);
 
+		if (!fs.existsSync(basepath)) fs.mkdirSync(basepath);
+		process.chdir(basepath);
+
 		// If yes, skip Inquirer questions and generate boilerplate with all the options. Else run Inquirer questions.
 		if (options.yes) {
-			return await writeTypeScriptSassESLintMongoDB(
-				answers.name,
-				`../../${basepath}`,
-				{
-					typeScript: true,
-					sass: true,
-				}
-			);
+			return await writeTypeScriptSassESLintMongoDB(answers.name, `./`, {
+				typeScript: true,
+				sass: true,
+			});
 		} else {
-			await run(answers.name, `../${basepath}`);
+			await run(answers.name, `./`);
 		}
 		console.log("- Generating git project.");
 		exec("git init", (error, stdout, stderr) => {

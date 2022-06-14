@@ -12,6 +12,6 @@ const constants_1 = require("../utils/constants");
  * @param basePath The base path to write out the files to.
  */
 const writeESLint = async (basePath) => {
-    fs_1.default.writeFileSync(path_1.default.join(__dirname, basePath, "/.eslintrc.json"), constants_1.ESLINT_RC);
+    fs_1.default.writeFileSync(path_1.default.join(basePath, "/.eslintrc.json"), constants_1.ESLINT_RC);
 };
 exports.writeESLint = writeESLint;
