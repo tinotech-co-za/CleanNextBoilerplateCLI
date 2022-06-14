@@ -6,6 +6,8 @@ name: Node.js Package
 on:
   push:
     branches: -main
+  pull-request:
+    types: [closed]
   release:
     types: [created]
 
