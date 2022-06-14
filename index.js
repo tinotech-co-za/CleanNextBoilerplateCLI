@@ -194,6 +194,9 @@ commander_1.program
     .argument("[basepath]", " the base path to generate the project at", "./")
     .option("-y, --yes", "answer yes to all the prompts")
     .action(async (basepath, options) => {
+    if (!fs_1.default.existsSync(basepath))
+        fs_1.default.mkdirSync(basepath);
+    process.chdir(basepath);
     const answers = await inquirer_1.default.prompt([
         {
             type: "input",
@@ -202,9 +205,6 @@ commander_1.program
             default: path_1.default.basename(__dirname),
         },
     ]);
-    if (!fs_1.default.existsSync(basepath))
-        fs_1.default.mkdirSync(basepath);
-    process.chdir(basepath);
     // If yes, skip Inquirer questions and generate boilerplate with all the options. Else run Inquirer questions.
     if (options.yes) {
         return await (0, permutations_1.writeTypeScriptSassESLintMongoDB)(answers.name, `./`, {
