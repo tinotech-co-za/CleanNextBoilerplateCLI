@@ -9,7 +9,7 @@ const commander_1 = require("commander");
 const path_1 = __importDefault(require("path"));
 const child_process_1 = require("child_process");
 const fs_1 = __importDefault(require("fs"));
-const packageJson = require("../package.json");
+const packageJson = require("./package.json");
 const permutations_1 = require("./writers/permutations");
 /**
  * Run Inquirer to get options for what to include in the generated project.

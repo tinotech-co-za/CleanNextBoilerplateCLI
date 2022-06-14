@@ -5,7 +5,7 @@ import { program } from "commander";
 import path from "path";
 import { exec } from "child_process";
 import fs from "fs";
-const packageJson = require("../package.json");
+const packageJson = require("./package.json");
 
 import {
 	writeJavaScript,
