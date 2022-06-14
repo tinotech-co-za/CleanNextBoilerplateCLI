@@ -250,7 +250,7 @@ program
 				type: "input",
 				name: "name",
 				message: "What is your project's name?",
-				default: path.basename(__dirname),
+				default: path.basename(process.cwd()),
 			},
 		]);
 

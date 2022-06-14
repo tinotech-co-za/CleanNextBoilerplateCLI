@@ -202,7 +202,7 @@ commander_1.program
             type: "input",
             name: "name",
             message: "What is your project's name?",
-            default: path_1.default.basename(__dirname),
+            default: path_1.default.basename(process.cwd()),
         },
     ]);
     // If yes, skip Inquirer questions and generate boilerplate with all the options. Else run Inquirer questions.
