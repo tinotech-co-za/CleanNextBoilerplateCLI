@@ -242,6 +242,9 @@ program
 	.argument("[basepath]", " the base path to generate the project at", "./")
 	.option("-y, --yes", "answer yes to all the prompts")
 	.action(async (basepath, options) => {
+		if (!fs.existsSync(basepath)) fs.mkdirSync(basepath);
+		process.chdir(basepath);
+
 		const answers = await inquirer.prompt([
 			{
 				type: "input",
@@ -250,9 +253,6 @@ program
 				default: path.basename(__dirname),
 			},
 		]);
-
-		if (!fs.existsSync(basepath)) fs.mkdirSync(basepath);
-		process.chdir(basepath);
 
 		// If yes, skip Inquirer questions and generate boilerplate with all the options. Else run Inquirer questions.
 		if (options.yes) {
