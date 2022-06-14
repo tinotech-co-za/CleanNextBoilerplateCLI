@@ -8,8 +8,5 @@ import { ESLINT_RC } from "../utils/constants";
  * @param basePath The base path to write out the files to.
  */
 export const writeESLint = async (basePath: string): Promise<void> => {
-	fs.writeFileSync(
-		path.join(__dirname, basePath, "/.eslintrc.json"),
-		ESLINT_RC
-	);
+	fs.writeFileSync(path.join(basePath, "/.eslintrc.json"), ESLINT_RC);
 };

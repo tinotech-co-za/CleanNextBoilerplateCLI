@@ -12,10 +12,10 @@ const constants_1 = require("../utils/constants");
  * @param basePath The base path to write out the files to.
  */
 const makeSassDirs = async (basePath) => {
-    fs_1.default.mkdirSync(path_1.default.join(__dirname, basePath, "/sass/abstracts"), {
+    fs_1.default.mkdirSync(path_1.default.join(basePath, "/sass/abstracts"), {
         recursive: true,
     });
-    fs_1.default.mkdirSync(path_1.default.join(__dirname, basePath, "/sass/components"), {
+    fs_1.default.mkdirSync(path_1.default.join(basePath, "/sass/components"), {
         recursive: true,
     });
 };
@@ -24,49 +24,49 @@ const makeSassDirs = async (basePath) => {
  * @param basePath The base path to write out the files to.
  */
 const writeSassApp = async (basePath) => {
-    fs_1.default.writeFileSync(path_1.default.join(__dirname, basePath, "/sass/App.scss"), constants_1.SASS_APP);
+    fs_1.default.writeFileSync(path_1.default.join(basePath, "/sass/App.scss"), constants_1.SASS_APP);
 };
 /**
  * Uses fs to write out the sass base file containing a reset.
  * @param basePath The base path to write out the files to.
  */
 const writeSassBase = async (basePath) => {
-    fs_1.default.writeFileSync(path_1.default.join(__dirname, basePath, "/sass/components/_base.scss"), constants_1.SASS_BASE);
+    fs_1.default.writeFileSync(path_1.default.join(basePath, "/sass/components/_base.scss"), constants_1.SASS_BASE);
 };
 /**
  * Uses fs to write out the sass file for breakpoints.
  * @param basePath The base path to write out the files to.
  */
 const writeSassBreakpoints = async (basePath) => {
-    fs_1.default.writeFileSync(path_1.default.join(__dirname, basePath, "/sass/abstracts/_breakpoints.scss"), constants_1.SASS_BREAKPOINTS);
+    fs_1.default.writeFileSync(path_1.default.join(basePath, "/sass/abstracts/_breakpoints.scss"), constants_1.SASS_BREAKPOINTS);
 };
 /**
  * Uses fs to write out the sass file for colours.
  * @param basePath The base path to write out the files to.
  */
 const writeSassColours = async (basePath) => {
-    fs_1.default.writeFileSync(path_1.default.join(__dirname, basePath, "/sass/abstracts/_colours.scss"), constants_1.SASS_COLOURS);
+    fs_1.default.writeFileSync(path_1.default.join(basePath, "/sass/abstracts/_colours.scss"), constants_1.SASS_COLOURS);
 };
 /**
  * Uses fs to write out the sass file for fonts.
  * @param basePath The base path to write out the files to.
  */
 const writeSassFonts = async (basePath) => {
-    fs_1.default.writeFileSync(path_1.default.join(__dirname, basePath, "/sass/abstracts/_fonts.scss"), constants_1.SASS_FONTS);
+    fs_1.default.writeFileSync(path_1.default.join(basePath, "/sass/abstracts/_fonts.scss"), constants_1.SASS_FONTS);
 };
 /**
  * Uses fs to write out the sass file that forwards all abstracts.
  * @param basePath The base path to write out the files to.
  */
 const writeSassIndex = async (basePath) => {
-    fs_1.default.writeFileSync(path_1.default.join(__dirname, basePath, "/sass/abstracts/_index.scss"), constants_1.SASS_INDEX);
+    fs_1.default.writeFileSync(path_1.default.join(basePath, "/sass/abstracts/_index.scss"), constants_1.SASS_INDEX);
 };
 /**
  * Uses fs to write out the sass file for mixins.
  * @param basePath The base path to write out the files to.
  */
 const writeSassMixins = async (basePath) => {
-    fs_1.default.writeFileSync(path_1.default.join(__dirname, basePath, "/sass/abstracts/_mixins.scss"), constants_1.SASS_MIXINS);
+    fs_1.default.writeFileSync(path_1.default.join(basePath, "/sass/abstracts/_mixins.scss"), constants_1.SASS_MIXINS);
 };
 /**
  * Uses fs to write out all the files necessary for using Sass in a Next.js app.

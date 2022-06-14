@@ -12,7 +12,7 @@ const constants_1 = require("../utils/constants");
  * @param basePath The base path to write out the files to.
  */
 const writeNextConfig = async (basePath) => {
-    fs_1.default.writeFileSync(path_1.default.join(__dirname, basePath, "/next.config.js"), constants_1.NEXT_CONFIG);
+    fs_1.default.writeFileSync(path_1.default.join(basePath, "/next.config.js"), constants_1.NEXT_CONFIG);
 };
 /**
  * Uses fs to write out a configuration file for using a MongoDB database.
@@ -20,7 +20,7 @@ const writeNextConfig = async (basePath) => {
  * @param typeScript Whether this project uses TypeScript or not.
  */
 const writeUtilsDB = async (basePath, typeScript) => {
-    fs_1.default.writeFileSync(path_1.default.join(__dirname, basePath, `/utils/db.${typeScript ? "ts" : "js"}`), typeScript ? constants_1.UTILS_DB_TS : constants_1.UTILS_DB);
+    fs_1.default.writeFileSync(path_1.default.join(basePath, `/utils/db.${typeScript ? "ts" : "js"}`), typeScript ? constants_1.UTILS_DB_TS : constants_1.UTILS_DB);
 };
 /**
  * Uses fs to write out all the files needed for using MongoDB in a Next.js app.

@@ -8,10 +8,7 @@ import { NEXT_CONFIG, UTILS_DB, UTILS_DB_TS } from "../utils/constants";
  * @param basePath The base path to write out the files to.
  */
 const writeNextConfig = async (basePath: string): Promise<void> => {
-	fs.writeFileSync(
-		path.join(__dirname, basePath, "/next.config.js"),
-		NEXT_CONFIG
-	);
+	fs.writeFileSync(path.join(basePath, "/next.config.js"), NEXT_CONFIG);
 };
 
 /**
@@ -24,7 +21,7 @@ const writeUtilsDB = async (
 	typeScript: boolean
 ): Promise<void> => {
 	fs.writeFileSync(
-		path.join(__dirname, basePath, `/utils/db.${typeScript ? "ts" : "js"}`),
+		path.join(basePath, `/utils/db.${typeScript ? "ts" : "js"}`),
 		typeScript ? UTILS_DB_TS : UTILS_DB
 	);
 };
