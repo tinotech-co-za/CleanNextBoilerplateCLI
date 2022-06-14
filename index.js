@@ -210,7 +210,7 @@ commander_1.program
     ]);
     // If yes, skip Inquirer questions and generate boilerplate with all the options. Else run Inquirer questions.
     if (options.yes) {
-        return await (0, permutations_1.writeTypeScriptSassESLintMongoDB)(answers.name, `./`, {
+        await (0, permutations_1.writeTypeScriptSassESLintMongoDB)(answers.name, `./`, {
             typeScript: true,
             sass: true,
         });

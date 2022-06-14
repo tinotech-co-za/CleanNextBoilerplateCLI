@@ -266,7 +266,7 @@ program
 
 		// If yes, skip Inquirer questions and generate boilerplate with all the options. Else run Inquirer questions.
 		if (options.yes) {
-			return await writeTypeScriptSassESLintMongoDB(answers.name, `./`, {
+			await writeTypeScriptSassESLintMongoDB(answers.name, `./`, {
 				typeScript: true,
 				sass: true,
 			});
