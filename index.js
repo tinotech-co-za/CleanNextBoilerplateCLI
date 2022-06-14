@@ -8,6 +8,7 @@ const inquirer_1 = __importDefault(require("inquirer"));
 const commander_1 = require("commander");
 const path_1 = __importDefault(require("path"));
 const child_process_1 = require("child_process");
+const fs_1 = __importDefault(require("fs"));
 const permutations_1 = require("./writers/permutations");
 /**
  * Run Inquirer to get options for what to include in the generated project.
@@ -198,15 +199,18 @@ commander_1.program
             default: path_1.default.basename(__dirname),
         },
     ]);
+    if (!fs_1.default.existsSync(basepath))
+        fs_1.default.mkdirSync(basepath);
+    process.chdir(basepath);
     // If yes, skip Inquirer questions and generate boilerplate with all the options. Else run Inquirer questions.
     if (options.yes) {
-        return await (0, permutations_1.writeTypeScriptSassESLintMongoDB)(answers.name, `../../${basepath}`, {
+        return await (0, permutations_1.writeTypeScriptSassESLintMongoDB)(answers.name, `./`, {
             typeScript: true,
             sass: true,
         });
     }
     else {
-        await run(answers.name, `../${basepath}`);
+        await run(answers.name, `./`);
     }
     console.log("- Generating git project.");
     (0, child_process_1.exec)("git init", (error, stdout, stderr) => {
