@@ -9,6 +9,7 @@ const commander_1 = require("commander");
 const path_1 = __importDefault(require("path"));
 const child_process_1 = require("child_process");
 const fs_1 = __importDefault(require("fs"));
+const packageJson = require("../package.json");
 const permutations_1 = require("./writers/permutations");
 /**
  * Run Inquirer to get options for what to include in the generated project.
@@ -186,7 +187,9 @@ const run = async (name, basePath) => {
     }
 };
 // Setup commander program.
-commander_1.program.version("2.0.0").description("Clean Next.js Boilerplate CLI");
+commander_1.program
+    .version(packageJson.version)
+    .description("Clean Next.js Boilerplate CLI");
 commander_1.program
     .argument("[basepath]", " the base path to generate the project at", "./")
     .option("-y, --yes", "answer yes to all the prompts")
