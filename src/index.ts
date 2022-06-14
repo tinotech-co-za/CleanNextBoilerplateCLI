@@ -273,7 +273,7 @@ program
 		} else {
 			await run(answers.name, `./`);
 		}
-		console.log("- Generating git project.");
+		console.log(chalk.blue("- Generating Git project."));
 		exec("git init", (error, stdout, stderr) => {
 			if (error) {
 				console.error(`error: ${error.message}`);

@@ -218,7 +218,7 @@ commander_1.program
     else {
         await run(answers.name, `./`);
     }
-    console.log("- Generating git project.");
+    console.log(chalk_1.default.blue("- Generating Git project."));
     (0, child_process_1.exec)("git init", (error, stdout, stderr) => {
         if (error) {
             console.error(`error: ${error.message}`);
