@@ -4,6 +4,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
+const chalk_1 = __importDefault(require("chalk"));
 const inquirer_1 = __importDefault(require("inquirer"));
 const commander_1 = require("commander");
 const path_1 = __importDefault(require("path"));
@@ -225,7 +226,7 @@ commander_1.program
             console.error(`stderr: ${stderr}`);
             return;
         }
-        console.log(`- ${stdout}`);
+        console.log(chalk_1.default.green(`- ${stdout}`));
     });
 });
 // Parse program setup.

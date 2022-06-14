@@ -1,10 +1,12 @@
 #!/usr/bin/env node
 
+import chalk from "chalk";
 import inquirer from "inquirer";
 import { program } from "commander";
 import path from "path";
 import { exec } from "child_process";
 import fs from "fs";
+
 const packageJson = require("./package.json");
 
 import {
@@ -273,7 +275,7 @@ program
 				console.error(`stderr: ${stderr}`);
 				return;
 			}
-			console.log(`- ${stdout}`);
+			console.log(chalk.green(`- ${stdout}`));
 		});
 	});
 
