@@ -3,6 +3,7 @@
 ![GitHub package.json version (subfolder of monorepo)](https://img.shields.io/github/package-json/v/TinoMuzambi/CleanNextBoilerplateCLI?style=for-the-badge)
 ![npm (scoped)](https://img.shields.io/npm/v/@tinotech/clean-next-boilerplate?style=for-the-badge)
 [![Node.js Package](https://github.com/TinoMuzambi/CleanNextBoilerplateCLI/actions/workflows/npm-publish.yml/badge.svg)](https://github.com/TinoMuzambi/CleanNextBoilerplateCLI/actions/workflows/npm-publish.yml)
+![npm](https://img.shields.io/npm/dw/@tinotech/clean-next-boilerplate?style=for-the-badge)
 
 Generate a clean Next.js boilerplate with various base configurations. To get started, use the following command:
 
