@@ -1,6 +1,6 @@
 {
 	"name": "@tinotech/clean-next-boilerplate",
-	"version": "2.2.0",
+	"version": "2.2.1",
 	"description": "Generate a clean Next.js boilerplate with various base configurations.",
 	"main": "index.js",
 	"bin": "index.js",
