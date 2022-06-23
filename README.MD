@@ -4,6 +4,7 @@
 ![npm (scoped)](https://img.shields.io/npm/v/@tinotech/clean-next-boilerplate?style=for-the-badge)
 ![npm](https://img.shields.io/npm/dw/@tinotech/clean-next-boilerplate?style=for-the-badge)
 [![Node.js Package](https://github.com/TinoMuzambi/CleanNextBoilerplateCLI/actions/workflows/npm-publish.yml/badge.svg)](https://github.com/TinoMuzambi/CleanNextBoilerplateCLI/actions/workflows/npm-publish.yml)
+[![wakatime](https://wakatime.com/badge/user/6ff8627f-cb7f-4d1c-a080-4336f0a82762/project/ddb2540e-a494-4185-a959-5230affa37bd.svg)](https://wakatime.com/badge/user/6ff8627f-cb7f-4d1c-a080-4336f0a82762/project/ddb2540e-a494-4185-a959-5230affa37bd)
 
 Generate a clean Next.js boilerplate with various base configurations. To get started, use the following command:
 
