@@ -25,9 +25,9 @@ const Meta: React.FC<MetaProps> = ({
 		<meta name="description" content={description} key="name-description" />
 
 		{/* <!-- Google / Search Engine Tags --> */}
-		<meta itemProp="name" content={title} />
-		<meta itemProp="description" content={description} />
-		<meta itemProp="image" content={image} />
+		<meta itemProp="name" content={title} key="item-name" />
+		<meta itemProp="description" content={description} key="item-description" />
+		<meta itemProp="image" content={image} key="item-image" />
 
 		{/* <!-- Facebook Meta Tags --> */}
 		<meta property="og:url" content={url} />
