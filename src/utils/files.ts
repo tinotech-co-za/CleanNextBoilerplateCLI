@@ -20,9 +20,9 @@ const Meta: React.FC<MetaProps> = ({
 }): JSX.Element => (
 	<Head>
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
-		<meta name="theme-color" content="#000000" />
-		<meta name="keywords" content={keywords} />
-		<meta name="description" content={description} />
+		<meta name="theme-color" content="#000000" key="theme-colour" />
+		<meta name="keywords" content={keywords} key="keywords" />
+		<meta name="description" content={description} key="name-description" />
 
 		{/* <!-- Google / Search Engine Tags --> */}
 		<meta itemProp="name" content={title} />
