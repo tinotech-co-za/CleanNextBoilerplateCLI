@@ -88,10 +88,10 @@ const Meta = ({ title, description, keywords, url, image }) => (
 		<meta property="og:image" content={image} key="og-image" />
 
 		{/* <!-- Twitter Meta Tags --> */}
-		<meta name="twitter:card" content="summary_large_image" />
-		<meta name="twitter:title" content={title} />
-		<meta name="twitter:description" content={description} />
-		<meta name="twitter:image" content={image} />
+		<meta name="twitter:card" content="summary_large_image" key="twitter-card" />
+		<meta name="twitter:title" content={title} key="twitter-title" />
+		<meta name="twitter:description" content={description} key="twitter-description" />
+		<meta name="twitter:image" content={image} key="twitter-image" />
 
 		<meta charSet="utf-8" />
 		<link rel="icon" href="/favicon.ico" />
