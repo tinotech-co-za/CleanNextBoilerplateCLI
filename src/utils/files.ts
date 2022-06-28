@@ -95,7 +95,7 @@ const Meta = ({ title, description, keywords, url, image }) => (
 
 		<meta charSet="utf-8" />
 		<link rel="icon" href="/favicon.ico" />
-		<meta name={title} content={description} />
+		<meta name={title} content={description} key="name" />
 		<link rel="apple-touch-icon" href="/logo192.png" />
 		<link rel="manifest" href="/manifest.json" />
 		<title>{title}</title>
@@ -107,7 +107,7 @@ const Meta = ({ title, description, keywords, url, image }) => (
 
 Meta.defaultProps = {
 	title: "${name}",
-	keywords: "next.js",
+	keywords: "",
 	description: "Your description here",
 	image: "https://unsplash.it/1000",
 	url: BASE_URL,
