@@ -8,5 +8,5 @@ import { INTERFACES } from "../utils/constants";
  * @param basePath The base path to write out the files to.
  */
 export const writeInterfaces = async (basePath: string): Promise<void> => {
-	fs.writeFileSync(path.join(basePath, "/package.json"), INTERFACES);
+	fs.writeFileSync(path.join(basePath, "/interfaces/index.ts"), INTERFACES);
 };

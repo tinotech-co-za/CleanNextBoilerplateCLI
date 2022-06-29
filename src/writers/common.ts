@@ -37,6 +37,7 @@ import {
 	WRAPPER_TS,
 } from "../utils/constants";
 import { Options } from "../interfaces";
+import { writeInterfaces } from "./ts";
 
 /**
  * Uses fs to write the package.json file to the directory specified.
@@ -312,6 +313,7 @@ export const writeCommonFiles = async (
 	options: Options
 ): Promise<void> => {
 	mkCommonDirs(basePath);
+	if (options.typeScript) writeInterfaces(basePath);
 	fs.writeFileSync(
 		path.join(
 			basePath,
