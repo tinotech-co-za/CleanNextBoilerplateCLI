@@ -187,8 +187,10 @@ const mkCommonDirs = async (basePath, typeScript) => {
  */
 const writeCommonFiles = async (name, basePath, options) => {
     mkCommonDirs(basePath, options.typeScript);
-    if (options.typeScript)
+    if (options.typeScript) {
         (0, ts_1.writeInterfaces)(basePath);
+        (0, ts_1.writeTSConfig)(basePath);
+    }
     fs_1.default.writeFileSync(path_1.default.join(basePath, `/components/Meta.${options.typeScript ? "tsx" : "jsx"}`), (0, files_1.getMeta)(name, options.typeScript));
     fs_1.default.writeFileSync(path_1.default.join(basePath, `/components/Wrapper.${options.typeScript ? "tsx" : "jsx"}`), options.typeScript ? constants_1.WRAPPER_TS : constants_1.WRAPPER);
     fs_1.default.writeFileSync(path_1.default.join(basePath, `/pages/api/post/index.${options.typeScript ? "ts" : "js"}`), options.typeScript ? constants_1.API_POST_TS : constants_1.API_POST);

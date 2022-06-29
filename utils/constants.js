@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.INTERFACES = exports.UTILS_DB_TS = exports.UTILS_DB = exports.SASS_APP = exports.SASS_BASE = exports.SASS_INDEX = exports.SASS_MIXINS = exports.SASS_FONTS = exports.SASS_COLOURS = exports.SASS_BREAKPOINTS = exports.ESLINT_RC = exports.NEXT_CONFIG = exports.WRAPPER_TS = exports.WRAPPER = exports.APP_SASS_TS = exports.APP_SASS = exports.APP_TS = exports.APP = exports.API_POST_TS = exports.API_POST = exports.UTILS_INDEX = exports.GITIGNORE = exports.VERCEL_JSON = void 0;
+exports.TSCONFIG = exports.INTERFACES = exports.UTILS_DB_TS = exports.UTILS_DB = exports.SASS_APP = exports.SASS_BASE = exports.SASS_INDEX = exports.SASS_MIXINS = exports.SASS_FONTS = exports.SASS_COLOURS = exports.SASS_BREAKPOINTS = exports.ESLINT_RC = exports.NEXT_CONFIG = exports.WRAPPER_TS = exports.WRAPPER = exports.APP_SASS_TS = exports.APP_SASS = exports.APP_TS = exports.APP = exports.API_POST_TS = exports.API_POST = exports.UTILS_INDEX = exports.GITIGNORE = exports.VERCEL_JSON = void 0;
 /**
  * Vercel config file that silences Vercel/GitHub notifications for building/pull requests.
  * vercel.json
@@ -471,3 +471,34 @@ export interface MetaProps {
 	url?: string;
 	image?: string;
 }`;
+exports.TSCONFIG = `{
+	"compilerOptions": {
+	  "target": "es5",
+	  "lib": [
+		"dom",
+		"dom.iterable",
+		"esnext"
+	  ],
+	  "allowJs": true,
+	  "skipLibCheck": true,
+	  "strict": true,
+	  "forceConsistentCasingInFileNames": true,
+	  "noEmit": true,
+	  "esModuleInterop": true,
+	  "module": "esnext",
+	  "moduleResolution": "node",
+	  "resolveJsonModule": true,
+	  "isolatedModules": true,
+	  "jsx": "preserve",
+	  "incremental": true
+	},
+	"include": [
+	  "next-env.d.ts",
+	  "**/*.ts",
+	  "**/*.tsx"
+	],
+	"exclude": [
+	  "node_modules"
+	]
+  }
+  `;
