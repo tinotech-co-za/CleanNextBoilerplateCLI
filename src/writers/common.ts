@@ -282,8 +282,16 @@ export const writeTSSassESLintMongoPackageJson = async (
 /**
  * Uses fs to create all the directories common to all Next.js apps.
  * @param basePath The base path to write out the directories to.
+ * @param typeScript Whether or not TypeScript is being used.
  */
-const mkCommonDirs = async (basePath: string): Promise<void> => {
+const mkCommonDirs = async (
+	basePath: string,
+	typeScript: boolean
+): Promise<void> => {
+	if (typeScript)
+		fs.mkdirSync(path.join(basePath, "/interfaces"), {
+			recursive: true,
+		});
 	fs.mkdirSync(path.join(basePath, "/components"), {
 		recursive: true,
 	});
@@ -312,7 +320,7 @@ export const writeCommonFiles = async (
 	basePath: string,
 	options: Options
 ): Promise<void> => {
-	mkCommonDirs(basePath);
+	mkCommonDirs(basePath, options.typeScript);
 	if (options.typeScript) writeInterfaces(basePath);
 	fs.writeFileSync(
 		path.join(
