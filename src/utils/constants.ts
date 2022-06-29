@@ -478,3 +478,15 @@ const dbConnect= async (): Promise<typeof mongoose> => {
 
 export default dbConnect;
 `;
+
+export const INTERFACES = `export interface WrapperProps {
+	children: JSX.Element | JSX.Element[];
+}
+
+export interface MetaProps {
+	title?: string;
+	description?: string;
+	keywords?: string;
+	url?: string;
+	image?: string;
+}`;
