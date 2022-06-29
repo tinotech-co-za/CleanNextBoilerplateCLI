@@ -8,6 +8,7 @@ const path_1 = __importDefault(require("path"));
 const fs_1 = __importDefault(require("fs"));
 const files_1 = require("../utils/files");
 const constants_1 = require("../utils/constants");
+const ts_1 = require("./ts");
 /**
  * Uses fs to write the package.json file to the directory specified.
  * @param name The name of the project.
@@ -181,6 +182,8 @@ const mkCommonDirs = async (basePath) => {
  */
 const writeCommonFiles = async (name, basePath, options) => {
     mkCommonDirs(basePath);
+    if (options.typeScript)
+        (0, ts_1.writeInterfaces)(basePath);
     fs_1.default.writeFileSync(path_1.default.join(basePath, `/components/Meta.${options.typeScript ? "tsx" : "jsx"}`), (0, files_1.getMeta)(name, options.typeScript));
     fs_1.default.writeFileSync(path_1.default.join(basePath, `/components/Wrapper.${options.typeScript ? "tsx" : "jsx"}`), options.typeScript ? constants_1.WRAPPER_TS : constants_1.WRAPPER);
     fs_1.default.writeFileSync(path_1.default.join(basePath, `/pages/api/post/index.${options.typeScript ? "ts" : "js"}`), options.typeScript ? constants_1.API_POST_TS : constants_1.API_POST);
