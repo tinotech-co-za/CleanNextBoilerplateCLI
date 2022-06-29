@@ -50,7 +50,7 @@ yarn-error.log*
 `;
 
 /**
- * A utils file that contains a ternary for the base url of the project.
+ * A utils file that contains a ternary for the base url of the project as well as a function to limit and elipsise strings.
  * utils/index.ts/js
  */
 export const UTILS_INDEX = `export const BASE_URL =
