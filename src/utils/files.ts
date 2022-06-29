@@ -10,6 +10,7 @@ export const getMeta = (name: string, typeScript: boolean): string =>
 
 import { MetaProps } from "../interfaces";
 import { BASE_URL } from "../utils";
+import { elipsise } from "../utils/helpers";
 
 const Meta: React.FC<MetaProps> = ({
 	title,
