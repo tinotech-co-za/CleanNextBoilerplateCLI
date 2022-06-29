@@ -124,6 +124,7 @@ declare module '@tinotech/clean-next-boilerplate/utils/constants' {
    * utils/db.ts
    */
   export const UTILS_DB_TS = "import mongoose from \"mongoose\";\n\nconst MONGO_URI = process.env.MONGO_URI;\n\nif (!MONGO_URI) {\n\tthrow new Error(\"An error occured please refresh or contact the developer.\");\n}\n\nlet cached: {\n\tconn: null | typeof mongoose;\n\tpromise: null | Promise<typeof mongoose>;\n} = { conn: null, promise: null };\n\nif (!cached) {\n\tcached = { conn: null, promise: null };\n}\n\n/**\n * Connect to the database.\n * @returns A mongoose object.\n */\nconst dbConnect= async (): Promise<typeof mongoose> => {\n\tif (cached.conn) {\n\t\treturn cached.conn;\n\t}\n\n\tif (!cached.promise) {\n\t\tconst opts = {\n\t\t\tuseNewUrlParser: true,\n\t\t\tuseUnifiedTopology: true,\n\t\t\tbufferCommands: false,\n\t\t};\n\n\t\tcached.promise = mongoose\n\t\t\t.connect(MONGO_URI as string, opts)\n\t\t\t.then((mongoose) => {\n\t\t\t\treturn mongoose;\n\t\t\t});\n\t}\n\tcached.conn = await cached.promise;\n\treturn cached.conn;\n};\n\nexport default dbConnect;\n";
+  export const INTERFACES = "export interface WrapperProps {\n\tchildren: JSX.Element | JSX.Element[];\n}\n\nexport interface MetaProps {\n\ttitle?: string;\n\tdescription?: string;\n\tkeywords?: string;\n\turl?: string;\n\timage?: string;\n}";
 
 }
 declare module '@tinotech/clean-next-boilerplate/utils/files' {
@@ -564,6 +565,14 @@ declare module '@tinotech/clean-next-boilerplate/writers/sass' {
    * @param basePath The base path to write out the files to.
    */
   export const writeSass: (basePath: string) => Promise<void>;
+
+}
+declare module '@tinotech/clean-next-boilerplate/writers/ts' {
+  /**
+   * Uses fs to write the interfaces file to the directory specified.
+   * @param basePath The base path to write out the files to.
+   */
+  export const writeInterfaces: (basePath: string) => Promise<void>;
 
 }
 declare module '@tinotech/clean-next-boilerplate' {
