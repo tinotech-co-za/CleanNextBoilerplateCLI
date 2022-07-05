@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.TSCONFIG = exports.INTERFACES = exports.UTILS_DB_TS = exports.UTILS_DB = exports.SASS_APP = exports.SASS_BASE = exports.SASS_INDEX = exports.SASS_MIXINS = exports.SASS_FONTS = exports.SASS_COLOURS = exports.SASS_BREAKPOINTS = exports.ESLINT_RC = exports.NEXT_CONFIG = exports.WRAPPER_TS = exports.WRAPPER = exports.APP_SASS_TS = exports.APP_SASS = exports.APP_TS = exports.APP = exports.API_POST_TS = exports.API_POST = exports.UTILS_INDEX = exports.GITIGNORE = exports.VERCEL_JSON = void 0;
+exports.WRAPPER_TS_CONTEXT = exports.WRAPPER_CONTEXT = exports.INTERFACES_CONTEXT = exports.APP_CONTEXT_TS = exports.APP_REDUCER_TS = exports.APP_CONTEXT = exports.APP_REDUCER = exports.TSCONFIG = exports.INTERFACES = exports.UTILS_DB_TS = exports.UTILS_DB = exports.SASS_APP = exports.SASS_BASE = exports.SASS_INDEX = exports.SASS_MIXINS = exports.SASS_FONTS = exports.SASS_COLOURS = exports.SASS_BREAKPOINTS = exports.ESLINT_RC = exports.NEXT_CONFIG = exports.WRAPPER_TS = exports.WRAPPER = exports.APP_SASS_TS = exports.APP_SASS = exports.APP_TS = exports.APP = exports.API_POST_TS = exports.API_POST = exports.UTILS_INDEX = exports.GITIGNORE = exports.VERCEL_JSON = void 0;
 /**
  * Vercel config file that silences Vercel/GitHub notifications for building/pull requests.
  * vercel.json
@@ -460,6 +460,10 @@ const dbConnect= async (): Promise<typeof mongoose> => {
 
 export default dbConnect;
 `;
+/**
+ * Interfaces to be used in a TypeScript app.
+ * interfaces/index.ts
+ */
 exports.INTERFACES = `export interface WrapperProps {
 	children: JSX.Element | JSX.Element[];
 }
@@ -471,6 +475,10 @@ export interface MetaProps {
 	url?: string;
 	image?: string;
 }`;
+/**
+ * TypeScript config.
+ * tsconfig.json
+ */
 exports.TSCONFIG = `{
 	"compilerOptions": {
 	  "target": "es5",
@@ -502,3 +510,125 @@ exports.TSCONFIG = `{
 	]
   }
   `;
+/**
+ * Reducer for including JavaScript Context API.
+ * context/AppReducer.js
+ */
+exports.APP_REDUCER = `const Reducer = (state, action) => {
+	switch (action.type) {
+	}
+};`;
+/**
+ * Context provider for including JavaScript Context API.
+ * context/AppContext.jsx
+ */
+exports.APP_CONTEXT = `import { createContext, useReducer } from "react";
+
+import AppReducer from "./AppReducer";
+
+const initialState = {};
+
+export const AppContext = createContext(initialState);
+
+export const AppProvider = ({ children }) => {
+	const [state, dispatch] = useReducer(AppReducer, initialState);
+
+	return <AppContext.Provider>{children}</AppContext.Provider>;
+};`;
+/**
+ * Reducer for including TypeScript Context API.
+ * context/AppReducer.ts
+ */
+exports.APP_REDUCER_TS = `import { State, Actions } from "../interfaces";
+
+const Reducer = (state: State, action: Actions): State => {
+	switch (action.type) {
+		case "":
+			return {
+				...state,
+			};
+	}
+};
+
+export default Reducer;`;
+/**
+ * Context provider for including TypeScript Context API.
+ * context/AppContext.tsx
+ */
+exports.APP_CONTEXT_TS = `import { createContext, useReducer } from "react";
+
+import { AppProviderProps, ContextProps } from "../interfaces";
+import AppReducer from "./AppReducer";
+
+const initialState: ContextProps = {};
+
+export const AppContext = createContext(initialState);
+
+export const AppProvider = ({ children }: AppProviderProps): JSX.Element => {
+	const [state, dispatch] = useReducer(AppReducer, initialState);
+
+	return <AppContext.Provider>{children}</AppContext.Provider>;
+};`;
+/**
+ * Interfaces to be used in a TypeScript app with Context support.
+ * interfaces/index.ts
+ */
+exports.INTERFACES_CONTEXT = `export interface WrapperProps {
+	children: JSX.Element | JSX.Element[];
+}
+
+export interface MetaProps {
+	title?: string;
+	description?: string;
+	keywords?: string;
+	url?: string;
+	image?: string;
+}
+
+export interface ContextProps {}
+
+export interface AppProviderProps {
+	children: JSX.Element[] | JSX.Element;
+}
+
+export type State = {};
+
+export type Actions = {
+	type: "";
+};`;
+/**
+ * Container file for wrapping components around app with support for Context.
+ * components/Wrapper.jsx
+ */
+exports.WRAPPER_CONTEXT = `import { AppProvider } from "../context/AppContext";
+import Meta from "./Meta";
+
+const Wrapper = ({ children }) => {
+	return (
+		<AppProvider>
+			<Meta />
+			{children}
+		</AppProvider>
+	);
+};
+
+export default Wrapper;`;
+/**
+ * TypeScript Container file for wrapping components around app with support for Context.
+ * components/Wrapper.tsx
+ */
+exports.WRAPPER_TS_CONTEXT = `import { AppProvider } from "../context/AppContext";
+import { WrapperProps } from "../interfaces";
+
+import Meta from "./Meta";
+
+const Wrapper: React.FC<WrapperProps> = ({ children }): JSX.Element => {
+	return (
+		<AppProvider>
+			<Meta />
+			{children}
+		</AppProvider>
+	);
+};
+
+export default Wrapper;`;

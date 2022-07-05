@@ -73,13 +73,13 @@ const writeSassMixins = async (basePath) => {
  * @param basePath The base path to write out the files to.
  */
 const writeSass = async (basePath) => {
-    makeSassDirs(basePath);
-    writeSassApp(basePath);
-    writeSassBase(basePath);
-    writeSassBreakpoints(basePath);
-    writeSassColours(basePath);
-    writeSassFonts(basePath);
-    writeSassIndex(basePath);
-    writeSassMixins(basePath);
+    await makeSassDirs(basePath);
+    await writeSassApp(basePath);
+    await writeSassBase(basePath);
+    await writeSassBreakpoints(basePath);
+    await writeSassColours(basePath);
+    await writeSassFonts(basePath);
+    await writeSassIndex(basePath);
+    await writeSassMixins(basePath);
 };
 exports.writeSass = writeSass;

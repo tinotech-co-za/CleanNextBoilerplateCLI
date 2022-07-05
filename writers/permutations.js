@@ -3,12 +3,13 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.writeJavaScript = exports.writeJavaScriptMongoDB = exports.writeJavaScriptESLint = exports.writeJavaScriptSass = exports.writeJavaScriptSassESLint = exports.writeJavaScriptSassMongoDB = exports.writeJavaScriptESLintMongoDB = exports.writeJavaScriptSassESLintMongoDB = exports.writeTypeScript = exports.writeTypeScriptMongoDB = exports.writeTypeScriptESLint = exports.writeTypeScriptSass = exports.writeTypeScriptSassESLint = exports.writeTypeScriptSassMongoDB = exports.writeTypeScriptESLintMongoDB = exports.writeTypeScriptSassESLintMongoDB = void 0;
+exports.writeJavaScript = exports.writeJavaScriptMongoDB = exports.writeJavaScriptESLint = exports.writeJavaScriptSass = exports.writeJavaScriptContext = exports.writeJavaScriptSassESLint = exports.writeJavaScriptSassMongoDB = exports.writeJavaScriptESLintMongoDB = exports.writeJavaScriptSassESLintMongoDB = exports.writeTypeScript = exports.writeTypeScriptMongoDB = exports.writeTypeScriptESLint = exports.writeTypeScriptSass = exports.writeTypeScriptSassESLint = exports.writeTypeScriptSassMongoDB = exports.writeTypeScriptESLintMongoDB = exports.writeTypeScriptSassESLintMongoDB = void 0;
 const chalk_1 = __importDefault(require("chalk"));
 const common_1 = require("../writers/common");
 const mongodb_1 = require("../writers/mongodb");
 const eslint_1 = require("../writers/eslint");
 const sass_1 = require("../writers/sass");
+const context_1 = require("./context");
 /**
  * Generates boilerplate for a Next.js project that uses TypeScript, Sass, ESLint and MongoDB.
  * @param name The name of the project.
@@ -16,7 +17,8 @@ const sass_1 = require("../writers/sass");
  * @param options The options. Takes the form. {
     typeScript: boolean;
     sass: boolean;
-} where typeScript is if this is a TypeScript object and where sass is whether this project should include sass.
+    context: boolean;
+} where typeScript is if this is a TypeScript object, context is whether the Context API is included and where sass is whether this project should include sass.
  * @returns void.
  */
 const writeTypeScriptSassESLintMongoDB = async (name, basePath, options) => {
@@ -35,7 +37,8 @@ exports.writeTypeScriptSassESLintMongoDB = writeTypeScriptSassESLintMongoDB;
  * @param options The options. Takes the form. {
     typeScript: boolean;
     sass: boolean;
-} where typeScript is if this is a TypeScript object and where sass is whether this project should include sass.
+    context: boolean;
+} where typeScript is if this is a TypeScript object, context is whether the Context API is included and where sass is whether this project should include sass.
  * @returns void.
  */
 const writeTypeScriptESLintMongoDB = async (name, basePath, options) => {
@@ -53,7 +56,8 @@ exports.writeTypeScriptESLintMongoDB = writeTypeScriptESLintMongoDB;
  * @param options The options. Takes the form. {
     typeScript: boolean;
     sass: boolean;
-} where typeScript is if this is a TypeScript object and where sass is whether this project should include sass.
+    context: boolean;
+} where typeScript is if this is a TypeScript object, context is whether the Context API is included and where sass is whether this project should include sass.
  * @returns void.
  */
 const writeTypeScriptSassMongoDB = async (name, basePath, options) => {
@@ -71,7 +75,8 @@ exports.writeTypeScriptSassMongoDB = writeTypeScriptSassMongoDB;
  * @param options The options. Takes the form. {
     typeScript: boolean;
     sass: boolean;
-} where typeScript is if this is a TypeScript object and where sass is whether this project should include sass.
+    context: boolean;
+} where typeScript is if this is a TypeScript object, context is whether the Context API is included and where sass is whether this project should include sass.
  * @returns void.
  */
 const writeTypeScriptSassESLint = async (name, basePath, options) => {
@@ -89,7 +94,8 @@ exports.writeTypeScriptSassESLint = writeTypeScriptSassESLint;
  * @param options The options. Takes the form. {
     typeScript: boolean;
     sass: boolean;
-} where typeScript is if this is a TypeScript object and where sass is whether this project should include sass.
+    context: boolean;
+} where typeScript is if this is a TypeScript object, context is whether the Context API is included and where sass is whether this project should include sass.
  * @returns void.
  */
 const writeTypeScriptSass = async (name, basePath, options) => {
@@ -106,7 +112,8 @@ exports.writeTypeScriptSass = writeTypeScriptSass;
  * @param options The options. Takes the form. {
     typeScript: boolean;
     sass: boolean;
-} where typeScript is if this is a TypeScript object and where sass is whether this project should include sass.
+    context: boolean;
+} where typeScript is if this is a TypeScript object, context is whether the Context API is included and where sass is whether this project should include sass.
  * @returns void.
  */
 const writeTypeScriptESLint = async (name, basePath, options) => {
@@ -123,7 +130,8 @@ exports.writeTypeScriptESLint = writeTypeScriptESLint;
  * @param options The options. Takes the form. {
     typeScript: boolean;
     sass: boolean;
-} where typeScript is if this is a TypeScript object and where sass is whether this project should include sass.
+    context: boolean;
+} where typeScript is if this is a TypeScript object, context is whether the Context API is included and where sass is whether this project should include sass.
  * @returns void.
  */
 const writeTypeScriptMongoDB = async (name, basePath, options) => {
@@ -140,7 +148,8 @@ exports.writeTypeScriptMongoDB = writeTypeScriptMongoDB;
  * @param options The options. Takes the form. {
     typeScript: boolean;
     sass: boolean;
-} where typeScript is if this is a TypeScript object and where sass is whether this project should include sass.
+    context: boolean;
+} where typeScript is if this is a TypeScript object, context is whether the Context API is included and where sass is whether this project should include sass.
  * @returns void.
  */
 const writeTypeScript = async (name, basePath, options) => {
@@ -156,7 +165,8 @@ exports.writeTypeScript = writeTypeScript;
  * @param options The options. Takes the form. {
     typeScript: boolean;
     sass: boolean;
-} where typeScript is if this is a TypeScript object and where sass is whether this project should include sass.
+    context: boolean;
+} where typeScript is if this is a TypeScript object, context is whether the Context API is included and where sass is whether this project should include sass.
  * @returns void.
  */
 const writeJavaScriptSassESLintMongoDB = async (name, basePath, options) => {
@@ -175,7 +185,8 @@ exports.writeJavaScriptSassESLintMongoDB = writeJavaScriptSassESLintMongoDB;
  * @param options The options. Takes the form. {
     typeScript: boolean;
     sass: boolean;
-} where typeScript is if this is a TypeScript object and where sass is whether this project should include sass.
+    context: boolean;
+} where typeScript is if this is a TypeScript object, context is whether the Context API is included and where sass is whether this project should include sass.
  * @returns void.
  */
 const writeJavaScriptESLintMongoDB = async (name, basePath, options) => {
@@ -193,7 +204,8 @@ exports.writeJavaScriptESLintMongoDB = writeJavaScriptESLintMongoDB;
  * @param options The options. Takes the form. {
     typeScript: boolean;
     sass: boolean;
-} where typeScript is if this is a TypeScript object and where sass is whether this project should include sass.
+    context: boolean;
+} where typeScript is if this is a TypeScript object, context is whether the Context API is included and where sass is whether this project should include sass.
  * @returns void.
  */
 const writeJavaScriptSassMongoDB = async (name, basePath, options) => {
@@ -211,7 +223,8 @@ exports.writeJavaScriptSassMongoDB = writeJavaScriptSassMongoDB;
  * @param options The options. Takes the form. {
     typeScript: boolean;
     sass: boolean;
-} where typeScript is if this is a TypeScript object and where sass is whether this project should include sass.
+    context: boolean;
+} where typeScript is if this is a TypeScript object, context is whether the Context API is included and where sass is whether this project should include sass.
  * @returns void.
  */
 const writeJavaScriptSassESLint = async (name, basePath, options) => {
@@ -223,13 +236,32 @@ const writeJavaScriptSassESLint = async (name, basePath, options) => {
 };
 exports.writeJavaScriptSassESLint = writeJavaScriptSassESLint;
 /**
+ * Generates boilerplate for a Next.js project that uses JavaScript and Context API.
+ * @param name The name of the project.
+ * @param basePath The base path to write out the files to.
+ * @param options The options. Takes the form. {
+    typeScript: boolean;
+    sass: boolean;
+    context: boolean;
+} where typeScript is if this is a TypeScript object, context is whether the Context API is included and where sass is whether this project should include sass.
+ * @returns void.
+ */
+const writeJavaScriptContext = async (name, basePath, options) => {
+    await (0, common_1.writeCommonFiles)(name, basePath, options);
+    await (0, common_1.writeJSPackageJson)(name, basePath);
+    await (0, context_1.writeContext)(basePath, options.typeScript);
+    console.log(chalk_1.default.green("\n- Generated Next.js app with JavaScript and Context"));
+};
+exports.writeJavaScriptContext = writeJavaScriptContext;
+/**
  * Generates boilerplate for a Next.js project that uses JavaScript and Sass.
  * @param name The name of the project.
  * @param basePath The base path to write out the files to.
  * @param options The options. Takes the form. {
     typeScript: boolean;
     sass: boolean;
-} where typeScript is if this is a TypeScript object and where sass is whether this project should include sass.
+    context: boolean;
+} where typeScript is if this is a TypeScript object, context is whether the Context API is included and where sass is whether this project should include sass.
  * @returns void.
  */
 const writeJavaScriptSass = async (name, basePath, options) => {
@@ -246,7 +278,8 @@ exports.writeJavaScriptSass = writeJavaScriptSass;
  * @param options The options. Takes the form. {
     typeScript: boolean;
     sass: boolean;
-} where typeScript is if this is a TypeScript object and where sass is whether this project should include sass.
+    context: boolean;
+} where typeScript is if this is a TypeScript object, context is whether the Context API is included and where sass is whether this project should include sass.
  * @returns void.
  */
 const writeJavaScriptESLint = async (name, basePath, options) => {
@@ -263,7 +296,8 @@ exports.writeJavaScriptESLint = writeJavaScriptESLint;
  * @param options The options. Takes the form. {
     typeScript: boolean;
     sass: boolean;
-} where typeScript is if this is a TypeScript object and where sass is whether this project should include sass.
+    context: boolean;
+} where typeScript is if this is a TypeScript object, context is whether the Context API is included and where sass is whether this project should include sass.
  * @returns void.
  */
 const writeJavaScriptMongoDB = async (name, basePath, options) => {
@@ -280,7 +314,8 @@ exports.writeJavaScriptMongoDB = writeJavaScriptMongoDB;
  * @param options The options. Takes the form. {
     typeScript: boolean;
     sass: boolean;
-} where typeScript is if this is a TypeScript object and where sass is whether this project should include sass.
+    context: boolean;
+} where typeScript is if this is a TypeScript object, context is whether the Context API is included and where sass is whether this project should include sass.
  * @returns void.
  */
 const writeJavaScript = async (name, basePath, options) => {
