@@ -34,7 +34,9 @@ import {
 	UTILS_INDEX,
 	VERCEL_JSON,
 	WRAPPER,
+	WRAPPER_CONTEXT,
 	WRAPPER_TS,
+	WRAPPER_TS_CONTEXT,
 } from "../utils/constants";
 import { Options } from "../interfaces";
 import { writeInterfaces, writeTSConfig } from "./ts";
@@ -337,7 +339,13 @@ export const writeCommonFiles = async (
 			basePath,
 			`/components/Wrapper.${options.typeScript ? "tsx" : "jsx"}`
 		),
-		options.typeScript ? WRAPPER_TS : WRAPPER
+		options.typeScript
+			? options.context
+				? WRAPPER_TS_CONTEXT
+				: WRAPPER_TS
+			: options.context
+			? WRAPPER_CONTEXT
+			: WRAPPER
 	);
 	fs.writeFileSync(
 		path.join(
