@@ -82,6 +82,7 @@ const run = async (name: string, basePath: string) => {
 		return await writeTypeScriptSassESLintMongoDB(name, basePath, {
 			typeScript: true,
 			sass: true,
+			context: false,
 		});
 	}
 	if (
@@ -93,6 +94,7 @@ const run = async (name: string, basePath: string) => {
 		return await writeTypeScriptESLintMongoDB(name, basePath, {
 			typeScript: true,
 			sass: false,
+			context: false,
 		});
 	}
 	if (
@@ -104,6 +106,7 @@ const run = async (name: string, basePath: string) => {
 		return await writeTypeScriptSassMongoDB(name, basePath, {
 			typeScript: true,
 			sass: true,
+			context: false,
 		});
 	}
 	if (
@@ -115,6 +118,7 @@ const run = async (name: string, basePath: string) => {
 		return await writeTypeScriptSassESLint(name, basePath, {
 			typeScript: true,
 			sass: true,
+			context: false,
 		});
 	}
 	if (
@@ -126,6 +130,7 @@ const run = async (name: string, basePath: string) => {
 		return await writeTypeScriptSass(name, basePath, {
 			typeScript: true,
 			sass: true,
+			context: false,
 		});
 	}
 	if (
@@ -137,6 +142,7 @@ const run = async (name: string, basePath: string) => {
 		return await writeTypeScriptESLint(name, basePath, {
 			typeScript: true,
 			sass: false,
+			context: false,
 		});
 	}
 	if (
@@ -148,6 +154,7 @@ const run = async (name: string, basePath: string) => {
 		return await writeTypeScriptMongoDB(name, basePath, {
 			typeScript: true,
 			sass: false,
+			context: false,
 		});
 	}
 	if (
@@ -159,6 +166,7 @@ const run = async (name: string, basePath: string) => {
 		return await writeTypeScript(name, basePath, {
 			typeScript: true,
 			sass: false,
+			context: false,
 		});
 	}
 	if (
@@ -170,6 +178,7 @@ const run = async (name: string, basePath: string) => {
 		return await writeJavaScriptSassESLintMongoDB(name, basePath, {
 			typeScript: false,
 			sass: true,
+			context: false,
 		});
 	}
 	if (
@@ -181,6 +190,7 @@ const run = async (name: string, basePath: string) => {
 		return await writeJavaScriptESLintMongoDB(name, basePath, {
 			typeScript: false,
 			sass: false,
+			context: false,
 		});
 	}
 	if (
@@ -192,6 +202,7 @@ const run = async (name: string, basePath: string) => {
 		return await writeJavaScriptSassMongoDB(name, basePath, {
 			typeScript: false,
 			sass: true,
+			context: false,
 		});
 	}
 	if (
@@ -203,6 +214,7 @@ const run = async (name: string, basePath: string) => {
 		return await writeJavaScriptSassESLint(name, basePath, {
 			typeScript: false,
 			sass: true,
+			context: false,
 		});
 	}
 	if (
@@ -214,6 +226,7 @@ const run = async (name: string, basePath: string) => {
 		return await writeJavaScriptSass(name, basePath, {
 			typeScript: false,
 			sass: true,
+			context: false,
 		});
 	}
 	if (
@@ -225,6 +238,7 @@ const run = async (name: string, basePath: string) => {
 		return await writeJavaScriptESLint(name, basePath, {
 			typeScript: false,
 			sass: false,
+			context: false,
 		});
 	}
 	if (
@@ -236,6 +250,7 @@ const run = async (name: string, basePath: string) => {
 		return await writeJavaScriptMongoDB(name, basePath, {
 			typeScript: false,
 			sass: false,
+			context: false,
 		});
 	}
 	if (
@@ -247,6 +262,7 @@ const run = async (name: string, basePath: string) => {
 		return await writeJavaScript(name, basePath, {
 			typeScript: false,
 			sass: false,
+			context: false,
 		});
 	}
 };
@@ -277,6 +293,7 @@ program
 			await writeTypeScriptSassESLintMongoDB(answers.name, `./`, {
 				typeScript: true,
 				sass: true,
+				context: false,
 			});
 		} else {
 			await run(answers.name, `./`);
