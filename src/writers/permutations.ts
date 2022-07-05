@@ -23,6 +23,7 @@ import { writeMongo } from "../writers/mongodb";
 import { writeESLint } from "../writers/eslint";
 import { writeSass } from "../writers/sass";
 import { Options } from "../interfaces";
+import { writeContext } from "./context";
 
 /**
  * Generates boilerplate for a Next.js project that uses TypeScript, Sass, ESLint and MongoDB.
@@ -340,10 +341,10 @@ export const writeJavaScriptContext = async (
 	options: Options
 ): Promise<void> => {
 	await writeCommonFiles(name, basePath, options);
-	await writeJSSassPackageJson(name, basePath);
-	await writeSass(basePath);
+	await writeJSPackageJson(name, basePath);
+	await writeContext(basePath, options.typeScript);
 	console.log(
-		chalk.green("\n- Generated Next.js app with JavaScript and Sass")
+		chalk.green("\n- Generated Next.js app with JavaScript and Context")
 	);
 };
 
