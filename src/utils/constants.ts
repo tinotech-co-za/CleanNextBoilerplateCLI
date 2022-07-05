@@ -479,6 +479,10 @@ const dbConnect= async (): Promise<typeof mongoose> => {
 export default dbConnect;
 `;
 
+/**
+ * Interfaces to be used in a TypeScript app.
+ * interfaces/index.ts
+ */
 export const INTERFACES = `export interface WrapperProps {
 	children: JSX.Element | JSX.Element[];
 }
@@ -491,6 +495,10 @@ export interface MetaProps {
 	image?: string;
 }`;
 
+/**
+ * TypeScript config.
+ * tsconfig.json
+ */
 export const TSCONFIG = `{
 	"compilerOptions": {
 	  "target": "es5",
