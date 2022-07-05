@@ -31,6 +31,7 @@ import { Options } from "../interfaces";
  * @param options The options. Takes the form. {
 	typeScript: boolean;
 	sass: boolean;
+	context: boolean;
 } where typeScript is if this is a TypeScript object and where sass is whether this project should include sass.
  * @returns void.
  */
@@ -58,6 +59,7 @@ export const writeTypeScriptSassESLintMongoDB = async (
  * @param options The options. Takes the form. {
 	typeScript: boolean;
 	sass: boolean;
+	context: boolean;
 } where typeScript is if this is a TypeScript object and where sass is whether this project should include sass.
  * @returns void.
  */
@@ -82,6 +84,7 @@ export const writeTypeScriptESLintMongoDB = async (
  * @param options The options. Takes the form. {
 	typeScript: boolean;
 	sass: boolean;
+	context: boolean;
 } where typeScript is if this is a TypeScript object and where sass is whether this project should include sass.
  * @returns void.
  */
@@ -106,6 +109,7 @@ export const writeTypeScriptSassMongoDB = async (
  * @param options The options. Takes the form. {
 	typeScript: boolean;
 	sass: boolean;
+	context: boolean;
 } where typeScript is if this is a TypeScript object and where sass is whether this project should include sass.
  * @returns void.
  */
@@ -130,6 +134,7 @@ export const writeTypeScriptSassESLint = async (
  * @param options The options. Takes the form. {
 	typeScript: boolean;
 	sass: boolean;
+	context: boolean;
 } where typeScript is if this is a TypeScript object and where sass is whether this project should include sass.
  * @returns void.
  */
@@ -153,6 +158,7 @@ export const writeTypeScriptSass = async (
  * @param options The options. Takes the form. {
 	typeScript: boolean;
 	sass: boolean;
+	context: boolean;
 } where typeScript is if this is a TypeScript object and where sass is whether this project should include sass.
  * @returns void.
  */
@@ -176,6 +182,7 @@ export const writeTypeScriptESLint = async (
  * @param options The options. Takes the form. {
 	typeScript: boolean;
 	sass: boolean;
+	context: boolean;
 } where typeScript is if this is a TypeScript object and where sass is whether this project should include sass.
  * @returns void.
  */
@@ -199,6 +206,7 @@ export const writeTypeScriptMongoDB = async (
  * @param options The options. Takes the form. {
 	typeScript: boolean;
 	sass: boolean;
+	context: boolean;
 } where typeScript is if this is a TypeScript object and where sass is whether this project should include sass.
  * @returns void.
  */
@@ -219,6 +227,7 @@ export const writeTypeScript = async (
  * @param options The options. Takes the form. {
 	typeScript: boolean;
 	sass: boolean;
+	context: boolean;
 } where typeScript is if this is a TypeScript object and where sass is whether this project should include sass.
  * @returns void.
  */
@@ -246,6 +255,7 @@ export const writeJavaScriptSassESLintMongoDB = async (
  * @param options The options. Takes the form. {
 	typeScript: boolean;
 	sass: boolean;
+	context: boolean;
 } where typeScript is if this is a TypeScript object and where sass is whether this project should include sass.
  * @returns void.
  */
@@ -270,6 +280,7 @@ export const writeJavaScriptESLintMongoDB = async (
  * @param options The options. Takes the form. {
 	typeScript: boolean;
 	sass: boolean;
+	context: boolean;
 } where typeScript is if this is a TypeScript object and where sass is whether this project should include sass.
  * @returns void.
  */
@@ -294,6 +305,7 @@ export const writeJavaScriptSassMongoDB = async (
  * @param options The options. Takes the form. {
 	typeScript: boolean;
 	sass: boolean;
+	context: boolean;
 } where typeScript is if this is a TypeScript object and where sass is whether this project should include sass.
  * @returns void.
  */
@@ -318,6 +330,7 @@ export const writeJavaScriptSassESLint = async (
  * @param options The options. Takes the form. {
 	typeScript: boolean;
 	sass: boolean;
+	context: boolean;
 } where typeScript is if this is a TypeScript object and where sass is whether this project should include sass.
  * @returns void.
  */
@@ -341,6 +354,7 @@ export const writeJavaScriptSass = async (
  * @param options The options. Takes the form. {
 	typeScript: boolean;
 	sass: boolean;
+	context: boolean;
 } where typeScript is if this is a TypeScript object and where sass is whether this project should include sass.
  * @returns void.
  */
@@ -364,6 +378,7 @@ export const writeJavaScriptESLint = async (
  * @param options The options. Takes the form. {
 	typeScript: boolean;
 	sass: boolean;
+	context: boolean;
 } where typeScript is if this is a TypeScript object and where sass is whether this project should include sass.
  * @returns void.
  */
@@ -387,6 +402,7 @@ export const writeJavaScriptMongoDB = async (
  * @param options The options. Takes the form. {
 	typeScript: boolean;
 	sass: boolean;
+	context: boolean;
 } where typeScript is if this is a TypeScript object and where sass is whether this project should include sass.
  * @returns void.
  */
