@@ -621,3 +621,41 @@ export type State = {};
 export type Actions = {
 	type: "";
 };`;
+
+/**
+ * Container file for wrapping components around app with support for Context.
+ * components/Wrapper.jsx
+ */
+export const WRAPPER_CONTEXT = `import { AppProvider } from "../context/AppContext";
+import Meta from "./Meta";
+
+const Wrapper = ({ children }) => {
+	return (
+		<AppProvider>
+			<Meta />
+			{children}
+		</AppProvider>
+	);
+};
+
+export default Wrapper;`;
+
+/**
+ * TypeScript Container file for wrapping components around app with support for Context.
+ * components/Wrapper.tsx
+ */
+export const WRAPPER_TS_CONTEXT = `import { AppProvider } from "../context/AppContext";
+import { WrapperProps } from "../interfaces";
+
+import Meta from "./Meta";
+
+const Wrapper: React.FC<WrapperProps> = ({ children }): JSX.Element => {
+	return (
+		<AppProvider>
+			<Meta />
+			{children}
+		</AppProvider>
+	);
+};
+
+export default Wrapper;`;
