@@ -50,7 +50,13 @@ const writeProvider = async (
 /**
  * Uses fs to write out all the files necessary for using Context in a Next.js app.
  * @param basePath The base path to write out the files to.
+ * @param typeScript Whether this project uses TypeScript or not.
  */
-export const writeContext = async (basePath: string): Promise<void> => {
-	makeContextDirs(basePath);
+export const writeContext = async (
+	basePath: string,
+	typeScript: boolean
+): Promise<void> => {
+	await makeContextDirs(basePath);
+	await writeReducer(basePath, typeScript);
+	await writeProvider(basePath, typeScript);
 };
