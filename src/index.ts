@@ -67,6 +67,14 @@ const run = async (name: string, basePath: string) => {
 			)} in your project?`,
 			default: true,
 		},
+		{
+			type: "confirm",
+			name: "context",
+			message: `Do you want to use ${chalk.grey.bold(
+				"Context"
+			)} in your project?`,
+			default: true,
+		},
 	]);
 
 	// Determine which permutation to use.

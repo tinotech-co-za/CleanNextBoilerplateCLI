@@ -45,6 +45,12 @@ const run = async (name, basePath) => {
             message: `Do you want to use ${chalk_1.default.green.bold("MongoDB")} in your project?`,
             default: true,
         },
+        {
+            type: "confirm",
+            name: "context",
+            message: `Do you want to use ${chalk_1.default.grey.bold("Context")} in your project?`,
+            default: true,
+        },
     ]);
     // Determine which permutation to use.
     if (answers.typescript && answers.sass && answers.eslint && answers.mongodb) {
