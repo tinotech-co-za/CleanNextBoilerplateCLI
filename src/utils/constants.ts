@@ -530,3 +530,12 @@ export const TSCONFIG = `{
 	]
   }
   `;
+
+/**
+ * Reducer for including JavaScript Context API.
+ * context/AppReducer.js
+ */
+export const APP_REDUCER = `const Reducer = (state, action) => {
+	switch (action.type) {
+	}
+};`;
