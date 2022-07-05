@@ -557,3 +557,20 @@ export const AppProvider = ({ children }) => {
 
 	return <AppContext.Provider>{children}</AppContext.Provider>;
 };`;
+
+/**
+ * Reducer for including TypeScript Context API.
+ * context/AppReducer.ts
+ */
+export const APP_REDUCER_TS = `import { State, Actions } from "../interfaces";
+
+const Reducer = (state: State, action: Actions): State => {
+	switch (action.type) {
+		case "":
+			return {
+				...state,
+			};
+	}
+};
+
+export default Reducer;`;
