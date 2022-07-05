@@ -574,3 +574,22 @@ const Reducer = (state: State, action: Actions): State => {
 };
 
 export default Reducer;`;
+
+/**
+ * Context provider for including TypeScript Context API.
+ * context/AppContext.tsx
+ */
+export const APP_CONTEXT_TS = `import { createContext, useReducer } from "react";
+
+import { AppProviderProps, ContextProps } from "../interfaces";
+import AppReducer from "./AppReducer";
+
+const initialState: ContextProps = {};
+
+export const AppContext = createContext(initialState);
+
+export const AppProvider = ({ children }: AppProviderProps): JSX.Element => {
+	const [state, dispatch] = useReducer(AppReducer, initialState);
+
+	return <AppContext.Provider>{children}</AppContext.Provider>;
+};`;
