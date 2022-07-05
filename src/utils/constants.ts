@@ -593,3 +593,31 @@ export const AppProvider = ({ children }: AppProviderProps): JSX.Element => {
 
 	return <AppContext.Provider>{children}</AppContext.Provider>;
 };`;
+
+/**
+ * Interfaces to be used in a TypeScript app with Context support.
+ * interfaces/index.ts
+ */
+export const INTERFACES_CONTEXT = `export interface WrapperProps {
+	children: JSX.Element | JSX.Element[];
+}
+
+export interface MetaProps {
+	title?: string;
+	description?: string;
+	keywords?: string;
+	url?: string;
+	image?: string;
+}
+
+export interface ContextProps {}
+
+export interface AppProviderProps {
+	children: JSX.Element[] | JSX.Element;
+}
+
+export type State = {};
+
+export type Actions = {
+	type: "";
+};`;
