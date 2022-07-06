@@ -58,7 +58,7 @@ const run = async (name, basePath) => {
         answers.eslint &&
         answers.mongodb &&
         answers.context) {
-        return await (0, permutations_1.writeTypeScriptSassESLintMongoDB)(name, basePath, {
+        return await (0, permutations_1.writeTypeScriptSassESLintMongoDBContext)(name, basePath, {
             typeScript: true,
             sass: true,
             context: true,
