@@ -324,7 +324,7 @@ export const writeCommonFiles = async (
 ): Promise<void> => {
 	mkCommonDirs(basePath, options.typeScript);
 	if (options.typeScript) {
-		writeInterfaces(basePath);
+		writeInterfaces(basePath, options.context);
 		writeTSConfig(basePath);
 	}
 	fs.writeFileSync(
