@@ -54,3 +54,6 @@ npx @tinotech/clean-next-boilerplate blog-app
 
 9. **with-eslint**
    There are `with eslint` versions of all the boilerplates above. These configurations just have a stock eslint configuration obtained by running `npx next lint` and choosing the `strict` option.
+
+10. **with-context**
+    There are `with-context` versions of all the boilerplates above which have a stock Context API config.
