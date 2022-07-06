@@ -5,10 +5,10 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.writeJavaScript = exports.writeJavaScriptMongoDB = exports.writeJavaScriptESLint = exports.writeJavaScriptSass = exports.writeJavaScriptContext = exports.writeJavaScriptMongoDBContext = exports.writeJavaScriptESLintContext = exports.writeJavaScriptSassContext = exports.writeJavaScriptSassESLint = exports.writeJavaScriptSassMongoDB = exports.writeJavaScriptESLintMongoDB = exports.writeJavaScriptSassESLintMongoDB = exports.writeJavaScriptSassESLintMongoDBContext = exports.writeJavaScriptSassESLintContext = exports.writeJavaScriptSassMongoDBContext = exports.writeJavaScriptESLintMongoDBContext = exports.writeTypeScript = exports.writeTypeScriptContext = exports.writeTypeScriptMongoDB = exports.writeTypeScriptESLint = exports.writeTypeScriptSass = exports.writeTypeScriptMongoDBContext = exports.writeTypeScriptESLintContext = exports.writeTypeScriptSassContext = exports.writeTypeScriptSassESLint = exports.writeTypeScriptSassMongoDB = exports.writeTypeScriptESLintMongoDB = exports.writeTypeScriptSassESLintContext = exports.writeTypeScriptSassMongoDBContext = exports.writeTypeScriptESLintMongoDBContext = exports.writeTypeScriptSassESLintMongoDB = exports.writeTypeScriptSassESLintMongoDBContext = void 0;
 const chalk_1 = __importDefault(require("chalk"));
-const common_1 = require("../writers/common");
-const mongodb_1 = require("../writers/mongodb");
-const eslint_1 = require("../writers/eslint");
-const sass_1 = require("../writers/sass");
+const common_1 = require("./common");
+const mongodb_1 = require("./mongodb");
+const eslint_1 = require("./eslint");
+const sass_1 = require("./sass");
 const context_1 = require("./context");
 /**
  * Generates boilerplate for a Next.js project that uses TypeScript, Sass, ESLint, Context and MongoDB.

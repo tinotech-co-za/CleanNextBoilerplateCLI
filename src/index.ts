@@ -42,7 +42,7 @@ import {
 	writeTypeScriptSassESLintMongoDBContext,
 	writeTypeScriptSassMongoDB,
 	writeTypeScriptSassMongoDBContext,
-} from "./writers/permutations";
+} from "./writers/combinations";
 
 /**
  * Run Inquirer to get options for what to include in the generated project.

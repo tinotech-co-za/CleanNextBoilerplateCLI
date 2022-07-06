@@ -18,10 +18,10 @@ import {
 	writeTSSassESLintPackageJson,
 	writeTSSassMongoPackageJson,
 	writeTSSassPackageJson,
-} from "../writers/common";
-import { writeMongo } from "../writers/mongodb";
-import { writeESLint } from "../writers/eslint";
-import { writeSass } from "../writers/sass";
+} from "./common";
+import { writeMongo } from "./mongodb";
+import { writeESLint } from "./eslint";
+import { writeSass } from "./sass";
 import { writeContext } from "./context";
 import { Options } from "../interfaces";
 
