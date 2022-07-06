@@ -92,7 +92,13 @@ const run = async (name: string, basePath: string) => {
 			context: true,
 		});
 	}
-	if (answers.typescript && answers.sass && answers.eslint && answers.mongodb) {
+	if (
+		answers.typescript &&
+		answers.sass &&
+		answers.eslint &&
+		answers.mongodb &&
+		!answers.context
+	) {
 		return await writeTypeScriptSassESLintMongoDB(name, basePath, {
 			typeScript: true,
 			sass: true,
@@ -103,7 +109,8 @@ const run = async (name: string, basePath: string) => {
 		answers.typescript &&
 		!answers.sass &&
 		answers.eslint &&
-		answers.mongodb
+		answers.mongodb &&
+		!answers.context
 	) {
 		return await writeTypeScriptESLintMongoDB(name, basePath, {
 			typeScript: true,
@@ -115,7 +122,8 @@ const run = async (name: string, basePath: string) => {
 		answers.typescript &&
 		answers.sass &&
 		!answers.eslint &&
-		answers.mongodb
+		answers.mongodb &&
+		!answers.context
 	) {
 		return await writeTypeScriptSassMongoDB(name, basePath, {
 			typeScript: true,
@@ -127,7 +135,8 @@ const run = async (name: string, basePath: string) => {
 		answers.typescript &&
 		answers.sass &&
 		answers.eslint &&
-		!answers.mongodb
+		!answers.mongodb &&
+		!answers.context
 	) {
 		return await writeTypeScriptSassESLint(name, basePath, {
 			typeScript: true,
@@ -139,7 +148,8 @@ const run = async (name: string, basePath: string) => {
 		answers.typescript &&
 		answers.sass &&
 		!answers.eslint &&
-		!answers.mongodb
+		!answers.mongodb &&
+		!answers.context
 	) {
 		return await writeTypeScriptSass(name, basePath, {
 			typeScript: true,
@@ -151,7 +161,8 @@ const run = async (name: string, basePath: string) => {
 		answers.typescript &&
 		!answers.sass &&
 		answers.eslint &&
-		!answers.mongodb
+		!answers.mongodb &&
+		!answers.context
 	) {
 		return await writeTypeScriptESLint(name, basePath, {
 			typeScript: true,
@@ -163,7 +174,8 @@ const run = async (name: string, basePath: string) => {
 		answers.typescript &&
 		!answers.sass &&
 		!answers.eslint &&
-		answers.mongodb
+		answers.mongodb &&
+		!answers.context
 	) {
 		return await writeTypeScriptMongoDB(name, basePath, {
 			typeScript: true,
@@ -175,7 +187,8 @@ const run = async (name: string, basePath: string) => {
 		answers.typescript &&
 		!answers.sass &&
 		!answers.eslint &&
-		!answers.mongodb
+		!answers.mongodb &&
+		!answers.context
 	) {
 		return await writeTypeScript(name, basePath, {
 			typeScript: true,
@@ -187,7 +200,8 @@ const run = async (name: string, basePath: string) => {
 		!answers.typescript &&
 		answers.sass &&
 		answers.eslint &&
-		answers.mongodb
+		answers.mongodb &&
+		!answers.context
 	) {
 		return await writeJavaScriptSassESLintMongoDB(name, basePath, {
 			typeScript: false,
@@ -199,7 +213,8 @@ const run = async (name: string, basePath: string) => {
 		!answers.typescript &&
 		!answers.sass &&
 		answers.eslint &&
-		answers.mongodb
+		answers.mongodb &&
+		!answers.context
 	) {
 		return await writeJavaScriptESLintMongoDB(name, basePath, {
 			typeScript: false,
@@ -211,7 +226,8 @@ const run = async (name: string, basePath: string) => {
 		!answers.typescript &&
 		answers.sass &&
 		!answers.eslint &&
-		answers.mongodb
+		answers.mongodb &&
+		!answers.context
 	) {
 		return await writeJavaScriptSassMongoDB(name, basePath, {
 			typeScript: false,
@@ -223,7 +239,8 @@ const run = async (name: string, basePath: string) => {
 		!answers.typescript &&
 		answers.sass &&
 		answers.eslint &&
-		!answers.mongodb
+		!answers.mongodb &&
+		!answers.context
 	) {
 		return await writeJavaScriptSassESLint(name, basePath, {
 			typeScript: false,
@@ -235,7 +252,8 @@ const run = async (name: string, basePath: string) => {
 		!answers.typescript &&
 		answers.sass &&
 		!answers.eslint &&
-		!answers.mongodb
+		!answers.mongodb &&
+		!answers.context
 	) {
 		return await writeJavaScriptSass(name, basePath, {
 			typeScript: false,
@@ -247,7 +265,8 @@ const run = async (name: string, basePath: string) => {
 		!answers.typescript &&
 		!answers.sass &&
 		answers.eslint &&
-		!answers.mongodb
+		!answers.mongodb &&
+		!answers.context
 	) {
 		return await writeJavaScriptESLint(name, basePath, {
 			typeScript: false,
@@ -259,7 +278,8 @@ const run = async (name: string, basePath: string) => {
 		!answers.typescript &&
 		!answers.sass &&
 		!answers.eslint &&
-		answers.mongodb
+		answers.mongodb &&
+		!answers.context
 	) {
 		return await writeJavaScriptMongoDB(name, basePath, {
 			typeScript: false,
@@ -271,7 +291,8 @@ const run = async (name: string, basePath: string) => {
 		!answers.typescript &&
 		!answers.sass &&
 		!answers.eslint &&
-		!answers.mongodb
+		!answers.mongodb &&
+		!answers.context
 	) {
 		return await writeJavaScript(name, basePath, {
 			typeScript: false,
