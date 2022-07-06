@@ -533,7 +533,7 @@ export const AppContext = createContext(initialState);
 export const AppProvider = ({ children }) => {
 	const [state, dispatch] = useReducer(AppReducer, initialState);
 
-	return <AppContext.Provider>{children}</AppContext.Provider>;
+	return <AppContext.Provider value={{}}>{children}</AppContext.Provider>;
 };`;
 /**
  * Reducer for including TypeScript Context API.
@@ -567,7 +567,7 @@ export const AppContext = createContext(initialState);
 export const AppProvider = ({ children }: AppProviderProps): JSX.Element => {
 	const [state, dispatch] = useReducer(AppReducer, initialState);
 
-	return <AppContext.Provider>{children}</AppContext.Provider>;
+	return <AppContext.Provider value={{}}>{children}</AppContext.Provider>;
 };`;
 /**
  * Interfaces to be used in a TypeScript app with Context support.
