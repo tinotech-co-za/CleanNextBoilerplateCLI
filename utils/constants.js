@@ -606,8 +606,10 @@ import Meta from "./Meta";
 const Wrapper = ({ children }) => {
 	return (
 		<AppProvider>
-			<Meta />
-			{children}
+			<>
+				<Meta />
+				{children}
+			</>
 		</AppProvider>
 	);
 };
@@ -625,8 +627,10 @@ import Meta from "./Meta";
 const Wrapper: React.FC<WrapperProps> = ({ children }): JSX.Element => {
 	return (
 		<AppProvider>
-			<Meta />
-			{children}
+			<>
+				<Meta />
+				{children}
+			</>
 		</AppProvider>
 	);
 };
