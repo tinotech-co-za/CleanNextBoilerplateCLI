@@ -62,7 +62,7 @@ export const UTILS_INDEX = `export const BASE_URL =
  * @param limit The point at which the text is cut off.
  * @returns A string cut off at the limit and with an ellips appended to the end.
  */
-export const elipsise = (text: string, limit: number): string =>
+export const elipsise = (text, limit) =>
 	text.substring(0, limit - 7)+"...";
 `;
 
