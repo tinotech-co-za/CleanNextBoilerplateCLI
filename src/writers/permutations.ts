@@ -222,6 +222,34 @@ export const writeTypeScript = async (
 };
 
 /**
+ * Generates boilerplate for a Next.js project that uses JavaScript, Sass, Context and MongoDB.
+ * @param name The name of the project.
+ * @param basePath The base path to write out the files to.
+ * @param options The options. Takes the form. {
+	typeScript: boolean;
+	sass: boolean;
+	context: boolean;
+} where typeScript is if this is a TypeScript object, context is whether the Context API is included and where sass is whether this project should include sass.
+ * @returns void.
+ */
+export const writeJavaScriptSassMongoDBContext = async (
+	name: string,
+	basePath: string,
+	options: Options
+): Promise<void> => {
+	await writeCommonFiles(name, basePath, options);
+	await writeJSSassMongoPackageJson(name, basePath);
+	await writeSass(basePath);
+	await writeMongo(basePath, false);
+	await writeContext(basePath, options.typeScript);
+	console.log(
+		chalk.green(
+			"\n- Generated Next.js app with JavaScript, Sass, Context and MongoDB"
+		)
+	);
+};
+
+/**
  * Generates boilerplate for a Next.js project that uses JavaScript, Sass, Context and ESLint.
  * @param name The name of the project.
  * @param basePath The base path to write out the files to.
