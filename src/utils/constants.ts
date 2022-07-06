@@ -51,7 +51,7 @@ yarn-error.log*
 
 /**
  * A utils file that contains a ternary for the base url of the project as well as a function to limit and elipsise strings.
- * utils/index.ts/js
+ * utils/index.js
  */
 export const UTILS_INDEX = `export const BASE_URL =
 	process.env.NODE_ENV === "production" ? "" : "http://localhost:3000";
@@ -63,6 +63,23 @@ export const UTILS_INDEX = `export const BASE_URL =
  * @returns A string cut off at the limit and with an ellips appended to the end.
  */
 export const elipsise = (text, limit) =>
+	text.substring(0, limit - 7)+"...";
+`;
+
+/**
+ * A utils file that contains a ternary for the base url of the project as well as a function to limit and elipsise strings.
+ * utils/index.ts
+ */
+export const UTILS_INDEX_TS = `export const BASE_URL =
+	process.env.NODE_ENV === "production" ? "" : "http://localhost:3000";
+
+	/**
+ * Appends a limit to the end of text and substrings to the specified limit.
+ * @param text The text to add an ellips to.
+ * @param limit The point at which the text is cut off.
+ * @returns A string cut off at the limit and with an ellips appended to the end.
+ */
+export const elipsise = (text: string, limit: string): string =>
 	text.substring(0, limit - 7)+"...";
 `;
 
