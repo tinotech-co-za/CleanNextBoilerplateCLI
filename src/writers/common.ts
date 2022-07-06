@@ -32,6 +32,7 @@ import {
 	APP_TS,
 	GITIGNORE,
 	UTILS_INDEX,
+	UTILS_INDEX_TS,
 	VERCEL_JSON,
 	WRAPPER,
 	WRAPPER_CONTEXT,
@@ -374,7 +375,7 @@ export const writeCommonFiles = async (
 	);
 	fs.writeFileSync(
 		path.join(basePath, `/utils/index.${options.typeScript ? "ts" : "js"}`),
-		UTILS_INDEX
+		options.typeScript ? UTILS_INDEX_TS : UTILS_INDEX
 	);
 	fs.writeFileSync(path.join(basePath, "/.gitignore"), GITIGNORE);
 	fs.writeFileSync(path.join(basePath, "/README.MD"), getReadme(name));
