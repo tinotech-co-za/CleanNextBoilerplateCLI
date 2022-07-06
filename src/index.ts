@@ -101,7 +101,7 @@ const run = async (name: string, basePath: string) => {
 		answers.mongodb &&
 		answers.context
 	) {
-		return await writeTypeScriptSassESLintMongoDB(name, basePath, {
+		return await writeTypeScriptSassESLintMongoDBContext(name, basePath, {
 			typeScript: true,
 			sass: true,
 			context: true,
