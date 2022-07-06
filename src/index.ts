@@ -25,6 +25,7 @@ import {
 	writeTypeScriptSass,
 	writeTypeScriptSassESLint,
 	writeTypeScriptSassESLintMongoDB,
+	writeTypeScriptSassESLintMongoDBContext,
 	writeTypeScriptSassMongoDB,
 } from "./writers/permutations";
 
@@ -290,10 +291,10 @@ program
 
 		// If yes, skip Inquirer questions and generate boilerplate with all the options. Else run Inquirer questions.
 		if (options.yes) {
-			await writeTypeScriptSassESLintMongoDB(answers.name, `./`, {
+			await writeTypeScriptSassESLintMongoDBContext(answers.name, `./`, {
 				typeScript: true,
 				sass: true,
-				context: false,
+				context: true,
 			});
 		} else {
 			await run(answers.name, `./`);
