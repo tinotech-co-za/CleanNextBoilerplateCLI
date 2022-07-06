@@ -53,7 +53,22 @@ const run = async (name, basePath) => {
         },
     ]);
     // Determine which permutation to use.
-    if (answers.typescript && answers.sass && answers.eslint && answers.mongodb) {
+    if (answers.typescript &&
+        answers.sass &&
+        answers.eslint &&
+        answers.mongodb &&
+        answers.context) {
+        return await (0, permutations_1.writeTypeScriptSassESLintMongoDB)(name, basePath, {
+            typeScript: true,
+            sass: true,
+            context: true,
+        });
+    }
+    if (answers.typescript &&
+        answers.sass &&
+        answers.eslint &&
+        answers.mongodb &&
+        !answers.context) {
         return await (0, permutations_1.writeTypeScriptSassESLintMongoDB)(name, basePath, {
             typeScript: true,
             sass: true,
@@ -63,7 +78,8 @@ const run = async (name, basePath) => {
     if (answers.typescript &&
         !answers.sass &&
         answers.eslint &&
-        answers.mongodb) {
+        answers.mongodb &&
+        !answers.context) {
         return await (0, permutations_1.writeTypeScriptESLintMongoDB)(name, basePath, {
             typeScript: true,
             sass: false,
@@ -71,9 +87,21 @@ const run = async (name, basePath) => {
         });
     }
     if (answers.typescript &&
+        !answers.sass &&
+        answers.eslint &&
+        answers.mongodb &&
+        answers.context) {
+        return await (0, permutations_1.writeTypeScriptESLintMongoDBContext)(name, basePath, {
+            typeScript: true,
+            sass: false,
+            context: true,
+        });
+    }
+    if (answers.typescript &&
         answers.sass &&
         !answers.eslint &&
-        answers.mongodb) {
+        answers.mongodb &&
+        !answers.context) {
         return await (0, permutations_1.writeTypeScriptSassMongoDB)(name, basePath, {
             typeScript: true,
             sass: true,
@@ -82,8 +110,20 @@ const run = async (name, basePath) => {
     }
     if (answers.typescript &&
         answers.sass &&
+        !answers.eslint &&
+        answers.mongodb &&
+        answers.context) {
+        return await (0, permutations_1.writeTypeScriptSassMongoDBContext)(name, basePath, {
+            typeScript: true,
+            sass: true,
+            context: true,
+        });
+    }
+    if (answers.typescript &&
+        answers.sass &&
         answers.eslint &&
-        !answers.mongodb) {
+        !answers.mongodb &&
+        !answers.context) {
         return await (0, permutations_1.writeTypeScriptSassESLint)(name, basePath, {
             typeScript: true,
             sass: true,
@@ -92,8 +132,20 @@ const run = async (name, basePath) => {
     }
     if (answers.typescript &&
         answers.sass &&
+        answers.eslint &&
+        !answers.mongodb &&
+        answers.context) {
+        return await (0, permutations_1.writeTypeScriptSassESLintContext)(name, basePath, {
+            typeScript: true,
+            sass: true,
+            context: true,
+        });
+    }
+    if (answers.typescript &&
+        answers.sass &&
         !answers.eslint &&
-        !answers.mongodb) {
+        !answers.mongodb &&
+        !answers.context) {
         return await (0, permutations_1.writeTypeScriptSass)(name, basePath, {
             typeScript: true,
             sass: true,
@@ -101,9 +153,21 @@ const run = async (name, basePath) => {
         });
     }
     if (answers.typescript &&
+        answers.sass &&
+        !answers.eslint &&
+        !answers.mongodb &&
+        answers.context) {
+        return await (0, permutations_1.writeTypeScriptSassContext)(name, basePath, {
+            typeScript: true,
+            sass: true,
+            context: true,
+        });
+    }
+    if (answers.typescript &&
         !answers.sass &&
         answers.eslint &&
-        !answers.mongodb) {
+        !answers.mongodb &&
+        !answers.context) {
         return await (0, permutations_1.writeTypeScriptESLint)(name, basePath, {
             typeScript: true,
             sass: false,
@@ -112,8 +176,20 @@ const run = async (name, basePath) => {
     }
     if (answers.typescript &&
         !answers.sass &&
+        answers.eslint &&
+        !answers.mongodb &&
+        answers.context) {
+        return await (0, permutations_1.writeTypeScriptESLintContext)(name, basePath, {
+            typeScript: true,
+            sass: false,
+            context: true,
+        });
+    }
+    if (answers.typescript &&
+        !answers.sass &&
         !answers.eslint &&
-        answers.mongodb) {
+        answers.mongodb &&
+        !answers.context) {
         return await (0, permutations_1.writeTypeScriptMongoDB)(name, basePath, {
             typeScript: true,
             sass: false,
@@ -123,17 +199,41 @@ const run = async (name, basePath) => {
     if (answers.typescript &&
         !answers.sass &&
         !answers.eslint &&
-        !answers.mongodb) {
+        answers.mongodb &&
+        answers.context) {
+        return await (0, permutations_1.writeTypeScriptMongoDBContext)(name, basePath, {
+            typeScript: true,
+            sass: false,
+            context: true,
+        });
+    }
+    if (answers.typescript &&
+        !answers.sass &&
+        !answers.eslint &&
+        !answers.mongodb &&
+        !answers.context) {
         return await (0, permutations_1.writeTypeScript)(name, basePath, {
             typeScript: true,
             sass: false,
             context: false,
         });
     }
+    if (answers.typescript &&
+        !answers.sass &&
+        !answers.eslint &&
+        !answers.mongodb &&
+        answers.context) {
+        return await (0, permutations_1.writeTypeScriptContext)(name, basePath, {
+            typeScript: true,
+            sass: false,
+            context: true,
+        });
+    }
     if (!answers.typescript &&
         answers.sass &&
         answers.eslint &&
-        answers.mongodb) {
+        answers.mongodb &&
+        !answers.context) {
         return await (0, permutations_1.writeJavaScriptSassESLintMongoDB)(name, basePath, {
             typeScript: false,
             sass: true,
@@ -141,9 +241,21 @@ const run = async (name, basePath) => {
         });
     }
     if (!answers.typescript &&
+        answers.sass &&
+        answers.eslint &&
+        answers.mongodb &&
+        answers.context) {
+        return await (0, permutations_1.writeJavaScriptSassESLintMongoDBContext)(name, basePath, {
+            typeScript: false,
+            sass: true,
+            context: true,
+        });
+    }
+    if (!answers.typescript &&
         !answers.sass &&
         answers.eslint &&
-        answers.mongodb) {
+        answers.mongodb &&
+        !answers.context) {
         return await (0, permutations_1.writeJavaScriptESLintMongoDB)(name, basePath, {
             typeScript: false,
             sass: false,
@@ -151,9 +263,21 @@ const run = async (name, basePath) => {
         });
     }
     if (!answers.typescript &&
+        !answers.sass &&
+        answers.eslint &&
+        answers.mongodb &&
+        answers.context) {
+        return await (0, permutations_1.writeJavaScriptESLintMongoDBContext)(name, basePath, {
+            typeScript: false,
+            sass: false,
+            context: true,
+        });
+    }
+    if (!answers.typescript &&
         answers.sass &&
         !answers.eslint &&
-        answers.mongodb) {
+        answers.mongodb &&
+        !answers.context) {
         return await (0, permutations_1.writeJavaScriptSassMongoDB)(name, basePath, {
             typeScript: false,
             sass: true,
@@ -162,8 +286,20 @@ const run = async (name, basePath) => {
     }
     if (!answers.typescript &&
         answers.sass &&
+        !answers.eslint &&
+        answers.mongodb &&
+        answers.context) {
+        return await (0, permutations_1.writeJavaScriptSassMongoDBContext)(name, basePath, {
+            typeScript: false,
+            sass: true,
+            context: true,
+        });
+    }
+    if (!answers.typescript &&
+        answers.sass &&
         answers.eslint &&
-        !answers.mongodb) {
+        !answers.mongodb &&
+        !answers.context) {
         return await (0, permutations_1.writeJavaScriptSassESLint)(name, basePath, {
             typeScript: false,
             sass: true,
@@ -172,8 +308,20 @@ const run = async (name, basePath) => {
     }
     if (!answers.typescript &&
         answers.sass &&
+        answers.eslint &&
+        !answers.mongodb &&
+        answers.context) {
+        return await (0, permutations_1.writeJavaScriptSassESLintContext)(name, basePath, {
+            typeScript: false,
+            sass: true,
+            context: true,
+        });
+    }
+    if (!answers.typescript &&
+        answers.sass &&
         !answers.eslint &&
-        !answers.mongodb) {
+        !answers.mongodb &&
+        !answers.context) {
         return await (0, permutations_1.writeJavaScriptSass)(name, basePath, {
             typeScript: false,
             sass: true,
@@ -181,9 +329,21 @@ const run = async (name, basePath) => {
         });
     }
     if (!answers.typescript &&
+        answers.sass &&
+        !answers.eslint &&
+        !answers.mongodb &&
+        answers.context) {
+        return await (0, permutations_1.writeJavaScriptSassContext)(name, basePath, {
+            typeScript: false,
+            sass: true,
+            context: true,
+        });
+    }
+    if (!answers.typescript &&
         !answers.sass &&
         answers.eslint &&
-        !answers.mongodb) {
+        !answers.mongodb &&
+        !answers.context) {
         return await (0, permutations_1.writeJavaScriptESLint)(name, basePath, {
             typeScript: false,
             sass: false,
@@ -192,8 +352,20 @@ const run = async (name, basePath) => {
     }
     if (!answers.typescript &&
         !answers.sass &&
+        answers.eslint &&
+        !answers.mongodb &&
+        answers.context) {
+        return await (0, permutations_1.writeJavaScriptESLintContext)(name, basePath, {
+            typeScript: false,
+            sass: false,
+            context: true,
+        });
+    }
+    if (!answers.typescript &&
+        !answers.sass &&
         !answers.eslint &&
-        answers.mongodb) {
+        answers.mongodb &&
+        !answers.context) {
         return await (0, permutations_1.writeJavaScriptMongoDB)(name, basePath, {
             typeScript: false,
             sass: false,
@@ -203,11 +375,34 @@ const run = async (name, basePath) => {
     if (!answers.typescript &&
         !answers.sass &&
         !answers.eslint &&
-        !answers.mongodb) {
+        answers.mongodb &&
+        answers.context) {
+        return await (0, permutations_1.writeJavaScriptMongoDBContext)(name, basePath, {
+            typeScript: false,
+            sass: false,
+            context: true,
+        });
+    }
+    if (!answers.typescript &&
+        !answers.sass &&
+        !answers.eslint &&
+        !answers.mongodb &&
+        !answers.context) {
         return await (0, permutations_1.writeJavaScript)(name, basePath, {
             typeScript: false,
             sass: false,
             context: false,
+        });
+    }
+    if (!answers.typescript &&
+        !answers.sass &&
+        !answers.eslint &&
+        !answers.mongodb &&
+        answers.context) {
+        return await (0, permutations_1.writeJavaScriptContext)(name, basePath, {
+            typeScript: false,
+            sass: false,
+            context: true,
         });
     }
 };
@@ -232,10 +427,10 @@ commander_1.program
     ]);
     // If yes, skip Inquirer questions and generate boilerplate with all the options. Else run Inquirer questions.
     if (options.yes) {
-        await (0, permutations_1.writeTypeScriptSassESLintMongoDB)(answers.name, `./`, {
+        await (0, permutations_1.writeTypeScriptSassESLintMongoDBContext)(answers.name, `./`, {
             typeScript: true,
             sass: true,
-            context: false,
+            context: true,
         });
     }
     else {

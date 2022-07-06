@@ -3,7 +3,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.writeJavaScript = exports.writeJavaScriptMongoDB = exports.writeJavaScriptESLint = exports.writeJavaScriptSass = exports.writeJavaScriptContext = exports.writeJavaScriptMongoDBContext = exports.writeJavaScriptESLintContext = exports.writeJavaScriptSassContext = exports.writeJavaScriptSassESLint = exports.writeJavaScriptSassMongoDB = exports.writeJavaScriptESLintMongoDB = exports.writeJavaScriptSassESLintMongoDB = exports.writeJavaScriptSassESLintContext = exports.writeJavaScriptSassMongoDBContext = exports.writeJavaScriptESLintMongoDBContext = exports.writeTypeScript = exports.writeTypeScriptContext = exports.writeTypeScriptMongoDB = exports.writeTypeScriptESLint = exports.writeTypeScriptSass = exports.writeTypeScriptMongoDBContext = exports.writeTypeScriptESLintContext = exports.writeTypeScriptSassContext = exports.writeTypeScriptSassESLint = exports.writeTypeScriptSassMongoDB = exports.writeTypeScriptESLintMongoDB = exports.writeTypeScriptSassESLintContext = exports.writeTypeScriptSassMongoDBContext = exports.writeTypeScriptESLintMongoDBContext = exports.writeTypeScriptSassESLintMongoDB = exports.writeTypeScriptSassESLintMongoDBContext = void 0;
+exports.writeJavaScript = exports.writeJavaScriptMongoDB = exports.writeJavaScriptESLint = exports.writeJavaScriptSass = exports.writeJavaScriptContext = exports.writeJavaScriptMongoDBContext = exports.writeJavaScriptESLintContext = exports.writeJavaScriptSassContext = exports.writeJavaScriptSassESLint = exports.writeJavaScriptSassMongoDB = exports.writeJavaScriptESLintMongoDB = exports.writeJavaScriptSassESLintMongoDB = exports.writeJavaScriptSassESLintMongoDBContext = exports.writeJavaScriptSassESLintContext = exports.writeJavaScriptSassMongoDBContext = exports.writeJavaScriptESLintMongoDBContext = exports.writeTypeScript = exports.writeTypeScriptContext = exports.writeTypeScriptMongoDB = exports.writeTypeScriptESLint = exports.writeTypeScriptSass = exports.writeTypeScriptMongoDBContext = exports.writeTypeScriptESLintContext = exports.writeTypeScriptSassContext = exports.writeTypeScriptSassESLint = exports.writeTypeScriptSassMongoDB = exports.writeTypeScriptESLintMongoDB = exports.writeTypeScriptSassESLintContext = exports.writeTypeScriptSassMongoDBContext = exports.writeTypeScriptESLintMongoDBContext = exports.writeTypeScriptSassESLintMongoDB = exports.writeTypeScriptSassESLintMongoDBContext = void 0;
 const chalk_1 = __importDefault(require("chalk"));
 const common_1 = require("../writers/common");
 const mongodb_1 = require("../writers/mongodb");
@@ -374,6 +374,27 @@ const writeJavaScriptSassESLintContext = async (name, basePath, options) => {
     console.log(chalk_1.default.green("\n- Generated Next.js app with JavaScript, Sass, Context and ESLint"));
 };
 exports.writeJavaScriptSassESLintContext = writeJavaScriptSassESLintContext;
+/**
+ * Generates boilerplate for a Next.js project that uses JavaScript, Sass, ESLint, Context and MongoDB.
+ * @param name The name of the project.
+ * @param basePath The base path to write out the files to.
+ * @param options The options. Takes the form. {
+    typeScript: boolean;
+    sass: boolean;
+    context: boolean;
+} where typeScript is if this is a TypeScript object, context is whether the Context API is included and where sass is whether this project should include sass.
+ * @returns void.
+ */
+const writeJavaScriptSassESLintMongoDBContext = async (name, basePath, options) => {
+    await (0, common_1.writeCommonFiles)(name, basePath, options);
+    await (0, common_1.writeJSSassESLintMongoPackageJson)(name, basePath);
+    await (0, mongodb_1.writeMongo)(basePath, false);
+    await (0, eslint_1.writeESLint)(basePath);
+    await (0, sass_1.writeSass)(basePath);
+    await (0, context_1.writeContext)(basePath, options.typeScript);
+    console.log(chalk_1.default.green("\n- Generated Next.js app with JavaScript, Sass, ESLint, Context and MongoDB"));
+};
+exports.writeJavaScriptSassESLintMongoDBContext = writeJavaScriptSassESLintMongoDBContext;
 /**
  * Generates boilerplate for a Next.js project that uses JavaScript, Sass, ESLint and MongoDB.
  * @param name The name of the project.
