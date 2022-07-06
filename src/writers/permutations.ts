@@ -325,6 +325,31 @@ export const writeJavaScriptSassESLint = async (
 };
 
 /**
+ * Generates boilerplate for a Next.js project that uses JavaScript, Context and Sass.
+ * @param name The name of the project.
+ * @param basePath The base path to write out the files to.
+ * @param options The options. Takes the form. {
+	typeScript: boolean;
+	sass: boolean;
+	context: boolean;
+} where typeScript is if this is a TypeScript object, context is whether the Context API is included and where sass is whether this project should include sass.
+ * @returns void.
+ */
+export const writeJavaScriptSassContext = async (
+	name: string,
+	basePath: string,
+	options: Options
+): Promise<void> => {
+	await writeCommonFiles(name, basePath, options);
+	await writeJSSassPackageJson(name, basePath);
+	await writeSass(basePath);
+	await writeContext(basePath, options.typeScript);
+	console.log(
+		chalk.green("\n- Generated Next.js app with JavaScript, Context and Sass")
+	);
+};
+
+/**
  * Generates boilerplate for a Next.js project that uses JavaScript, Context and ESLint.
  * @param name The name of the project.
  * @param basePath The base path to write out the files to.
