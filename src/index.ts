@@ -79,6 +79,19 @@ const run = async (name: string, basePath: string) => {
 	]);
 
 	// Determine which permutation to use.
+	if (
+		answers.typescript &&
+		answers.sass &&
+		answers.eslint &&
+		answers.mongodb &&
+		answers.context
+	) {
+		return await writeTypeScriptSassESLintMongoDB(name, basePath, {
+			typeScript: true,
+			sass: true,
+			context: true,
+		});
+	}
 	if (answers.typescript && answers.sass && answers.eslint && answers.mongodb) {
 		return await writeTypeScriptSassESLintMongoDB(name, basePath, {
 			typeScript: true,
