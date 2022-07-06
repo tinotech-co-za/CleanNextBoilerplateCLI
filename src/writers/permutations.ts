@@ -22,8 +22,8 @@ import {
 import { writeMongo } from "../writers/mongodb";
 import { writeESLint } from "../writers/eslint";
 import { writeSass } from "../writers/sass";
-import { Options } from "../interfaces";
 import { writeContext } from "./context";
+import { Options } from "../interfaces";
 
 /**
  * Generates boilerplate for a Next.js project that uses TypeScript, Sass, ESLint, Context and MongoDB.
