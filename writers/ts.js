@@ -10,9 +10,10 @@ const constants_1 = require("../utils/constants");
 /**
  * Uses fs to write the interfaces file to the directory specified.
  * @param basePath The base path to write out the files to.
+ * @param context Whether this project uses the Context API or not.
  */
-const writeInterfaces = async (basePath) => {
-    fs_1.default.writeFileSync(path_1.default.join(basePath, "/interfaces/index.ts"), constants_1.INTERFACES);
+const writeInterfaces = async (basePath, context) => {
+    fs_1.default.writeFileSync(path_1.default.join(basePath, "/interfaces/index.ts"), context ? constants_1.INTERFACES_CONTEXT : constants_1.INTERFACES);
 };
 exports.writeInterfaces = writeInterfaces;
 /**
