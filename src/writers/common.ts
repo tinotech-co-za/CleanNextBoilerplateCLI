@@ -32,9 +32,12 @@ import {
 	APP_TS,
 	GITIGNORE,
 	UTILS_INDEX,
+	UTILS_INDEX_TS,
 	VERCEL_JSON,
 	WRAPPER,
+	WRAPPER_CONTEXT,
 	WRAPPER_TS,
+	WRAPPER_TS_CONTEXT,
 } from "../utils/constants";
 import { Options } from "../interfaces";
 import { writeInterfaces, writeTSConfig } from "./ts";
@@ -322,7 +325,7 @@ export const writeCommonFiles = async (
 ): Promise<void> => {
 	mkCommonDirs(basePath, options.typeScript);
 	if (options.typeScript) {
-		writeInterfaces(basePath);
+		writeInterfaces(basePath, options.context);
 		writeTSConfig(basePath);
 	}
 	fs.writeFileSync(
@@ -337,7 +340,13 @@ export const writeCommonFiles = async (
 			basePath,
 			`/components/Wrapper.${options.typeScript ? "tsx" : "jsx"}`
 		),
-		options.typeScript ? WRAPPER_TS : WRAPPER
+		options.typeScript
+			? options.context
+				? WRAPPER_TS_CONTEXT
+				: WRAPPER_TS
+			: options.context
+			? WRAPPER_CONTEXT
+			: WRAPPER
 	);
 	fs.writeFileSync(
 		path.join(
@@ -366,7 +375,7 @@ export const writeCommonFiles = async (
 	);
 	fs.writeFileSync(
 		path.join(basePath, `/utils/index.${options.typeScript ? "ts" : "js"}`),
-		UTILS_INDEX
+		options.typeScript ? UTILS_INDEX_TS : UTILS_INDEX
 	);
 	fs.writeFileSync(path.join(basePath, "/.gitignore"), GITIGNORE);
 	fs.writeFileSync(path.join(basePath, "/README.MD"), getReadme(name));

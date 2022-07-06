@@ -11,22 +11,38 @@ const packageJson = require("./package.json");
 
 import {
 	writeJavaScript,
+	writeJavaScriptContext,
 	writeJavaScriptESLint,
+	writeJavaScriptESLintContext,
 	writeJavaScriptESLintMongoDB,
+	writeJavaScriptESLintMongoDBContext,
 	writeJavaScriptMongoDB,
+	writeJavaScriptMongoDBContext,
 	writeJavaScriptSass,
+	writeJavaScriptSassContext,
 	writeJavaScriptSassESLint,
+	writeJavaScriptSassESLintContext,
 	writeJavaScriptSassESLintMongoDB,
+	writeJavaScriptSassESLintMongoDBContext,
 	writeJavaScriptSassMongoDB,
+	writeJavaScriptSassMongoDBContext,
 	writeTypeScript,
+	writeTypeScriptContext,
 	writeTypeScriptESLint,
+	writeTypeScriptESLintContext,
 	writeTypeScriptESLintMongoDB,
+	writeTypeScriptESLintMongoDBContext,
 	writeTypeScriptMongoDB,
+	writeTypeScriptMongoDBContext,
 	writeTypeScriptSass,
+	writeTypeScriptSassContext,
 	writeTypeScriptSassESLint,
+	writeTypeScriptSassESLintContext,
 	writeTypeScriptSassESLintMongoDB,
+	writeTypeScriptSassESLintMongoDBContext,
 	writeTypeScriptSassMongoDB,
-} from "./writers/permutations";
+	writeTypeScriptSassMongoDBContext,
+} from "./writers/combinations";
 
 /**
  * Run Inquirer to get options for what to include in the generated project.
@@ -67,178 +83,431 @@ const run = async (name: string, basePath: string) => {
 			)} in your project?`,
 			default: true,
 		},
+		{
+			type: "confirm",
+			name: "context",
+			message: `Do you want to use ${chalk.grey.bold(
+				"Context"
+			)} in your project?`,
+			default: true,
+		},
 	]);
 
 	// Determine which permutation to use.
-	if (answers.typescript && answers.sass && answers.eslint && answers.mongodb) {
+	if (
+		answers.typescript &&
+		answers.sass &&
+		answers.eslint &&
+		answers.mongodb &&
+		answers.context
+	) {
+		return await writeTypeScriptSassESLintMongoDBContext(name, basePath, {
+			typeScript: true,
+			sass: true,
+			context: true,
+		});
+	}
+	if (
+		answers.typescript &&
+		answers.sass &&
+		answers.eslint &&
+		answers.mongodb &&
+		!answers.context
+	) {
 		return await writeTypeScriptSassESLintMongoDB(name, basePath, {
 			typeScript: true,
 			sass: true,
+			context: false,
 		});
 	}
 	if (
 		answers.typescript &&
 		!answers.sass &&
 		answers.eslint &&
-		answers.mongodb
+		answers.mongodb &&
+		!answers.context
 	) {
 		return await writeTypeScriptESLintMongoDB(name, basePath, {
 			typeScript: true,
 			sass: false,
+			context: false,
+		});
+	}
+	if (
+		answers.typescript &&
+		!answers.sass &&
+		answers.eslint &&
+		answers.mongodb &&
+		answers.context
+	) {
+		return await writeTypeScriptESLintMongoDBContext(name, basePath, {
+			typeScript: true,
+			sass: false,
+			context: true,
 		});
 	}
 	if (
 		answers.typescript &&
 		answers.sass &&
 		!answers.eslint &&
-		answers.mongodb
+		answers.mongodb &&
+		!answers.context
 	) {
 		return await writeTypeScriptSassMongoDB(name, basePath, {
 			typeScript: true,
 			sass: true,
+			context: false,
+		});
+	}
+	if (
+		answers.typescript &&
+		answers.sass &&
+		!answers.eslint &&
+		answers.mongodb &&
+		answers.context
+	) {
+		return await writeTypeScriptSassMongoDBContext(name, basePath, {
+			typeScript: true,
+			sass: true,
+			context: true,
 		});
 	}
 	if (
 		answers.typescript &&
 		answers.sass &&
 		answers.eslint &&
-		!answers.mongodb
+		!answers.mongodb &&
+		!answers.context
 	) {
 		return await writeTypeScriptSassESLint(name, basePath, {
 			typeScript: true,
 			sass: true,
+			context: false,
+		});
+	}
+	if (
+		answers.typescript &&
+		answers.sass &&
+		answers.eslint &&
+		!answers.mongodb &&
+		answers.context
+	) {
+		return await writeTypeScriptSassESLintContext(name, basePath, {
+			typeScript: true,
+			sass: true,
+			context: true,
 		});
 	}
 	if (
 		answers.typescript &&
 		answers.sass &&
 		!answers.eslint &&
-		!answers.mongodb
+		!answers.mongodb &&
+		!answers.context
 	) {
 		return await writeTypeScriptSass(name, basePath, {
 			typeScript: true,
 			sass: true,
+			context: false,
+		});
+	}
+	if (
+		answers.typescript &&
+		answers.sass &&
+		!answers.eslint &&
+		!answers.mongodb &&
+		answers.context
+	) {
+		return await writeTypeScriptSassContext(name, basePath, {
+			typeScript: true,
+			sass: true,
+			context: true,
 		});
 	}
 	if (
 		answers.typescript &&
 		!answers.sass &&
 		answers.eslint &&
-		!answers.mongodb
+		!answers.mongodb &&
+		!answers.context
 	) {
 		return await writeTypeScriptESLint(name, basePath, {
 			typeScript: true,
 			sass: false,
+			context: false,
+		});
+	}
+	if (
+		answers.typescript &&
+		!answers.sass &&
+		answers.eslint &&
+		!answers.mongodb &&
+		answers.context
+	) {
+		return await writeTypeScriptESLintContext(name, basePath, {
+			typeScript: true,
+			sass: false,
+			context: true,
 		});
 	}
 	if (
 		answers.typescript &&
 		!answers.sass &&
 		!answers.eslint &&
-		answers.mongodb
+		answers.mongodb &&
+		!answers.context
 	) {
 		return await writeTypeScriptMongoDB(name, basePath, {
 			typeScript: true,
 			sass: false,
+			context: false,
 		});
 	}
 	if (
 		answers.typescript &&
 		!answers.sass &&
 		!answers.eslint &&
-		!answers.mongodb
+		answers.mongodb &&
+		answers.context
+	) {
+		return await writeTypeScriptMongoDBContext(name, basePath, {
+			typeScript: true,
+			sass: false,
+			context: true,
+		});
+	}
+	if (
+		answers.typescript &&
+		!answers.sass &&
+		!answers.eslint &&
+		!answers.mongodb &&
+		!answers.context
 	) {
 		return await writeTypeScript(name, basePath, {
 			typeScript: true,
 			sass: false,
+			context: false,
+		});
+	}
+	if (
+		answers.typescript &&
+		!answers.sass &&
+		!answers.eslint &&
+		!answers.mongodb &&
+		answers.context
+	) {
+		return await writeTypeScriptContext(name, basePath, {
+			typeScript: true,
+			sass: false,
+			context: true,
 		});
 	}
 	if (
 		!answers.typescript &&
 		answers.sass &&
 		answers.eslint &&
-		answers.mongodb
+		answers.mongodb &&
+		!answers.context
 	) {
 		return await writeJavaScriptSassESLintMongoDB(name, basePath, {
 			typeScript: false,
 			sass: true,
+			context: false,
+		});
+	}
+	if (
+		!answers.typescript &&
+		answers.sass &&
+		answers.eslint &&
+		answers.mongodb &&
+		answers.context
+	) {
+		return await writeJavaScriptSassESLintMongoDBContext(name, basePath, {
+			typeScript: false,
+			sass: true,
+			context: true,
 		});
 	}
 	if (
 		!answers.typescript &&
 		!answers.sass &&
 		answers.eslint &&
-		answers.mongodb
+		answers.mongodb &&
+		!answers.context
 	) {
 		return await writeJavaScriptESLintMongoDB(name, basePath, {
 			typeScript: false,
 			sass: false,
+			context: false,
+		});
+	}
+	if (
+		!answers.typescript &&
+		!answers.sass &&
+		answers.eslint &&
+		answers.mongodb &&
+		answers.context
+	) {
+		return await writeJavaScriptESLintMongoDBContext(name, basePath, {
+			typeScript: false,
+			sass: false,
+			context: true,
 		});
 	}
 	if (
 		!answers.typescript &&
 		answers.sass &&
 		!answers.eslint &&
-		answers.mongodb
+		answers.mongodb &&
+		!answers.context
 	) {
 		return await writeJavaScriptSassMongoDB(name, basePath, {
 			typeScript: false,
 			sass: true,
+			context: false,
+		});
+	}
+	if (
+		!answers.typescript &&
+		answers.sass &&
+		!answers.eslint &&
+		answers.mongodb &&
+		answers.context
+	) {
+		return await writeJavaScriptSassMongoDBContext(name, basePath, {
+			typeScript: false,
+			sass: true,
+			context: true,
 		});
 	}
 	if (
 		!answers.typescript &&
 		answers.sass &&
 		answers.eslint &&
-		!answers.mongodb
+		!answers.mongodb &&
+		!answers.context
 	) {
 		return await writeJavaScriptSassESLint(name, basePath, {
 			typeScript: false,
 			sass: true,
+			context: false,
+		});
+	}
+	if (
+		!answers.typescript &&
+		answers.sass &&
+		answers.eslint &&
+		!answers.mongodb &&
+		answers.context
+	) {
+		return await writeJavaScriptSassESLintContext(name, basePath, {
+			typeScript: false,
+			sass: true,
+			context: true,
 		});
 	}
 	if (
 		!answers.typescript &&
 		answers.sass &&
 		!answers.eslint &&
-		!answers.mongodb
+		!answers.mongodb &&
+		!answers.context
 	) {
 		return await writeJavaScriptSass(name, basePath, {
 			typeScript: false,
 			sass: true,
+			context: false,
+		});
+	}
+	if (
+		!answers.typescript &&
+		answers.sass &&
+		!answers.eslint &&
+		!answers.mongodb &&
+		answers.context
+	) {
+		return await writeJavaScriptSassContext(name, basePath, {
+			typeScript: false,
+			sass: true,
+			context: true,
 		});
 	}
 	if (
 		!answers.typescript &&
 		!answers.sass &&
 		answers.eslint &&
-		!answers.mongodb
+		!answers.mongodb &&
+		!answers.context
 	) {
 		return await writeJavaScriptESLint(name, basePath, {
 			typeScript: false,
 			sass: false,
+			context: false,
+		});
+	}
+	if (
+		!answers.typescript &&
+		!answers.sass &&
+		answers.eslint &&
+		!answers.mongodb &&
+		answers.context
+	) {
+		return await writeJavaScriptESLintContext(name, basePath, {
+			typeScript: false,
+			sass: false,
+			context: true,
 		});
 	}
 	if (
 		!answers.typescript &&
 		!answers.sass &&
 		!answers.eslint &&
-		answers.mongodb
+		answers.mongodb &&
+		!answers.context
 	) {
 		return await writeJavaScriptMongoDB(name, basePath, {
 			typeScript: false,
 			sass: false,
+			context: false,
 		});
 	}
 	if (
 		!answers.typescript &&
 		!answers.sass &&
 		!answers.eslint &&
-		!answers.mongodb
+		answers.mongodb &&
+		answers.context
+	) {
+		return await writeJavaScriptMongoDBContext(name, basePath, {
+			typeScript: false,
+			sass: false,
+			context: true,
+		});
+	}
+	if (
+		!answers.typescript &&
+		!answers.sass &&
+		!answers.eslint &&
+		!answers.mongodb &&
+		!answers.context
 	) {
 		return await writeJavaScript(name, basePath, {
 			typeScript: false,
 			sass: false,
+			context: false,
+		});
+	}
+	if (
+		!answers.typescript &&
+		!answers.sass &&
+		!answers.eslint &&
+		!answers.mongodb &&
+		answers.context
+	) {
+		return await writeJavaScriptContext(name, basePath, {
+			typeScript: false,
+			sass: false,
+			context: true,
 		});
 	}
 };
@@ -266,9 +535,10 @@ program
 
 		// If yes, skip Inquirer questions and generate boilerplate with all the options. Else run Inquirer questions.
 		if (options.yes) {
-			await writeTypeScriptSassESLintMongoDB(answers.name, `./`, {
+			await writeTypeScriptSassESLintMongoDBContext(answers.name, `./`, {
 				typeScript: true,
 				sass: true,
+				context: true,
 			});
 		} else {
 			await run(answers.name, `./`);

@@ -86,6 +86,7 @@ export default Meta;
     : `import Head from "next/head";
 
 import { BASE_URL } from "../utils";
+import { elipsise } from "../utils";
 
 const Meta = ({ title, description, keywords, url, image }) => (
 	<Head>

@@ -188,11 +188,17 @@ const mkCommonDirs = async (basePath, typeScript) => {
 const writeCommonFiles = async (name, basePath, options) => {
     mkCommonDirs(basePath, options.typeScript);
     if (options.typeScript) {
-        (0, ts_1.writeInterfaces)(basePath);
+        (0, ts_1.writeInterfaces)(basePath, options.context);
         (0, ts_1.writeTSConfig)(basePath);
     }
     fs_1.default.writeFileSync(path_1.default.join(basePath, `/components/Meta.${options.typeScript ? "tsx" : "jsx"}`), (0, files_1.getMeta)(name, options.typeScript));
-    fs_1.default.writeFileSync(path_1.default.join(basePath, `/components/Wrapper.${options.typeScript ? "tsx" : "jsx"}`), options.typeScript ? constants_1.WRAPPER_TS : constants_1.WRAPPER);
+    fs_1.default.writeFileSync(path_1.default.join(basePath, `/components/Wrapper.${options.typeScript ? "tsx" : "jsx"}`), options.typeScript
+        ? options.context
+            ? constants_1.WRAPPER_TS_CONTEXT
+            : constants_1.WRAPPER_TS
+        : options.context
+            ? constants_1.WRAPPER_CONTEXT
+            : constants_1.WRAPPER);
     fs_1.default.writeFileSync(path_1.default.join(basePath, `/pages/api/post/index.${options.typeScript ? "ts" : "js"}`), options.typeScript ? constants_1.API_POST_TS : constants_1.API_POST);
     fs_1.default.writeFileSync(path_1.default.join(basePath, `/pages/_app.${options.typeScript ? "tsx" : "jsx"}`), options.sass
         ? options.typeScript
@@ -203,7 +209,7 @@ const writeCommonFiles = async (name, basePath, options) => {
             : constants_1.APP);
     fs_1.default.writeFileSync(path_1.default.join(basePath, `/pages/index.${options.typeScript ? "tsx" : "jsx"}`), (0, files_1.getIndex)(name, options.typeScript));
     fs_1.default.writeFileSync(path_1.default.join(basePath, "/public/manifest.json"), (0, files_1.getManifest)(name));
-    fs_1.default.writeFileSync(path_1.default.join(basePath, `/utils/index.${options.typeScript ? "ts" : "js"}`), constants_1.UTILS_INDEX);
+    fs_1.default.writeFileSync(path_1.default.join(basePath, `/utils/index.${options.typeScript ? "ts" : "js"}`), options.typeScript ? constants_1.UTILS_INDEX_TS : constants_1.UTILS_INDEX);
     fs_1.default.writeFileSync(path_1.default.join(basePath, "/.gitignore"), constants_1.GITIGNORE);
     fs_1.default.writeFileSync(path_1.default.join(basePath, "/README.MD"), (0, files_1.getReadme)(name));
     fs_1.default.writeFileSync(path_1.default.join(basePath, "/vercel.json"), constants_1.VERCEL_JSON);

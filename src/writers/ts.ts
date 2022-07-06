@@ -1,14 +1,21 @@
 import path from "path";
 import fs from "fs";
 
-import { INTERFACES, TSCONFIG } from "../utils/constants";
+import { INTERFACES, INTERFACES_CONTEXT, TSCONFIG } from "../utils/constants";
 
 /**
  * Uses fs to write the interfaces file to the directory specified.
  * @param basePath The base path to write out the files to.
+ * @param context Whether this project uses the Context API or not.
  */
-export const writeInterfaces = async (basePath: string): Promise<void> => {
-	fs.writeFileSync(path.join(basePath, "/interfaces/index.ts"), INTERFACES);
+export const writeInterfaces = async (
+	basePath: string,
+	context: boolean
+): Promise<void> => {
+	fs.writeFileSync(
+		path.join(basePath, "/interfaces/index.ts"),
+		context ? INTERFACES_CONTEXT : INTERFACES
+	);
 };
 
 /**
