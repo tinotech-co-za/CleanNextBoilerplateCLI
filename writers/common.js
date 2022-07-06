@@ -209,7 +209,7 @@ const writeCommonFiles = async (name, basePath, options) => {
             : constants_1.APP);
     fs_1.default.writeFileSync(path_1.default.join(basePath, `/pages/index.${options.typeScript ? "tsx" : "jsx"}`), (0, files_1.getIndex)(name, options.typeScript));
     fs_1.default.writeFileSync(path_1.default.join(basePath, "/public/manifest.json"), (0, files_1.getManifest)(name));
-    fs_1.default.writeFileSync(path_1.default.join(basePath, `/utils/index.${options.typeScript ? "ts" : "js"}`), constants_1.UTILS_INDEX);
+    fs_1.default.writeFileSync(path_1.default.join(basePath, `/utils/index.${options.typeScript ? "ts" : "js"}`), options.typeScript ? constants_1.UTILS_INDEX_TS : constants_1.UTILS_INDEX);
     fs_1.default.writeFileSync(path_1.default.join(basePath, "/.gitignore"), constants_1.GITIGNORE);
     fs_1.default.writeFileSync(path_1.default.join(basePath, "/README.MD"), (0, files_1.getReadme)(name));
     fs_1.default.writeFileSync(path_1.default.join(basePath, "/vercel.json"), constants_1.VERCEL_JSON);

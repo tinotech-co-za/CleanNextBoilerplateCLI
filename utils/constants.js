@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.WRAPPER_TS_CONTEXT = exports.WRAPPER_CONTEXT = exports.INTERFACES_CONTEXT = exports.APP_CONTEXT_TS = exports.APP_REDUCER_TS = exports.APP_CONTEXT = exports.APP_REDUCER = exports.TSCONFIG = exports.INTERFACES = exports.UTILS_DB_TS = exports.UTILS_DB = exports.SASS_APP = exports.SASS_BASE = exports.SASS_INDEX = exports.SASS_MIXINS = exports.SASS_FONTS = exports.SASS_COLOURS = exports.SASS_BREAKPOINTS = exports.ESLINT_RC = exports.NEXT_CONFIG = exports.WRAPPER_TS = exports.WRAPPER = exports.APP_SASS_TS = exports.APP_SASS = exports.APP_TS = exports.APP = exports.API_POST_TS = exports.API_POST = exports.UTILS_INDEX = exports.GITIGNORE = exports.VERCEL_JSON = void 0;
+exports.WRAPPER_TS_CONTEXT = exports.WRAPPER_CONTEXT = exports.INTERFACES_CONTEXT = exports.APP_CONTEXT_TS = exports.APP_REDUCER_TS = exports.APP_CONTEXT = exports.APP_REDUCER = exports.TSCONFIG = exports.INTERFACES = exports.UTILS_DB_TS = exports.UTILS_DB = exports.SASS_APP = exports.SASS_BASE = exports.SASS_INDEX = exports.SASS_MIXINS = exports.SASS_FONTS = exports.SASS_COLOURS = exports.SASS_BREAKPOINTS = exports.ESLINT_RC = exports.NEXT_CONFIG = exports.WRAPPER_TS = exports.WRAPPER = exports.APP_SASS_TS = exports.APP_SASS = exports.APP_TS = exports.APP = exports.API_POST_TS = exports.API_POST = exports.UTILS_INDEX_TS = exports.UTILS_INDEX = exports.GITIGNORE = exports.VERCEL_JSON = void 0;
 /**
  * Vercel config file that silences Vercel/GitHub notifications for building/pull requests.
  * vercel.json
@@ -52,7 +52,7 @@ yarn-error.log*
 `;
 /**
  * A utils file that contains a ternary for the base url of the project as well as a function to limit and elipsise strings.
- * utils/index.ts/js
+ * utils/index.js
  */
 exports.UTILS_INDEX = `export const BASE_URL =
 	process.env.NODE_ENV === "production" ? "" : "http://localhost:3000";
@@ -64,6 +64,22 @@ exports.UTILS_INDEX = `export const BASE_URL =
  * @returns A string cut off at the limit and with an ellips appended to the end.
  */
 export const elipsise = (text, limit) =>
+	text.substring(0, limit - 7)+"...";
+`;
+/**
+ * A utils file that contains a ternary for the base url of the project as well as a function to limit and elipsise strings.
+ * utils/index.ts
+ */
+exports.UTILS_INDEX_TS = `export const BASE_URL =
+	process.env.NODE_ENV === "production" ? "" : "http://localhost:3000";
+
+	/**
+ * Appends a limit to the end of text and substrings to the specified limit.
+ * @param text The text to add an ellips to.
+ * @param limit The point at which the text is cut off.
+ * @returns A string cut off at the limit and with an ellips appended to the end.
+ */
+export const elipsise = (text: string, limit: string): string =>
 	text.substring(0, limit - 7)+"...";
 `;
 /**
