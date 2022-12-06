@@ -46,7 +46,7 @@ import {
 
 /**
  * Run Inquirer to get options for what to include in the generated project.
- * @param name The name of the project.
+ * @param name The name of your project.
  * @param basePath The base path to write out the files to.
  */
 const run = async (name: string, basePath: string) => {
